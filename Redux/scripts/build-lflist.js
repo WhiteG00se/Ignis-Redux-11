@@ -104,6 +104,13 @@ const limitChanges = new Map([
   ["53567095", 2], // Icarus Attack
 ]);
 
+const extraPrintEntries = new Map([
+  [
+    "511000824",
+    ["511000825 1 --Ring of Destruction"], // Alternate art; aliases to the same card.
+  ],
+]);
+
 module.exports = function buildLflist({ reduxRoot }) {
   const output = path.join(reduxRoot, "modded", "Redux-11.lflist.conf");
 
@@ -118,13 +125,16 @@ module.exports = function buildLflist({ reduxRoot }) {
 
   lflist = lflist.replace(/^#\[2011-Redux\]\r?\n!2011-Redux$/m, "#[Redux-11]\n!Redux-11");
 
-  lflist = lflist.replace(/^(\d+) ([0-3])(?= --)/gm, (entry, passcode) => {
+  lflist = lflist.replace(/^(\d+) ([0-3])(\s+--.*)$/gm, (entry, passcode, _limit, comment) => {
     if (!limitChanges.has(passcode)) {
       return entry;
     }
 
     updatedPasscodes.set(passcode, (updatedPasscodes.get(passcode) ?? 0) + 1);
-    return `${passcode} ${limitChanges.get(passcode)}`;
+    return [
+      `${passcode} ${limitChanges.get(passcode)}${comment}`,
+      ...(extraPrintEntries.get(passcode) ?? []),
+    ].join("\n");
   });
 
   const invalidPasscodes = [...limitChanges.keys()].filter(
