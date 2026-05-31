@@ -292,16 +292,16 @@ function Add-GoldErrataFrame(
   [int]$height
 ) {
   $outer = New-Object System.Drawing.Rectangle(
-    [int]($width * 15 / 813),
-    [int]($height * 15 / 1185),
-    [int]($width * 783 / 813),
-    [int]($height * 1155 / 1185)
+    [int]($width * 2 / 813),
+    [int]($height * 2 / 1185),
+    [int]($width * 809 / 813),
+    [int]($height * 1181 / 1185)
   )
   $inner = New-Object System.Drawing.Rectangle(
-    [int]($width * 29 / 813),
-    [int]($height * 29 / 1185),
-    [int]($width * 755 / 813),
-    [int]($height * 1127 / 1185)
+    [int]($width * 28 / 813),
+    [int]($height * 28 / 1185),
+    [int]($width * 757 / 813),
+    [int]($height * 1129 / 1185)
   )
   $outerRadius = [int]($width * 22 / 813)
   $innerRadius = [int]($width * 12 / 813)

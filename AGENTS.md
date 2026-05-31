@@ -90,10 +90,8 @@ and use that cleaner art as the base when it preserves the intended artwork/card
 identity; this may include using a newer official print as the source because
 Redux renders the generated `.cdb` text over it anyway. Only ask the user for image-source help when local files, aliases,
 configured download sources, and reasonable automated fixes are not enough.
-Redux errata card images use a visual marker: a rounded gold inset frame from
-pixels 15 through 28 on the normalized `813x1185` image, plus a shiny gold `R`
-below the card title, centered near `(91, 191)` and rotated 7 degrees clockwise.
-Keep this marker deterministic in `Redux/scripts/render-card-image-text.ps1`.
+Redux errata card images use a visual marker: `Redux/scripts/render-card-image-text.ps1`
+applies the golden frame and shiny gold `R` marker deterministically.
 Do not keep preview experiments under `Redux/previews/` once a marker style is
 chosen.
 For Spell/Trap errata image text replacement, keep the textbox overwrite simple:
