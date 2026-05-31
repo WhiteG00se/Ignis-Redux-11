@@ -94,7 +94,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const dimensionFusionTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      'Both players Special Summon as many of their banished monsters as possible, then banish this card and 1 card from your hand. You must have 1 card in your hand to resolve this effect. You can only activate 1 "Dimension Fusion" per turn. You cannot inflict battle damage the turn you activate this card.',
+      'Banish 1 card from your hand; both players Special Summon as many of their banished monsters as possible, then banish this card. You can only activate 1 "Dimension Fusion" per turn. You cannot inflict battle damage the turn you activate this card.',
       "You cannot inflict battle damage this turn",
       23557835,
     );

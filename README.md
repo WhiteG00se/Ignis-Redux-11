@@ -52,7 +52,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Trishula, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Trishula,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
 | `1` [Yata-Garasu](https://yugioh.fandom.com/wiki/Yata-Garasu) | ⬇️ Skips Draw Phase unless opponent has 1 or fewer cards in hand |
 | `2` [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | ⬇️ Draw 3; banish 3 |
-| `2` [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 🔄 Once per turn; banishes itself and 1 hand card; no battle damage |
+| `2` [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 🔄 Once per turn; banishes 1 hand card as cost; banishes itself; no battle damage |
 | `2` [Monster Reborn](https://yugioh.fandom.com/wiki/Monster_Reborn) | ⬇️ Discard 1; becomes Equip Spell; destroys revived monster if it leaves |
 | `2` [Sangan](https://yugioh.fandom.com/wiki/Sangan) | ⬇️ Once per turn |
 | `2` [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | ⬆️ No LP cost |
