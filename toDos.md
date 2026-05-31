@@ -1,15 +1,11 @@
 ## these are just my notes, this file is for humans not for AI
 
+Substitoad?
+
 card deck editor to width, aspect ratio fix, dynamic card amount
+
+elimination matches, no side board limit, rename side deck
 
 fix default config
 
-write network docu
-
-reborn to equipment spell
-
-elimination matches
-no side board limit
-rename side deck to
-
-controller input
+write network docu, find permanent fix for network
