@@ -33,7 +33,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Brionac, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Brionac,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
 | `1` [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | ⬇️ Discard 1; stolen monster: no battle damage while on field |
 | `1` [Chaos Emperor Dragon - Envoy of the End](https://yugioh.fandom.com/wiki/Chaos_Emperor_Dragon_-_Envoy_of_the_End) | 🔄 Banish 3 LIGHT or DARK monsters (at least 1 each); summon effect with half LP cost; destroy other cards; both gain 500 LP per card |
-| `1` [Cyber-Stein](https://yugioh.fandom.com/wiki/Cyber-Stein) | 🔄 Summon/flip trigger; half LP; Fusion monster: no battle damage until your next End Phase |
+| `1` [Cyber-Stein](https://yugioh.fandom.com/wiki/Cyber-Stein) | 🔄 Summon/flip trigger; half LP; Fusion monster: Defense Position & no battle damage until your next End Phase |
 | `1` [Dark Hole](https://yugioh.fandom.com/wiki/Dark_Hole) | ⬇️ No battle damage |
 | `1` [Dark Magician of Chaos](https://yugioh.fandom.com/wiki/Dark_Magician_of_Chaos) | ⬇️ Once per turn |
 | `1` [Dark Strike Fighter](https://yugioh.fandom.com/wiki/Dark_Strike_Fighter) | ⬇️ Once per turn |
@@ -43,7 +43,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | ⬇️ Only 1 counter per summon |
 | `1` [Imperial Order](https://yugioh.fandom.com/wiki/Imperial_Order) | ⬇️ End Phase upkeep; optional 1700 LP |
 | `1` [Last Will](https://yugioh.fandom.com/wiki/Last_Will) | ⬇️ Once per turn; no battle damage |
-| `1` [Magical Scientist](https://yugioh.fandom.com/wiki/Magical_Scientist) | 🔄 Summon/flip trigger; no LP cost; Fusion monster: stays & no battle damage until your next End Phase |
+| `1` [Magical Scientist](https://yugioh.fandom.com/wiki/Magical_Scientist) | 🔄 Summon/flip trigger; no LP cost; Fusion monster: Defense Position, stays & no battle damage until your next End Phase |
 | `1` [Painful Choice](https://yugioh.fandom.com/wiki/Painful_Choice) | ⬇️ Half LP; select 2 cards |
 | `1` [Rescue Cat](https://yugioh.fandom.com/wiki/Rescue_Cat) | ⬇️ Once per turn |
 | `1` [Ring of Destruction](https://yugioh.fandom.com/wiki/Ring_of_Destruction) | 🔄 Pay 1500 LP; both gain destroyed monster's ATK as LP |

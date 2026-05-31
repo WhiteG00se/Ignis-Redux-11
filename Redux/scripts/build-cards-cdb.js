@@ -101,7 +101,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const cyberSteinTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      '(This card is not treated as a "Cyber" card.)\nIf this card is Normal or Special Summoned, or flipped face-up: You can pay half your LP; Special Summon 1 Fusion Monster from your Extra Deck in face-up Attack or Defense Position, but it cannot inflict battle damage until your next End Phase.',
+      '(This card is not treated as a "Cyber" card.)\nIf this card is Normal or Special Summoned, or flipped face-up: You can pay half your LP; Special Summon 1 Fusion Monster from your Extra Deck in face-up Defense Position, but it cannot inflict battle damage until your next End Phase.',
       69015963,
     );
   const superVehicroidStealthUnionTextResult = db
@@ -132,7 +132,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const magicalScientistTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      'If this card is Normal or Special Summoned, or flipped face-up: You can Special Summon 1 Level 6 or lower Fusion Monster from your Extra Deck in face-up Attack or Defense Position, but it cannot inflict battle damage until your next End Phase.',
+      'If this card is Normal or Special Summoned, or flipped face-up: You can Special Summon 1 Level 6 or lower Fusion Monster from your Extra Deck in face-up Defense Position, but it cannot inflict battle damage until your next End Phase.',
       34206604,
     );
   const fiberJarTextResult = db
