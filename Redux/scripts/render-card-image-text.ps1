@@ -472,6 +472,46 @@ function Get-TextLayout([int]$width, [int]$height, [int64]$type) {
   }
 }
 
+function Add-SpellTrapSubtypeIcon(
+  [System.Drawing.Graphics]$graphics,
+  [int]$width,
+  [int]$height,
+  [int64]$type
+) {
+  $isEquip = ($type -band 0x40000) -ne 0
+  if (-not $isEquip) {
+    return
+  }
+
+  $templatePath = Get-SourcePath 69243953
+  if ($null -eq $templatePath) {
+    throw "Missing Equip Spell subtype icon source image: 69243953"
+  }
+
+  $templateBytes = [System.IO.File]::ReadAllBytes($templatePath)
+  $templateStream = New-Object System.IO.MemoryStream @(,$templateBytes)
+  $templateImage = [System.Drawing.Image]::FromStream($templateStream)
+  $templateBitmap = New-Object System.Drawing.Bitmap($width, $height, [System.Drawing.Imaging.PixelFormat]::Format24bppRgb)
+  $templateGraphics = [System.Drawing.Graphics]::FromImage($templateBitmap)
+  $templateGraphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
+  $templateGraphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+  $templateGraphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+  $templateGraphics.DrawImage($templateImage, 0, 0, $width, $height)
+
+  $subtypeRect = New-Object System.Drawing.Rectangle(
+    [int]($width * 390 / 813),
+    [int]($height * 130 / 1185),
+    [int]($width * 380 / 813),
+    [int]($height * 78 / 1185)
+  )
+  $graphics.DrawImage($templateBitmap, $subtypeRect, $subtypeRect, [System.Drawing.GraphicsUnit]::Pixel)
+
+  $templateGraphics.Dispose()
+  $templateBitmap.Dispose()
+  $templateImage.Dispose()
+  $templateStream.Dispose()
+}
+
 $missing = New-Object System.Collections.Generic.List[int]
 $rendered = New-Object System.Collections.Generic.List[object]
 
@@ -579,6 +619,7 @@ foreach ($card in $cards) {
   if ([string]$card.name -like "[[]Redux[]]*") {
     Add-ErrataMarker $graphics $bitmap.Width $bitmap.Height
   }
+  Add-SpellTrapSubtypeIcon $graphics $bitmap.Width $bitmap.Height ([int64]$card.type)
 
   $out = New-Object System.IO.MemoryStream
   $bitmap.Save($out, $jpegCodec, $encoderParams)
