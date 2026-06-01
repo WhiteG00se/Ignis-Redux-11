@@ -7,5 +7,3 @@ card deck editor to width, aspect ratio fix, dynamic card amount
 elimination matches, no side board limit, rename side deck
 
 fix default config
-
-write network docu, find permanent fix for network

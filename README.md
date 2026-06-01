@@ -14,12 +14,50 @@ only a local cache.<br>
 - Pick a download method:
   - Clone this repository with Git (easier updates).
   - Download the ZIP from GitHub and extract it.
+- Follow the ZeroTier guide below to play online.
 - Run `Ignis-Redux-11.exe`.
 
 </details>
 
 <details>
+<summary><strong><big>How to play online with ZeroTier</big></strong></summary>
 
+To play Ignis-Redux-11 online, we need to use [ZeroTier](https://www.zerotier.com/download/) as a virtual LAN. <br>
+Download and install it, then join the Ignis-Redux-11 network: `633e31d8a2239542`
+
+New user must be approved by the network owner. The [network admin panel](https://central.zerotier.com/9KVurE4Z2pALrLbFBxWPmq/network) is liked to the `WhiteG00se` GitHub account.
+
+Hosting player:
+
+1. Select `LAN + AI`.
+2. Host a room on port `7911`.
+3. Tell the other player the their ZeroTier IPv4 address.
+
+Joining player:
+
+1. Select `LAN + AI`.
+2. Enter the host's ZeroTier IPv4 address & port `7911`, then click `Join`.
+
+If joining fails, the host should make the ZeroTier network
+Private. In Administrator PowerShell run: `Get-NetConnectionProfile`
+
+Find the `ZeroTier One [...]` interface, then replace `10` below with that interface's `InterfaceIndex` if it is different:
+
+```powershell
+Set-NetConnectionProfile -InterfaceIndex 10 -NetworkCategory Private
+```
+
+The joining player can test the host before opening EDOPro:
+
+```powershell
+Test-NetConnection -ComputerName HOST_ZEROTIER_IP -Port 7911
+```
+
+`TcpTestSucceeded : True` means the network and firewall path is open.
+
+</details>
+
+<details>
 <summary><strong><big>Redux Errata</big></strong></summary>
 
 Redux card versions are marked with golden frame and a golden "R". Their name also starts with "[Redux]".<br>
