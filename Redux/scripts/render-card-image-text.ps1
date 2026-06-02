@@ -292,10 +292,10 @@ function Add-GoldErrataFrame(
   [int]$height
 ) {
   $outer = New-Object System.Drawing.Rectangle(
-    [int]($width * 2 / 813),
-    [int]($height * 2 / 1185),
-    [int]($width * 809 / 813),
-    [int]($height * 1181 / 1185)
+    0,
+    0,
+    $width,
+    $height
   )
   $inner = New-Object System.Drawing.Rectangle(
     [int]($width * 28 / 813),
@@ -303,13 +303,9 @@ function Add-GoldErrataFrame(
     [int]($width * 757 / 813),
     [int]($height * 1129 / 1185)
   )
-  $outerRadius = [int]($width * 22 / 813)
   $innerRadius = [int]($width * 12 / 813)
   $path = New-Object System.Drawing.Drawing2D.GraphicsPath
-  $path.AddArc($outer.Left, $outer.Top, $outerRadius, $outerRadius, 180, 90)
-  $path.AddArc(($outer.Right - $outerRadius), $outer.Top, $outerRadius, $outerRadius, 270, 90)
-  $path.AddArc(($outer.Right - $outerRadius), ($outer.Bottom - $outerRadius), $outerRadius, $outerRadius, 0, 90)
-  $path.AddArc($outer.Left, ($outer.Bottom - $outerRadius), $outerRadius, $outerRadius, 90, 90)
+  $path.AddRectangle($outer)
   $path.CloseFigure()
   $path.AddArc($inner.Left, $inner.Top, $innerRadius, $innerRadius, 180, 90)
   $path.AddArc(($inner.Right - $innerRadius), $inner.Top, $innerRadius, $innerRadius, 270, 90)
