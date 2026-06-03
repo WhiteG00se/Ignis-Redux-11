@@ -25,13 +25,19 @@ only a local cache.<br>
 To play Ignis-Redux-11 online, we need to use [ZeroTier](https://www.zerotier.com/download/) as a virtual LAN. <br>
 Download and install it, then join the Ignis-Redux-11 network: `633e31d8a2239542`
 
-New user must be approved by the network owner. The [network admin panel](https://central.zerotier.com/9KVurE4Z2pALrLbFBxWPmq/network) is liked to the `WhiteG00se` GitHub account.
+New user must be approved by the network owner. The [network admin panel](https://central.zerotier.com/9KVurE4Z2pALrLbFBxWPmq/network) is linked to the `WhiteG00se` GitHub account.
 
 Hosting player:
 
 1. Select `LAN + AI`.
 2. Host a room on port `7911`.
-3. Tell the other player the their ZeroTier IPv4 address.
+3. In Administrator PowerShell, allow inbound connections to port `7911`:
+
+```powershell
+New-NetFirewallRule -DisplayName "Ignis-Redux-11 host port 7911" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 7911
+```
+
+4. Tell the other player your ZeroTier IPv4 address.
 
 Joining player:
 
