@@ -109,6 +109,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | ⬇️ Once per turn |
 | `3` [Night Assailant](https://yugioh.fandom.com/wiki/Night_Assailant) | ⬇️ Once per turn |
 | `3` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
+| `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
 | `3` [Super Vehicroid - Stealth Union](https://yugioh.fandom.com/wiki/Super_Vehicroid_-_Stealth_Union) | ⬇️ Cannot be Special Summoned by Cyber-Stein |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
 
@@ -148,6 +149,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | 1 | `0` | 3 |  |
 | [Final Countdown](https://yugioh.fandom.com/wiki/Final_Countdown) | 3 | `0` | 3 |  |
 | [Gearfried the Iron Knight](https://yugioh.fandom.com/wiki/Gearfried_the_Iron_Knight) | 3 | `0` | 3 |  |
+| [Maxx "C"](https://yugioh.fandom.com/wiki/Maxx_%22C%22) | 3 | `0` | 3 |  |
 | [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | 0 | `1` | 0 | ⬇️ |
 | [Chaos Emperor Dragon - Envoy of the End](https://yugioh.fandom.com/wiki/Chaos_Emperor_Dragon_-_Envoy_of_the_End) | 0 | `1` | 0 | 🔄 |
 | [Cyber-Stein](https://yugioh.fandom.com/wiki/Cyber-Stein) | 0 | `1` | 0 | 🔄 |
@@ -214,7 +216,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [E - Emergency Call](https://yugioh.fandom.com/wiki/E_-_Emergency_Call) | 3 | `1` | 3 |  |
 | [Eradicator Epidemic Virus](https://yugioh.fandom.com/wiki/Eradicator_Epidemic_Virus) | 3 | `1` | 3 |  |
 | [Gladiator Beast War Chariot](https://yugioh.fandom.com/wiki/Gladiator_Beast_War_Chariot) | 3 | `1` | 3 |  |
-| [Maxx "C"](https://yugioh.fandom.com/wiki/Maxx_%22C%22) | 3 | `1` | 3 |  |
 | [Symbol of Heritage](https://yugioh.fandom.com/wiki/Symbol_of_Heritage) | 3 | `1` | 3 |  |
 | [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | 0 | `2` | 0 | ⬇️ |
 | [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 0 | `2` | 0 | 🔄 |

@@ -31,6 +31,7 @@ const errataMarkers = new Map([
   [83764719, "\u2b07\ufe0f"], // Monster Reborn alternate art
   [79571449, "\u2b07\ufe0f"], // Graceful Charity
   [9126351, "\u2b06\ufe0f"], // Swap Frog
+  [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
 ]);
 const errataNamePrefix = "[Redux] ";
 const cyberSteinExclusionNote =
@@ -205,6 +206,13 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Return 1 monster to gain an additional Normal Summon",
       9126351,
     );
+  const rykoTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      "FLIP: You can target 1 card on the field; destroy that target. Send the top 3 cards of your Deck to the GY.",
+      "Destroy 1 targeted card on the field",
+      21502796,
+    );
   const markErrataName = db.prepare("UPDATE texts SET name = ? || name || ? WHERE id = ?");
   const errataNameResults = [...errataMarkers].map(([id, marker]) =>
     markErrataName.run(errataNamePrefix, ` ${marker}`, id),
@@ -284,6 +292,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(swapFrogTextResult.changes) !== 1) {
     throw new Error("Expected to update Swap Frog text once");
+  }
+  if (Number(rykoTextResult.changes) !== 1) {
+    throw new Error("Expected to update Ryko, Lightsworn Hunter text once");
   }
   if (errataNameResults.some((result) => Number(result.changes) !== 1)) {
     throw new Error("Expected to mark each official Redux errata card name once");
