@@ -8,8 +8,6 @@ const errataMarkers = new Map([
   [69243953, "⬆️"], // Butterfly Dagger - Elma
   [4031928, "⬇️"], // Change of Heart
   [69015963, "♻️"], // Cyber-Stein
-  [3897065, "⬇️"], // Super Vehicroid - Stealth Union
-  [76263644, "⬇️"], // Destiny End Dragoon
   [53129443, "⬇️"], // Dark Hole
   [23557835, "♻️"], // Dimension Fusion
   [40044918, "⬇️"], // Elemental HERO Stratos
@@ -32,10 +30,9 @@ const errataMarkers = new Map([
   [79571449, "\u2b07\ufe0f"], // Graceful Charity
   [9126351, "\u2b06\ufe0f"], // Swap Frog
   [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
+  [86099788, "\u2b07\ufe0f"], // The Last Warrior from Another Planet
 ]);
 const errataNamePrefix = "[Redux] ";
-const cyberSteinExclusionNote =
-  'Cannot be Special Summoned by the effect of "Cyber-Stein".';
 
 module.exports = function buildCardsDb({ reduxRoot }) {
   const output = path.join(reduxRoot, "modded", "cards.cdb");
@@ -102,25 +99,14 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const cyberSteinTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      '(This card is not treated as a "Cyber" card.)\nIf this card is Normal or Special Summoned, or flipped face-up: You can pay half your LP; Special Summon 1 Fusion Monster from your Extra Deck in face-up Defense Position, but it cannot inflict battle damage until your next End Phase.',
+      '(This card is not treated as a "Cyber" card.)\nIf this card is Normal or Special Summoned, or flipped face-up: You can Special Summon 1 Fusion Monster from your Extra Deck in face-up Defense Position, but its ATK becomes 0, also if it is Level 7 or higher, negate its effects.',
       69015963,
     );
-  const superVehicroidStealthUnionTextResult = db
-    .prepare("UPDATE texts SET desc = replace(replace(desc, ?, ''), ?, ? || '\r\n' || ?) WHERE id = ?")
+  const lastWarriorTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      "\r\n\r\n* The above text is unofficial and describes the card's functionality in the OCG.",
-      '"Truckroid" + "Expressroid" + "Drillroid" + "Stealthroid"',
-      '"Truckroid" + "Expressroid" + "Drillroid" + "Stealthroid"',
-      cyberSteinExclusionNote,
-      3897065,
-    );
-  const destinyEndDragoonTextResult = db
-    .prepare("UPDATE texts SET desc = replace(desc, ?, ? || '\n' || ?) WHERE id = ?")
-    .run(
-      '"Destiny HERO - Plasma" + "Destiny HERO - Dogma"',
-      '"Destiny HERO - Plasma" + "Destiny HERO - Dogma"',
-      cyberSteinExclusionNote,
-      76263644,
+      '"Zombyra the Dark" + "Maryokutai"\nNeither player can Special Summon monsters.',
+      86099788,
     );
   const yataGarasuTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
@@ -246,11 +232,8 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   if (Number(cyberSteinTextResult.changes) !== 1) {
     throw new Error("Expected to update Cyber-Stein text once");
   }
-  if (Number(superVehicroidStealthUnionTextResult.changes) !== 1) {
-    throw new Error("Expected to update Super Vehicroid - Stealth Union text once");
-  }
-  if (Number(destinyEndDragoonTextResult.changes) !== 1) {
-    throw new Error("Expected to update Destiny End Dragoon text once");
+  if (Number(lastWarriorTextResult.changes) !== 1) {
+    throw new Error("Expected to update The Last Warrior from Another Planet text once");
   }
   if (Number(yataGarasuTextResult.changes) !== 1) {
     throw new Error("Expected to update Yata-Garasu text once");
