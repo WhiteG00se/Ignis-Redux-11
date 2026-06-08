@@ -29,6 +29,7 @@ const errataMarkers = new Map([
   [83764719, "\u2b07\ufe0f"], // Monster Reborn alternate art
   [79571449, "\u2b07\ufe0f"], // Graceful Charity
   [9126351, "\u2b06\ufe0f"], // Swap Frog
+  [20663556, "\u2b07\ufe0f"], // Substitoad
   [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
   [86099788, "\u2b07\ufe0f"], // The Last Warrior from Another Planet
 ]);
@@ -192,6 +193,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Return 1 monster to gain an additional Normal Summon",
       9126351,
     );
+  const substitoadTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      'Once per turn: You can Tribute 1 monster; Special Summon 1 "Frog" monster from your Deck, except "Frog the Jam". "Frog" monsters, except "Frog the Jam", cannot be destroyed by battle.',
+      20663556,
+    );
   const rykoTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
@@ -275,6 +282,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(swapFrogTextResult.changes) !== 1) {
     throw new Error("Expected to update Swap Frog text once");
+  }
+  if (Number(substitoadTextResult.changes) !== 1) {
+    throw new Error("Expected to update Substitoad text once");
   }
   if (Number(rykoTextResult.changes) !== 1) {
     throw new Error("Expected to update Ryko, Lightsworn Hunter text once");

@@ -109,6 +109,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Night Assailant](https://yugioh.fandom.com/wiki/Night_Assailant) | ⬇️ Once per turn |
 | `3` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
 | `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
+| `3` [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | ⬇️ Once per turn |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
 | `3` [The Last Warrior from Another Planet](https://yugioh.fandom.com/wiki/The_Last_Warrior_from_Another_Planet) | ⬇️ No monster destruction; only blocks Special Summons |
 
@@ -164,7 +165,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Rescue Cat](https://yugioh.fandom.com/wiki/Rescue_Cat) | 0 | `1` | 0 | ⬇️ |
 | [Ring of Destruction](https://yugioh.fandom.com/wiki/Ring_of_Destruction) | 0 | `1` | 0 | 🔄 |
 | [Sinister Serpent](https://yugioh.fandom.com/wiki/Sinister_Serpent) | 0 | `1` | 0 | ⬇️ |
-| [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 0 | `1` | 0 |  |
 | [Time Seal](https://yugioh.fandom.com/wiki/Time_Seal) | 0 | `1` | 0 |  |
 | [Tsukuyomi](https://yugioh.fandom.com/wiki/Tsukuyomi) | 0 | `1` | 0 |  |
 | [Yata-Garasu](https://yugioh.fandom.com/wiki/Yata-Garasu) | 0 | `1` | 0 | ⬇️ |
@@ -255,6 +255,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | 0 | `3` | 0 | ⬆️ |
 | [Metamorphosis](https://yugioh.fandom.com/wiki/Metamorphosis) | 0 | `3` | 0 |  |
 | [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | 0 | `1` | 0 | ⬇️ |
+| [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 0 | `3` | 0 | ⬇️ |
 | [Temple of the Kings](https://yugioh.fandom.com/wiki/Temple_of_the_Kings) | 0 | `3` | 0 |  |
 | [Tribe-Infecting Virus](https://yugioh.fandom.com/wiki/Tribe-Infecting_Virus) | 0 | `3` | 0 |  |
 | [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | 1 | `3` | 0 | ⬇️ |

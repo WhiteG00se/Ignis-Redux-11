@@ -24,7 +24,7 @@ const limitChanges = new Map([
   ["511002992", 1], // Rescue Cat
   ["31560081", 2], // Magician of Faith
   ["511000818", 1], // Sinister Serpent
-  ["20663556", 1], // Substitoad
+  ["20663556", 3], // Substitoad
   ["93369354", 1], // Fishborg Blaster
   ["511000229", 1], // Dark Strike Fighter
   ["511002994", 1], // Goyo Guardian
