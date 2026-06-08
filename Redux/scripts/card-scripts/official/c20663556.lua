@@ -1,5 +1,6 @@
 --Substitoad (Redux-11 errata)
 local s,id=GetID()
+local FROG_THE_JAM=68638985
 function s.initial_effect(c)
 	--Special Summon
 	local e1=Effect.CreateEffect(c)
@@ -24,7 +25,7 @@ function s.initial_effect(c)
 end
 s.listed_series={SET_FROG}
 function s.indes(e,c)
-	return c:IsSetCard(SET_FROG)
+	return c:IsSetCard(SET_FROG) or c:IsCode(FROG_THE_JAM)
 end
 function s.cfilter(c,ft,tp)
 	return ft>0 or (c:IsControler(tp) and c:GetSequence()<5)
@@ -36,7 +37,8 @@ function s.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Release(g,REASON_COST)
 end
 function s.filter(c,e,tp)
-	return c:IsSetCard(SET_FROG) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
+	return (c:IsSetCard(SET_FROG) or c:IsCode(FROG_THE_JAM))
+		and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
 end
 function s.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(s.filter,tp,LOCATION_DECK,0,1,nil,e,tp) end

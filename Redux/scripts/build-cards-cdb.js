@@ -196,7 +196,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const substitoadTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      'Once per turn: You can Tribute 1 monster; Special Summon 1 "Frog" monster from your Deck, except "Frog the Jam". "Frog" monsters, except "Frog the Jam", cannot be destroyed by battle.',
+      'Once per turn: You can Tribute 1 monster; Special Summon 1 "Frog" monster from your Deck. "Frog" monsters cannot be destroyed by battle.',
       20663556,
     );
   const rykoTextResult = db
