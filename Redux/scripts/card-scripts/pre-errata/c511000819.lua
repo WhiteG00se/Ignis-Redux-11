@@ -19,7 +19,6 @@ function s.initial_effect(c)
 	e2:SetCategory(CATEGORY_DESTROY+CATEGORY_RECOVER)
 	e2:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_O)
 	e2:SetCode(EVENT_SPSUMMON_SUCCESS)
-	e2:SetCost(s.descost)
 	e2:SetTarget(s.destg)
 	e2:SetOperation(s.desop)
 	c:RegisterEffect(e2)
@@ -55,16 +54,12 @@ function s.spop(e,tp,eg,ep,ev,re,r,rp,c)
 	Duel.Remove(g,POS_FACEUP,REASON_COST)
 	g:DeleteGroup()
 end
-function s.descost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return true end
-	Duel.PayLPCost(tp,math.floor(Duel.GetLP(tp)/2))
-end
 function s.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
 	local g=Duel.GetFieldGroup(tp,LOCATION_ONFIELD,LOCATION_ONFIELD)
 	g:RemoveCard(e:GetHandler())
 	Duel.SetOperationInfo(0,CATEGORY_DESTROY,g,#g,PLAYER_ALL,LOCATION_ONFIELD)
-	Duel.SetOperationInfo(0,CATEGORY_RECOVER,nil,0,PLAYER_ALL,#g*500)
+	Duel.SetOperationInfo(0,CATEGORY_RECOVER,nil,0,PLAYER_ALL,#g*300)
 end
 function s.desop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetFieldGroup(tp,LOCATION_ONFIELD,LOCATION_ONFIELD)
@@ -72,7 +67,7 @@ function s.desop(e,tp,eg,ep,ev,re,r,rp)
 	local ct=Duel.Destroy(g,REASON_EFFECT)
 	if ct>0 then
 		Duel.BreakEffect()
-		Duel.Recover(tp,ct*500,REASON_EFFECT)
-		Duel.Recover(1-tp,ct*500,REASON_EFFECT)
+		Duel.Recover(tp,ct*300,REASON_EFFECT)
+		Duel.Recover(1-tp,ct*300,REASON_EFFECT)
 	end
 end

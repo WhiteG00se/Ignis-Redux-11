@@ -106,7 +106,7 @@ module.exports = function buildCardsUnofficialDb({ reduxRoot }) {
   const chaosEmperorDragonTextResult = db
     .prepare("UPDATE texts SET desc = ?, str2 = ? WHERE id = ?")
     .run(
-      "Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 3 LIGHT or DARK monsters from your GY, including at least 1 LIGHT and 1 DARK monster. If this card is Special Summoned: You can pay half your LP; destroy all other cards on the field, then both players gain 500 LP for each card destroyed by this effect.",
+      "Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 3 LIGHT or DARK monsters from your GY, including at least 1 LIGHT and 1 DARK monster. If this card is Special Summoned: You can destroy all other cards on the field, then both players gain 300 LP for each card destroyed by this effect.",
       "Destroy other cards and gain LP",
       511000819,
     ); // Chaos Emperor Dragon - Envoy of the End (Pre-Errata)
