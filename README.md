@@ -85,9 +85,12 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Fiber Jar](https://yugioh.fandom.com/wiki/Fiber_Jar) | 🔄 Summon/flip trigger; sets both players to 8000 LP |
 | `1` [Fishborg Blaster](https://yugioh.fandom.com/wiki/Fishborg_Blaster) | ⬇️ Once per turn |
 | `1` [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | ⬇️ Only 1 counter per summon |
+| `1` [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | ⬇️ End Phase upkeep; optional 1000 LP |
 | `1` [Imperial Order](https://yugioh.fandom.com/wiki/Imperial_Order) | ⬇️ End Phase upkeep; optional 1700 LP |
 | `1` [Last Will](https://yugioh.fandom.com/wiki/Last_Will) | ⬇️ Once per turn; no battle damage |
+| `1` [Level Limit - Area B](https://yugioh.fandom.com/wiki/Level_Limit_-_Area_B) | ⬇️ End Phase upkeep; optional 1000 LP |
 | `1` [Magical Scientist](https://yugioh.fandom.com/wiki/Magical_Scientist) | 🔄 Summon/flip trigger; no LP cost; Fusion monster: Defense Position, stays & no battle damage until your next End Phase |
+| `1` [Messenger of Peace](https://yugioh.fandom.com/wiki/Messenger_of_Peace) | ⬇️ End Phase upkeep; optional 1000 LP |
 | `1` [Painful Choice](https://yugioh.fandom.com/wiki/Painful_Choice) | ⬇️ Half LP; select 2 cards |
 | `1` [Rescue Cat](https://yugioh.fandom.com/wiki/Rescue_Cat) | ⬇️ Once per turn |
 | `1` [Ring of Destruction](https://yugioh.fandom.com/wiki/Ring_of_Destruction) | 🔄 Pay 1500 LP; both gain destroyed monster's ATK as LP |
@@ -143,10 +146,10 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Victory Dragon](https://yugioh.fandom.com/wiki/Victory_Dragon) | 0 | `0` | 0 |  |
 | [Royal Oppression](https://yugioh.fandom.com/wiki/Royal_Oppression) | 1 | `0` | 0 |  |
 | [Exodia the Forbidden One](https://yugioh.fandom.com/wiki/Exodia_the_Forbidden_One) | 1 | `0` | 1 |  |
-| [Level Limit - Area B](https://yugioh.fandom.com/wiki/Level_Limit_-_Area_B) | 1 | `0` | 1 |  |
+| [Level Limit - Area B](https://yugioh.fandom.com/wiki/Level_Limit_-_Area_B) | 1 | `1` | 1 | ⬇️ |
 | [Trap Dustshoot](https://yugioh.fandom.com/wiki/Trap_Dustshoot) | 1 | `0` | 1 |  |
 | [Wall of Revealing Light](https://yugioh.fandom.com/wiki/Wall_of_Revealing_Light) | 1 | `0` | 1 |  |
-| [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | 1 | `0` | 3 |  |
+| [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | 1 | `1` | 3 | ⬇️ |
 | [Final Countdown](https://yugioh.fandom.com/wiki/Final_Countdown) | 3 | `0` | 3 |  |
 | [Gearfried the Iron Knight](https://yugioh.fandom.com/wiki/Gearfried_the_Iron_Knight) | 3 | `0` | 3 |  |
 | [Maxx "C"](https://yugioh.fandom.com/wiki/Maxx_%22C%22) | 3 | `0` | 3 |  |
@@ -189,6 +192,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Limiter Removal](https://yugioh.fandom.com/wiki/Limiter_Removal) | 1 | `1` | 1 |  |
 | [Magical Explosion](https://yugioh.fandom.com/wiki/Magical_Explosion) | 1 | `1` | 1 |  |
 | [Marshmallon](https://yugioh.fandom.com/wiki/Marshmallon) | 1 | `1` | 1 |  |
+| [Messenger of Peace](https://yugioh.fandom.com/wiki/Messenger_of_Peace) | 1 | `1` | 1 | ⬇️ |
 | [Mind Control](https://yugioh.fandom.com/wiki/Mind_Control) | 1 | `1` | 1 |  |
 | [Mirror Force](https://yugioh.fandom.com/wiki/Mirror_Force) | 1 | `1` | 1 |  |
 | [Morphing Jar](https://yugioh.fandom.com/wiki/Morphing_Jar) | 1 | `1` | 1 |  |

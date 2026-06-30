@@ -16,8 +16,11 @@ const errataMarkers = new Map([
   [78706415, "\u267b\ufe0f"], // Fiber Jar
   [93369354, "⬇️"], // Fishborg Blaster
   [27970830, "⬇️"], // Gateway of the Six
+  [85742772, "\u2b07\ufe0f"], // Gravity Bind
   [85602018, "⬇️"], // Last Will
+  [3136426, "\u2b07\ufe0f"], // Level Limit - Area B
   [34206604, "♻️"], // Magical Scientist
+  [44656491, "\u2b07\ufe0f"], // Messenger of Peace
   [74191942, "⬇️"], // Painful Choice
   [82732705, "⬆️"], // Skill Drain
   [84749824, "⬆️"], // Solemn Warning
@@ -206,6 +209,24 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Destroy 1 targeted card on the field",
       21502796,
     );
+  const levelLimitAreaBTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      "All face-up Level 4 or higher monsters on the field are changed to Defense Position. Once per turn, during your End Phase, pay 1000 LP or destroy this card.",
+      3136426,
+    );
+  const messengerOfPeaceTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      "Monsters with 1500 or more ATK cannot declare an attack. Once per turn, during your End Phase, pay 1000 LP or destroy this card.",
+      44656491,
+    );
+  const gravityBindTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      "Level 4 or higher monsters cannot attack. Once per turn, during your End Phase, pay 1000 LP or destroy this card.",
+      85742772,
+    );
   const markErrataName = db.prepare("UPDATE texts SET name = ? || name || ? WHERE id = ?");
   const errataNameResults = [...errataMarkers].map(([id, marker]) =>
     markErrataName.run(errataNamePrefix, ` ${marker}`, id),
@@ -288,6 +309,15 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(rykoTextResult.changes) !== 1) {
     throw new Error("Expected to update Ryko, Lightsworn Hunter text once");
+  }
+  if (Number(levelLimitAreaBTextResult.changes) !== 1) {
+    throw new Error("Expected to update Level Limit - Area B text once");
+  }
+  if (Number(messengerOfPeaceTextResult.changes) !== 1) {
+    throw new Error("Expected to update Messenger of Peace text once");
+  }
+  if (Number(gravityBindTextResult.changes) !== 1) {
+    throw new Error("Expected to update Gravity Bind text once");
   }
   if (errataNameResults.some((result) => Number(result.changes) !== 1)) {
     throw new Error("Expected to mark each official Redux errata card name once");

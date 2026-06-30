@@ -92,8 +92,9 @@ const limitChanges = new Map([
   ["81674782", 2], // Dimensional Fissure
   ["67723438", 2], // Emergency Teleport
   ["73915051", 2], // Scapegoat
-  ["3136426", 0], // Level Limit - Area B
-  ["85742772", 0], // Gravity Bind
+  ["3136426", 1], // Level Limit - Area B
+  ["85742772", 1], // Gravity Bind
+  ["44656491", 1], // Messenger of Peace
   ["27174286", 2], // Return from the Different Dimension
   ["30241314", 2], // Macro Cosmos
   ["46652477", 3], // The Transmigration Prophecy
