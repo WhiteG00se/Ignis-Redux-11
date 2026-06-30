@@ -101,7 +101,9 @@ const limitChanges = new Map([
   ["64697231", 0], // Trap Dustshoot
   ["17078030", 0], // Wall of Revealing Light
   ["84749824", 1], // Solemn Warning
-  ["82732705", 2], // Skill Drain
+  ["53334471", 1], // Gozen Match
+  ["90846359", 1], // Rivalry of Warlords
+  ["82732705", 1], // Skill Drain
   ["53567095", 2], // Icarus Attack
 ]);
 

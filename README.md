@@ -95,6 +95,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Rescue Cat](https://yugioh.fandom.com/wiki/Rescue_Cat) | ⬇️ Once per turn |
 | `1` [Ring of Destruction](https://yugioh.fandom.com/wiki/Ring_of_Destruction) | 🔄 Pay 1500 LP; both gain destroyed monster's ATK as LP |
 | `1` [Sinister Serpent](https://yugioh.fandom.com/wiki/Sinister_Serpent) | ⬇️ Once per turn |
+| `1` [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | ⬆️ No LP cost |
 | `1` [Solemn Warning](https://yugioh.fandom.com/wiki/Solemn_Warning) | ⬆️ Cost reduced to 1000 LP |
 | `1` [Trishula, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Trishula,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
 | `1` [Yata-Garasu](https://yugioh.fandom.com/wiki/Yata-Garasu) | ⬇️ Skips Draw Phase unless opponent has 1 or fewer cards in hand |
@@ -102,7 +103,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `2` [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 🔄 Once per turn; banishes 1 hand card as cost; banishes itself; no battle damage |
 | `2` [Monster Reborn](https://yugioh.fandom.com/wiki/Monster_Reborn) | ⬇️ Discard 1; becomes Equip Spell; destroys revived monster if it leaves |
 | `2` [Sangan](https://yugioh.fandom.com/wiki/Sangan) | ⬇️ Once per turn |
-| `2` [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | ⬆️ No LP cost |
 | `2` [Witch of the Black Forest](https://yugioh.fandom.com/wiki/Witch_of_the_Black_Forest) | ⬇️ Once per turn; searches less than 1000 DEF |
 | `3` [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | ⬆️ Equipped monster gains 800 ATK/DEF |
 | `3` [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 🔄 Once per turn; draw 1 on any Special Summon |
@@ -219,6 +219,9 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [E - Emergency Call](https://yugioh.fandom.com/wiki/E_-_Emergency_Call) | 3 | `1` | 3 |  |
 | [Eradicator Epidemic Virus](https://yugioh.fandom.com/wiki/Eradicator_Epidemic_Virus) | 3 | `1` | 3 |  |
 | [Gladiator Beast War Chariot](https://yugioh.fandom.com/wiki/Gladiator_Beast_War_Chariot) | 3 | `1` | 3 |  |
+| [Gozen Match](https://yugioh.fandom.com/wiki/Gozen_Match) | 3 | `1` | 3 |  |
+| [Rivalry of Warlords](https://yugioh.fandom.com/wiki/Rivalry_of_Warlords) | 3 | `1` | 3 |  |
+| [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | 3 | `1` | 3 | ⬆️ |
 | [Symbol of Heritage](https://yugioh.fandom.com/wiki/Symbol_of_Heritage) | 3 | `1` | 3 |  |
 | [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | 0 | `2` | 0 | ⬇️ |
 | [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 0 | `2` | 0 | 🔄 |
@@ -253,7 +256,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Pot of Avarice](https://yugioh.fandom.com/wiki/Pot_of_Avarice) | 3 | `2` | 1 |  |
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `2` | 3 |  |
 | [Macro Cosmos](https://yugioh.fandom.com/wiki/Macro_Cosmos) | 3 | `2` | 3 |  |
-| [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | 3 | `2` | 3 | ⬆️ |
 | [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | 0 | `3` | 0 | ⬆️ |
 | [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 0 | `3` | 0 | 🔄 |
 | [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | 0 | `3` | 0 | ⬆️ |
