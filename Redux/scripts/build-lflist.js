@@ -114,6 +114,12 @@ const extraPrintEntries = new Map([
   ],
 ]);
 
+const poolAdditions = [
+  "3642509 3 --Elemental HERO Great Tornado",
+  "1945387 3 --Elemental HERO Nova Master",
+  "33574806 3 --Elemental HERO Escuridao",
+];
+
 module.exports = function buildLflist({ reduxRoot }) {
   const output = path.join(reduxRoot, "modded", "Redux-11.lflist.conf");
 
@@ -148,6 +154,17 @@ module.exports = function buildLflist({ reduxRoot }) {
       `Expected each LF-list card exactly once: ${invalidPasscodes.join(", ")}`,
     );
   }
+
+  const duplicatePoolAdditions = poolAdditions
+    .map((entry) => entry.match(/^(\d+) /)[1])
+    .filter((passcode) => new RegExp(`^${passcode} [0-3] `, "m").test(lflist));
+  if (duplicatePoolAdditions.length > 0) {
+    throw new Error(
+      `Expected Redux card-pool additions to be absent from baseline LF list: ${duplicatePoolAdditions.join(", ")}`,
+    );
+  }
+
+  lflist = `${lflist.trimEnd()}\n${poolAdditions.join("\n")}\n`;
 
   fs.writeFileSync(output, lflist);
 };

@@ -1,7 +1,7 @@
 ## Ignis-Redux-11
 
 This is a fork of EDOPro by the Project Ignis team.<br>
-The cardpool cuts off on 24.06.2011 (last TCG release before XYZs).<br>
+The cardpool cuts off on 24.06.2011 (last TCG release before XYZs + very few bonus cards).<br>
 Duels default to the `Redux-11` ruleset: Master Rule 1 with `First turn draw` disabled.<br>
 By default, cards use their latest Master Rule 1 version / errata.<br>
 Ignis-Redux-11 uses custom erratas and a custom banned list (check below)<br>
