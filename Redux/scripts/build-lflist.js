@@ -98,6 +98,7 @@ const limitChanges = new Map([
   ["44656491", 1], // Messenger of Peace
   ["27174286", 2], // Return from the Different Dimension
   ["30241314", 2], // Macro Cosmos
+  ["44901281", 2], // Saber Hole
   ["46652477", 3], // The Transmigration Prophecy
   ["64697231", 0], // Trap Dustshoot
   ["17078030", 0], // Wall of Revealing Light
