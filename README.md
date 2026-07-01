@@ -96,7 +96,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Sinister Serpent](https://yugioh.fandom.com/wiki/Sinister_Serpent) | ⬇️ Once per turn |
 | `1` [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | ⬆️ No LP cost |
 | `1` [Solemn Warning](https://yugioh.fandom.com/wiki/Solemn_Warning) | ⬆️ Cost reduced to 1000 LP |
-| `1` [Trishula, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Trishula,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
+| `1` [Trishula, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Trishula,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per duel |
 | `1` [Yata-Garasu](https://yugioh.fandom.com/wiki/Yata-Garasu) | ⬇️ Skips Draw Phase unless opponent has 1 or fewer cards in hand |
 | `2` [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | ⬇️ Draw 3; banish 3 |
 | `2` [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 🔄 Once per turn; banishes 1 hand card as cost; banishes itself; no battle damage |
