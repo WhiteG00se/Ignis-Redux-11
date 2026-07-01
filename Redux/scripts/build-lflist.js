@@ -139,7 +139,7 @@ const poolAdditions = [
   "51735257 3 --Number 50: Blackship of Corn",
   "91949988 3 --Gaia Dragon, the Thunder Charger",
   "95992081 3 --Leviair the Sea Dragon",
-  "10002346 3 --Gachi Gachi Gantetsu",
+  "10002346 1 --Gachi Gachi Gantetsu",
   "1249315 3 --Herald of Pure Light",
   "55935416 3 --Number 56: Gold Rat",
 ];
