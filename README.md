@@ -84,7 +84,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Elemental HERO Stratos](https://yugioh.fandom.com/wiki/Elemental_HERO_Stratos) | ⬇️ Once per turn |
 | `1` [Fiber Jar](https://yugioh.fandom.com/wiki/Fiber_Jar) | 🔄 Summon/flip trigger; sets both players to 8000 LP |
 | `1` [Fishborg Blaster](https://yugioh.fandom.com/wiki/Fishborg_Blaster) | ⬇️ Once per turn |
-| `1` [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | ⬇️ Only 1 counter per summon |
 | `1` [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | ⬇️ End Phase upkeep; optional 1000 LP |
 | `1` [Imperial Order](https://yugioh.fandom.com/wiki/Imperial_Order) | ⬇️ End Phase upkeep; optional 1700 LP |
 | `1` [Last Will](https://yugioh.fandom.com/wiki/Last_Will) | ⬇️ Once per turn; no battle damage |
@@ -101,6 +100,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Yata-Garasu](https://yugioh.fandom.com/wiki/Yata-Garasu) | ⬇️ Skips Draw Phase unless opponent has 1 or fewer cards in hand |
 | `2` [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | ⬇️ Draw 3; banish 3 |
 | `2` [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 🔄 Once per turn; banishes 1 hand card as cost; banishes itself; no battle damage |
+| `2` [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | ⬇️ 4 counters revive; 6 counters search; only 1 face-up |
 | `2` [Monster Reborn](https://yugioh.fandom.com/wiki/Monster_Reborn) | ⬇️ Discard 1; becomes Equip Spell; destroys revived monster if it leaves |
 | `2` [Sangan](https://yugioh.fandom.com/wiki/Sangan) | ⬇️ Once per turn |
 | `2` [Witch of the Black Forest](https://yugioh.fandom.com/wiki/Witch_of_the_Black_Forest) | ⬇️ Once per turn; searches less than 1000 DEF |
@@ -185,7 +185,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Dark Hole](https://yugioh.fandom.com/wiki/Dark_Hole) | 1 | `1` | 1 | ⬇️ |
 | [Elemental HERO Stratos](https://yugioh.fandom.com/wiki/Elemental_HERO_Stratos) | 1 | `1` | 1 | ⬇️ |
 | [Future Fusion](https://yugioh.fandom.com/wiki/Future_Fusion) | 1 | `1` | 1 |  |
-| [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | 1 | `1` | 1 | ⬇️ |
 | [Gorz the Emissary of Darkness](https://yugioh.fandom.com/wiki/Gorz_the_Emissary_of_Darkness) | 1 | `1` | 1 |  |
 | [Honest](https://yugioh.fandom.com/wiki/Honest) | 1 | `1` | 1 |  |
 | [Infernity Launcher](https://yugioh.fandom.com/wiki/Infernity_Launcher) | 1 | `1` | 1 |  |
@@ -233,6 +232,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Dandylion](https://yugioh.fandom.com/wiki/Dandylion) | 1 | `2` | 1 |  |
 | [Emergency Teleport](https://yugioh.fandom.com/wiki/Emergency_Teleport) | 1 | `2` | 1 |  |
 | [Foolish Burial](https://yugioh.fandom.com/wiki/Foolish_Burial) | 1 | `2` | 1 |  |
+| [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | 1 | `2` | 1 | ⬇️ |
 | [Gladiator Beast Bestiari](https://yugioh.fandom.com/wiki/Gladiator_Beast_Bestiari) | 1 | `2` | 1 |  |
 | [Lumina, Lightsworn Summoner](https://yugioh.fandom.com/wiki/Lumina,_Lightsworn_Summoner) | 1 | `2` | 1 |  |
 | [Mezuki](https://yugioh.fandom.com/wiki/Mezuki) | 1 | `2` | 1 |  |

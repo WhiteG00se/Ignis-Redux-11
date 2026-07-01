@@ -72,6 +72,7 @@ const limitChanges = new Map([
   ["73580471", 1], // Black Rose Dragon
   ["95503687", 2], // Lumina, Lightsworn Summoner
   ["511002631", 2], // Sangan
+  ["27970830", 2], // Gateway of the Six
   ["48686504", 3], // Lonefire Blossom
   ["15341821", 2], // Dandylion
   ["16226796", 3], // Night Assailant (Pre-Errata)

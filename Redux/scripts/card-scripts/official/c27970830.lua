@@ -6,6 +6,7 @@ function s.initial_effect(c)
 	local e1=Effect.CreateEffect(c)
 	e1:SetType(EFFECT_TYPE_ACTIVATE)
 	e1:SetCode(EVENT_FREE_CHAIN)
+	e1:SetCondition(s.actcon)
 	c:RegisterEffect(e1)
 	--add counter
 	local e2=Effect.CreateEffect(c)
@@ -52,9 +53,15 @@ function s.initial_effect(c)
 end
 s.listed_series={SET_SIX_SAMURAI,SET_SHIEN}
 s.counter_place_list={COUNTER_BUSHIDO}
+function s.gatewayfilter(c)
+	return c:IsFaceup() and c:IsCode(id)
+end
+function s.actcon(e,tp,eg,ep,ev,re,r,rp)
+	return not Duel.IsExistingMatchingCard(s.gatewayfilter,tp,LOCATION_SZONE,0,1,e:GetHandler())
+end
 function s.ctop(e,tp,eg,ep,ev,re,r,rp)
 	if eg:IsExists(aux.FaceupFilter(Card.IsSetCard,SET_SIX_SAMURAI),1,nil) then
-		e:GetHandler():AddCounter(COUNTER_BUSHIDO,1)
+		e:GetHandler():AddCounter(COUNTER_BUSHIDO,2)
 	end
 end
 function s.cost1(e,tp,eg,ep,ev,re,r,rp,chk)
@@ -84,9 +91,9 @@ function s.op1(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function s.cost2(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,COUNTER_BUSHIDO,4,REASON_COST) end
+	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,COUNTER_BUSHIDO,6,REASON_COST) end
 	Duel.Hint(HINT_OPSELECTED,1-tp,e:GetDescription())
-	Duel.RemoveCounter(tp,1,0,COUNTER_BUSHIDO,4,REASON_COST)
+	Duel.RemoveCounter(tp,1,0,COUNTER_BUSHIDO,6,REASON_COST)
 end
 function s.filter2(c)
 	return c:IsMonster() and c:IsSetCard(SET_SIX_SAMURAI) and c:IsAbleToHand()
@@ -104,9 +111,9 @@ function s.op2(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function s.cost3(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,COUNTER_BUSHIDO,6,REASON_COST) end
+	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,COUNTER_BUSHIDO,4,REASON_COST) end
 	Duel.Hint(HINT_OPSELECTED,1-tp,e:GetDescription())
-	Duel.RemoveCounter(tp,1,0,COUNTER_BUSHIDO,6,REASON_COST)
+	Duel.RemoveCounter(tp,1,0,COUNTER_BUSHIDO,4,REASON_COST)
 end
 function s.filter3(c,e,tp)
 	return c:IsSetCard(SET_SHIEN) and c:IsType(TYPE_EFFECT) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
