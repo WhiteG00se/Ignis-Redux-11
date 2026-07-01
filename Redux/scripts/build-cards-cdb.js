@@ -105,9 +105,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const cyberSteinTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      '(This card is not treated as a "Cyber" card.)\nIf this card is Normal or Special Summoned, or flipped face-up: You can Special Summon 1 Fusion Monster from your Extra Deck in face-up Defense Position, but its ATK becomes 0, also if it is Level 7 or higher, negate its effects.',
+      "If this card is Normal or Special Summoned, or flipped face-up: You can Special Summon 1 Fusion Monster from your Extra Deck in face-up Defense Position, but its ATK becomes 0, also if it is Level 7 or higher, negate its effects.",
       69015963,
     );
+  const cyberSteinSetcodeResult = db
+    .prepare("UPDATE datas SET setcode = ? WHERE id = ?")
+    .run(0x93, 69015963);
   const lastWarriorTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
@@ -286,6 +289,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(cyberSteinTextResult.changes) !== 1) {
     throw new Error("Expected to update Cyber-Stein text once");
+  }
+  if (Number(cyberSteinSetcodeResult.changes) !== 1) {
+    throw new Error("Expected to update Cyber-Stein setcode once");
   }
   if (Number(lastWarriorTextResult.changes) !== 1) {
     throw new Error("Expected to update The Last Warrior from Another Planet text once");
