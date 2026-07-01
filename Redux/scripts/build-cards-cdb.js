@@ -31,7 +31,8 @@ const errataMarkers = new Map([
   [83764718, "\u2b07\ufe0f"], // Monster Reborn
   [83764719, "\u2b07\ufe0f"], // Monster Reborn alternate art
   [79571449, "\u2b07\ufe0f"], // Graceful Charity
-  [68638985, "\u267b\ufe0f"], // Frog the Jam
+  [68638985, "\u267b\ufe0f"], // Slime Toad
+  [62671448, "\u267b\ufe0f"], // Toad Master
   [9126351, "\u2b06\ufe0f"], // Swap Frog
   [20663556, "\u267b\ufe0f"], // Substitoad
   [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
@@ -199,20 +200,32 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Return 1 monster to gain an additional Normal Summon",
       9126351,
     );
-  const frogTheJamTextResult = db
+  const slimeToadTextResult = db
     .prepare("UPDATE texts SET name = ?, desc = ? WHERE id = ?")
     .run(
-      "Frog the Jam",
-      'This card is always treated as a "Frog" and "Toad" card.\nA slime with the head of a frog, it attacks by croaking terribly.',
+      "Slime Toad",
+      '(This card is always treated as a "Frog" card.)\nIts actual name is "Frog, the Jam"!\nA slime with the head of a frog, it attacks by croaking terribly.',
       68638985,
     );
   const frogSetcodeResult = db
     .prepare("UPDATE datas SET setcode = ? WHERE id IN (?, ?)")
     .run(0x12, 68638985, 20663556);
+  const slimeToadTypeResult = db
+    .prepare("UPDATE datas SET type = type | ? WHERE id = ?")
+    .run(0x1000, 68638985);
+  const toadMasterTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      '(This card is always treated as a "Frog" card.)\nA hermit frog that has been in existence for thousands of years, it attacks with tadpoles.',
+      62671448,
+    );
+  const toadMasterDataResult = db
+    .prepare("UPDATE datas SET type = type | ?, setcode = ? WHERE id = ?")
+    .run(0x1000, 0x12, 62671448);
   const substitoadTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      'This card is always treated as a "Frog" and "Toad" card.\nDuring your turn (Quick Effect): You can Tribute 1 monster; Special Summon 1 "Frog" monster from your Deck. You can only Special Summon each "Frog" monster once per turn with a "Substitoad" effect.',
+      '(This card is always treated as a "Frog" card.)\nDuring your turn (Quick Effect): You can Tribute 1 monster; Special Summon 1 "Frog" monster from your Deck. You can only Special Summon each "Frog" monster once per turn with a "Substitoad" effect.',
       'Special Summon 1 "Frog" monster from your Deck',
       20663556,
     );
@@ -318,11 +331,20 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   if (Number(swapFrogTextResult.changes) !== 1) {
     throw new Error("Expected to update Swap Frog text once");
   }
-  if (Number(frogTheJamTextResult.changes) !== 1) {
-    throw new Error("Expected to update Frog the Jam text once");
+  if (Number(slimeToadTextResult.changes) !== 1) {
+    throw new Error("Expected to update Slime Toad text once");
   }
   if (Number(frogSetcodeResult.changes) !== 2) {
     throw new Error("Expected to update Frog setcodes twice");
+  }
+  if (Number(slimeToadTypeResult.changes) !== 1) {
+    throw new Error("Expected to update Slime Toad type once");
+  }
+  if (Number(toadMasterTextResult.changes) !== 1) {
+    throw new Error("Expected to update Toad Master text once");
+  }
+  if (Number(toadMasterDataResult.changes) !== 1) {
+    throw new Error("Expected to update Toad Master data once");
   }
   if (Number(substitoadTextResult.changes) !== 1) {
     throw new Error("Expected to update Substitoad text once");

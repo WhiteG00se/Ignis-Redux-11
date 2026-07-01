@@ -119,14 +119,11 @@ const extraPrintEntries = new Map([
   ],
 ]);
 
-const commentChanges = new Map([
-  ["68638985", "Frog the Jam (Slime Toad)"], // Slime Toad renamed for Redux.
-]);
-
 const poolAdditions = [
   "3642509 3 --Elemental HERO Great Tornado",
   "1945387 3 --Elemental HERO Nova Master",
   "33574806 3 --Elemental HERO Escuridao",
+  "62671448 3 --Toad Master",
 ];
 
 module.exports = function buildLflist({ reduxRoot }) {
@@ -144,21 +141,14 @@ module.exports = function buildLflist({ reduxRoot }) {
   lflist = lflist.replace(/^#\[2011-Redux\]\r?\n!2011-Redux$/m, "#[Redux-11]\n!Redux-11");
 
   lflist = lflist.replace(/^(\d+) ([0-3])(\s+--.*)$/gm, (entry, passcode, _limit, comment) => {
-    if (!limitChanges.has(passcode) && !commentChanges.has(passcode)) {
+    if (!limitChanges.has(passcode)) {
       return entry;
     }
 
-    if (limitChanges.has(passcode)) {
-      updatedPasscodes.set(passcode, (updatedPasscodes.get(passcode) ?? 0) + 1);
-    }
-
-    const limit = limitChanges.get(passcode) ?? _limit;
-    const updatedComment = commentChanges.has(passcode)
-      ? ` --${commentChanges.get(passcode)}`
-      : comment;
+    updatedPasscodes.set(passcode, (updatedPasscodes.get(passcode) ?? 0) + 1);
 
     return [
-      `${passcode} ${limit}${updatedComment}`,
+      `${passcode} ${limitChanges.get(passcode)}${comment}`,
       ...(extraPrintEntries.get(passcode) ?? []),
     ].join("\n");
   });

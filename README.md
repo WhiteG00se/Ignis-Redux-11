@@ -107,15 +107,16 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | ⬆️ Equipped monster gains 800 ATK/DEF |
 | `3` [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 🔄 Once per turn; draw 1 on any Special Summon |
 | `3` [Exchange of the Spirit](https://yugioh.fandom.com/wiki/Exchange_of_the_Spirit) | ⬇️ once per duel (later format official errata) |
-| `3` [Frog the Jam](https://yugioh.fandom.com/wiki/Frog_the_Jam) | 🔄 Renamed; always Frog/Toad |
+| `3` [Slime Toad](https://yugioh.fandom.com/wiki/Slime_Toad) | 🔄 Tuner; always Frog; Frog, the Jam flavor |
 | `3` [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | ⬆️ ATK/DEF: 1600/1200 to 1900/1900 |
 | `3` [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | ⬇️ Once per turn |
 | `3` [Night Assailant](https://yugioh.fandom.com/wiki/Night_Assailant) | ⬇️ Once per turn |
 | `3` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
 | `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
-| `3` [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 🔄 Counts as Frog/Toad; Quick Effect; each Frog once per turn |
+| `3` [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 🔄 Counts as Frog; Quick Effect; each Frog once per turn |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
 | `3` [The Last Warrior from Another Planet](https://yugioh.fandom.com/wiki/The_Last_Warrior_from_Another_Planet) | ⬇️ No monster destruction; only blocks Special Summons |
+| `3` [Toad Master](https://yugioh.fandom.com/wiki/Toad_Master) | 🔄 Added; Tuner; always Frog |
 
 </details>
 
