@@ -258,6 +258,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `1` | 3 |  |
 | [Macro Cosmos](https://yugioh.fandom.com/wiki/Macro_Cosmos) | 3 | `1` | 3 |  |
 | [Saber Hole](https://yugioh.fandom.com/wiki/Saber_Hole) | 3 | `2` | 3 |  |
+| [Self-Destruct Button](https://yugioh.fandom.com/wiki/Self-Destruct_Button) | 3 | `0` | 3 |  |
 | [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | 0 | `3` | 0 | ⬆️ |
 | [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 0 | `3` | 0 | 🔄 |
 | [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | 0 | `3` | 0 | ⬆️ |

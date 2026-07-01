@@ -99,6 +99,7 @@ const limitChanges = new Map([
   ["27174286", 2], // Return from the Different Dimension
   ["30241314", 1], // Macro Cosmos
   ["44901281", 2], // Saber Hole
+  ["57585212", 0], // Self-Destruct Button
   ["46652477", 3], // The Transmigration Prophecy
   ["64697231", 0], // Trap Dustshoot
   ["17078030", 0], // Wall of Revealing Light
