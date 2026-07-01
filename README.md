@@ -113,7 +113,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Night Assailant](https://yugioh.fandom.com/wiki/Night_Assailant) | ⬇️ Once per turn |
 | `3` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
 | `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
-| `3` [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 🔄 Counts as Frog; Quick Effect; each Frog once per turn |
+| `3` [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 🔄 Counts as Frog; Quick Effect; summons from hand/Deck/GY; each Frog once per turn |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
 | `3` [The Last Warrior from Another Planet](https://yugioh.fandom.com/wiki/The_Last_Warrior_from_Another_Planet) | ⬇️ No monster destruction; only blocks Special Summons |
 | `3` [Toad Master](https://yugioh.fandom.com/wiki/Toad_Master) | 🔄 Added; Tuner; always Frog |

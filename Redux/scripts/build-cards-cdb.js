@@ -225,8 +225,8 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const substitoadTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      '(This card is always treated as a "Frog" card.)\nDuring your turn (Quick Effect): You can Tribute 1 monster; Special Summon 1 "Frog" monster from your Deck. You can only Special Summon each "Frog" monster once per turn with a "Substitoad" effect.',
-      'Special Summon 1 "Frog" monster from your Deck',
+      '(This card is always treated as a "Frog" card.)\nDuring your turn (Quick Effect): You can Tribute 1 monster; Special Summon 1 "Frog" monster from your hand, Deck, or GY. You can only Special Summon each "Frog" monster once per turn with a "Substitoad" effect.',
+      'Special Summon 1 "Frog" monster from your hand, Deck, or GY',
       20663556,
     );
   const rykoTextResult = db
