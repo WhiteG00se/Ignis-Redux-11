@@ -20,9 +20,9 @@ const limitChanges = new Map([
   ["511003116", 3], // Destiny HERO - Disk Commander (Pre-Errata)
   ["511002996", 1], // Imperial Order (Pre-Errata)
   ["33184167", 3], // Tribe-Infecting Virus
-  ["34853266", 1], // Tsukuyomi
+  ["34853266", 2], // Tsukuyomi
   ["511002992", 1], // Rescue Cat
-  ["31560081", 2], // Magician of Faith
+  ["31560081", 3], // Magician of Faith
   ["511000818", 1], // Sinister Serpent
   ["68638985", 1], // Slime Toad
   ["20663556", 3], // Substitoad
@@ -36,7 +36,7 @@ const limitChanges = new Map([
   ["69243953", 3], // Butterfly Dagger - Elma
   ["22046459", 2], // Megamorph
   ["70828912", 1], // Premature Burial
-  ["35316708", 1], // Time Seal
+  ["35316708", 3], // Time Seal
   ["511000824", 1], // Ring of Destruction (Pre-Errata)
   ["423705", 0], // Gearfried the Iron Knight
   ["21593987", 3], // Makyura the Destructor (Pre-Errata)

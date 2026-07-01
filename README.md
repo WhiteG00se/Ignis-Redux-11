@@ -170,8 +170,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Rescue Cat](https://yugioh.fandom.com/wiki/Rescue_Cat) | 0 | `1` | 0 | ⬇️ |
 | [Ring of Destruction](https://yugioh.fandom.com/wiki/Ring_of_Destruction) | 0 | `1` | 0 | 🔄 |
 | [Sinister Serpent](https://yugioh.fandom.com/wiki/Sinister_Serpent) | 0 | `1` | 0 | ⬇️ |
-| [Time Seal](https://yugioh.fandom.com/wiki/Time_Seal) | 0 | `1` | 0 |  |
-| [Tsukuyomi](https://yugioh.fandom.com/wiki/Tsukuyomi) | 0 | `1` | 0 |  |
 | [Yata-Garasu](https://yugioh.fandom.com/wiki/Yata-Garasu) | 0 | `1` | 0 | ⬇️ |
 | [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | 0 | `1` | 1 | ⬇️ |
 | [Heavy Storm](https://yugioh.fandom.com/wiki/Heavy_Storm) | 0 | `1` | 1 |  |
@@ -226,8 +224,8 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Symbol of Heritage](https://yugioh.fandom.com/wiki/Symbol_of_Heritage) | 3 | `1` | 3 |  |
 | [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | 0 | `2` | 0 | ⬇️ |
 | [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 0 | `2` | 0 | 🔄 |
-| [Magician of Faith](https://yugioh.fandom.com/wiki/Magician_of_Faith) | 0 | `2` | 0 |  |
 | [Witch of the Black Forest](https://yugioh.fandom.com/wiki/Witch_of_the_Black_Forest) | 0 | `2` | 0 | ⬇️ |
+| [Tsukuyomi](https://yugioh.fandom.com/wiki/Tsukuyomi) | 0 | `2` | 0 |  |
 | [Advanced Ritual Art](https://yugioh.fandom.com/wiki/Advanced_Ritual_Art) | 1 | `2` | 1 |  |
 | [Book of Moon](https://yugioh.fandom.com/wiki/Book_of_Moon) | 1 | `2` | 1 |  |
 | [Burial from a Different Dimension](https://yugioh.fandom.com/wiki/Burial_from_a_Different_Dimension) | 1 | `2` | 1 |  |
@@ -264,11 +262,13 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Self-Destruct Button](https://yugioh.fandom.com/wiki/Self-Destruct_Button) | 3 | `0` | 3 |  |
 | [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | 0 | `3` | 0 | ⬆️ |
 | [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 0 | `3` | 0 | 🔄 |
+| [Magician of Faith](https://yugioh.fandom.com/wiki/Magician_of_Faith) | 0 | `3` | 0 |  |
 | [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | 0 | `3` | 0 | ⬆️ |
 | [Metamorphosis](https://yugioh.fandom.com/wiki/Metamorphosis) | 0 | `3` | 0 |  |
 | [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | 0 | `1` | 0 | ⬇️ |
 | [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 0 | `3` | 0 | 🔄 |
 | [Temple of the Kings](https://yugioh.fandom.com/wiki/Temple_of_the_Kings) | 0 | `3` | 0 |  |
+| [Time Seal](https://yugioh.fandom.com/wiki/Time_Seal) | 0 | `3` | 0 |  |
 | [Tribe-Infecting Virus](https://yugioh.fandom.com/wiki/Tribe-Infecting_Virus) | 0 | `3` | 0 |  |
 | [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | 1 | `3` | 0 | ⬇️ |
 | [Allure of Darkness](https://yugioh.fandom.com/wiki/Allure_of_Darkness) | 1 | `3` | 1 |  |
