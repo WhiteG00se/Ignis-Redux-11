@@ -18,12 +18,15 @@ function s.initial_effect(c)
 	c:RegisterEffect(e2)
 	local e3=e1:Clone()
 	e3:SetCode(EVENT_FLIP)
-	e3:SetCondition(nil)
+	e3:SetCondition(s.flipcon)
 	c:RegisterEffect(e3)
 end
 s.listed_series={SET_FROG}
 function s.eqcon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():IsSummonLocation(LOCATION_HAND)
+end
+function s.flipcon(e,tp,eg,ep,ev,re,r,rp)
+	return true
 end
 function s.eqfilter(c)
 	return c:IsSetCard(SET_FROG) and c:IsMonster() and not c:IsForbidden()

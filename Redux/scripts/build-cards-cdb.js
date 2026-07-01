@@ -255,6 +255,41 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const toadMasterDataResult = db
     .prepare("UPDATE datas SET type = (type | ?) & ~?, setcode = ? WHERE id = ?")
     .run(0x1020, 0x10, 0x12, 62671448);
+  const tadpoleTokenDataResult = db
+    .prepare(
+      `INSERT INTO datas (
+        id, ot, alias, setcode, type, atk, def, level, race, attribute, category
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    )
+    .run(62671449, 1, 0, 0, 0x5011, 500, 500, 2, 0x40, 0x2, 0);
+  const tadpoleTokenTextResult = db
+    .prepare(
+      `INSERT INTO texts (
+        id, name, desc, str1, str2, str3, str4, str5, str6, str7, str8, str9,
+        str10, str11, str12, str13, str14, str15, str16
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    )
+    .run(
+      62671449,
+      "Tadpole Token",
+      'Special Summoned with the effect of "[Redux] Toad Master".',
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    );
   const substitoadTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
@@ -394,6 +429,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(toadMasterDataResult.changes) !== 1) {
     throw new Error("Expected to update Toad Master data once");
+  }
+  if (Number(tadpoleTokenDataResult.changes) !== 1) {
+    throw new Error("Expected to add Tadpole Token data once");
+  }
+  if (Number(tadpoleTokenTextResult.changes) !== 1) {
+    throw new Error("Expected to add Tadpole Token text once");
   }
   if (Number(substitoadTextResult.changes) !== 1) {
     throw new Error("Expected to update Substitoad text once");
