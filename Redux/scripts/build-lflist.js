@@ -90,14 +90,14 @@ const limitChanges = new Map([
   ["46052429", 2], // Advanced Ritual Art
   ["14087893", 2], // Book of Moon
   ["48976825", 2], // Burial from a Different Dimension
-  ["81674782", 2], // Dimensional Fissure
+  ["81674782", 1], // Dimensional Fissure
   ["67723438", 2], // Emergency Teleport
   ["73915051", 2], // Scapegoat
   ["3136426", 1], // Level Limit - Area B
   ["85742772", 1], // Gravity Bind
   ["44656491", 1], // Messenger of Peace
   ["27174286", 2], // Return from the Different Dimension
-  ["30241314", 2], // Macro Cosmos
+  ["30241314", 1], // Macro Cosmos
   ["44901281", 2], // Saber Hole
   ["46652477", 3], // The Transmigration Prophecy
   ["64697231", 0], // Trap Dustshoot
