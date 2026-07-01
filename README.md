@@ -256,6 +256,8 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Formula Synchron](https://yugioh.fandom.com/wiki/Formula_Synchron) | 3 | `2` | 1 |  |
 | [Pot of Avarice](https://yugioh.fandom.com/wiki/Pot_of_Avarice) | 3 | `2` | 1 |  |
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `1` | 3 |  |
+| [Kaiser Colosseum](https://yugioh.fandom.com/wiki/Kaiser_Colosseum) | 3 | `1` | 3 |  |
+| [King Tiger Wanghu](https://yugioh.fandom.com/wiki/King_Tiger_Wanghu) | 3 | `1` | 3 |  |
 | [Macro Cosmos](https://yugioh.fandom.com/wiki/Macro_Cosmos) | 3 | `1` | 3 |  |
 | [Saber Hole](https://yugioh.fandom.com/wiki/Saber_Hole) | 3 | `2` | 3 |  |
 | [Self-Destruct Button](https://yugioh.fandom.com/wiki/Self-Destruct_Button) | 3 | `0` | 3 |  |

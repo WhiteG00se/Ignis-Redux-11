@@ -90,6 +90,8 @@ const limitChanges = new Map([
   ["46052429", 2], // Advanced Ritual Art
   ["14087893", 2], // Book of Moon
   ["48976825", 2], // Burial from a Different Dimension
+  ["35059553", 1], // Kaiser Colosseum
+  ["83986578", 1], // King Tiger Wanghu
   ["81674782", 1], // Dimensional Fissure
   ["67723438", 2], // Emergency Teleport
   ["73915051", 2], // Scapegoat
