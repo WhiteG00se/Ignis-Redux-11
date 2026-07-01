@@ -126,6 +126,22 @@ const poolAdditions = [
   "1945387 3 --Elemental HERO Nova Master",
   "33574806 3 --Elemental HERO Escuridao",
   "62671448 1 --Toad Master",
+  "64332231 3 --Hieratic Sun Dragon Overlord of Heliopolis",
+  "698785 3 --Thunder End Dragon",
+  "94119480 3 --Adreus, Keeper of Armageddon",
+  "19333131 3 --Number 12: Crimson Shadow Armor Ninja",
+  "47805931 3 --Number 20: Giga-Brilliant",
+  "64554883 3 --Number 25: Force Focus",
+  "64689404 3 --Sword Breaker",
+  "581014 3 --Daigusto Emeral",
+  "34086406 3 --Lavalval Chain",
+  "95169481 3 --Diamond Dire Wolf",
+  "51735257 3 --Number 50: Blackship of Corn",
+  "91949988 3 --Gaia Dragon, the Thunder Charger",
+  "95992081 3 --Leviair the Sea Dragon",
+  "10002346 3 --Gachi Gachi Gantetsu",
+  "1249315 3 --Herald of Pure Light",
+  "55935416 3 --Number 56: Gold Rat",
 ];
 
 module.exports = function buildLflist({ reduxRoot }) {
