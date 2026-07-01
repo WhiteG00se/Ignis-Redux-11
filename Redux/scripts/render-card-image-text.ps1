@@ -5,12 +5,15 @@ param(
     85602018, 3136426, 34206604, 44656491, 74191942, 82732705, 84749824,
     52687916, 3078576, 12580477,
     12580478, 83764718, 83764719, 79571449, 9126351, 17484499, 21502796,
-    86099788, 20663556
+    86099788, 20663556, 68638985
   ),
   [int[]]$UnofficialIds = @(
     511002993, 511000819, 511001039, 511000229, 511003116, 511002996,
     21593987, 511003019, 16226796, 511002992, 511000824, 511000825, 511002631,
     511000818, 511003012
+  ),
+  [int[]]$RedrawNameIds = @(
+    68638985
   ),
   [switch]$OnlySpellTrap,
   [switch]$OnlyMonster
@@ -196,6 +199,38 @@ function Get-FittedTextBlock(
   }
 }
 
+function Get-DisplayCardName([string]$name) {
+  return (($name -replace '^\[Redux\]\s*', '') -replace '\s*[^\x00-\x7F]+$', '').Trim()
+}
+
+function Get-FittedSingleLineFont(
+  [System.Drawing.Graphics]$graphics,
+  [string]$text,
+  [string]$fontFamily,
+  [System.Drawing.FontStyle]$style,
+  [int]$maxWidth,
+  [float]$minFontSize,
+  [float]$maxFontSize
+) {
+  $bestFontSize = [float]$minFontSize
+  $fontSize = [float]$minFontSize
+
+  while ($fontSize -le $maxFontSize) {
+    $testFont = New-Object System.Drawing.Font($fontFamily, $fontSize, $style, [System.Drawing.GraphicsUnit]::Pixel)
+    $fits = $graphics.MeasureString($text, $testFont).Width -le $maxWidth
+    $testFont.Dispose()
+
+    if (-not $fits) {
+      break
+    }
+
+    $bestFontSize = $fontSize
+    $fontSize += [float]0.75
+  }
+
+  return New-Object System.Drawing.Font($fontFamily, $bestFontSize, $style, [System.Drawing.GraphicsUnit]::Pixel)
+}
+
 function Get-LightAverageBrush(
   [System.Drawing.Bitmap]$bitmap,
   [System.Drawing.Rectangle]$rect
@@ -286,6 +321,87 @@ function Get-MonsterTypeLine([int64]$type, [int64]$race) {
   if (($type -band 0x10) -ne 0) { $labels.Add("NORMAL") }
 
   return "[$($labels -join ' / ')]"
+}
+
+function Clear-CardNameText(
+  [System.Drawing.Bitmap]$bitmap,
+  [System.Drawing.Rectangle]$rect
+) {
+  for ($y = $rect.Top; $y -lt $rect.Bottom; $y++) {
+    [int64]$r = 0
+    [int64]$g = 0
+    [int64]$b = 0
+    [int64]$count = 0
+
+    for ($x = $rect.Left; $x -lt $rect.Right; $x++) {
+      $pixel = $bitmap.GetPixel($x, $y)
+      $brightness = ([int]$pixel.R + [int]$pixel.G + [int]$pixel.B) / 3
+      if ($brightness -gt 110) {
+        $r += $pixel.R
+        $g += $pixel.G
+        $b += $pixel.B
+        $count++
+      }
+    }
+
+    if ($count -eq 0) {
+      continue
+    }
+
+    $replacement = [System.Drawing.Color]::FromArgb(
+      [int]($r / $count),
+      [int]($g / $count),
+      [int]($b / $count)
+    )
+
+    for ($x = $rect.Left; $x -lt $rect.Right; $x++) {
+      $pixel = $bitmap.GetPixel($x, $y)
+      $brightness = ([int]$pixel.R + [int]$pixel.G + [int]$pixel.B) / 3
+      if ($brightness -lt 125) {
+        $bitmap.SetPixel($x, $y, $replacement)
+      }
+    }
+  }
+}
+
+function Add-CardName(
+  [System.Drawing.Graphics]$graphics,
+  [System.Drawing.Bitmap]$bitmap,
+  [string]$name
+) {
+  $displayName = (Get-DisplayCardName $name).ToUpperInvariant()
+  $patch = New-Object System.Drawing.Rectangle(
+    [int]($bitmap.Width * 58 / 813),
+    [int]($bitmap.Height * 57 / 1185),
+    [int]($bitmap.Width * 575 / 813),
+    [int]($bitmap.Height * 70 / 1185)
+  )
+
+  Clear-CardNameText $bitmap $patch
+
+  $font = Get-FittedSingleLineFont `
+    $graphics `
+    $displayName `
+    "Times New Roman" `
+    ([System.Drawing.FontStyle]::Regular) `
+    ([int]($patch.Width * 0.98)) `
+    ([float]($bitmap.Height * 0.036)) `
+    ([float]($bitmap.Height * 0.062))
+  $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::Black)
+  $format = New-Object System.Drawing.StringFormat
+  $format.Alignment = [System.Drawing.StringAlignment]::Near
+  $format.LineAlignment = [System.Drawing.StringAlignment]::Center
+  $textRect = New-Object System.Drawing.RectangleF(
+    [float]$patch.Left,
+    [float]($patch.Top - ($bitmap.Height * 0.004)),
+    [float]$patch.Width,
+    [float]$patch.Height
+  )
+
+  $graphics.DrawString($displayName, $font, $brush, $textRect, $format)
+  $format.Dispose()
+  $brush.Dispose()
+  $font.Dispose()
 }
 
 function Add-GoldErrataFrame(
@@ -531,6 +647,9 @@ foreach ($card in $cards) {
   $graphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
   $graphics.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::AntiAliasGridFit
   $graphics.DrawImage($src, 0, 0, $targetWidth, $targetHeight)
+  if ($RedrawNameIds -contains [int]$card.id) {
+    Add-CardName $graphics $bitmap ([string]$card.name)
+  }
 
   $layout = Get-TextLayout $bitmap.Width $bitmap.Height ([int64]$card.type)
   $preserved = $null

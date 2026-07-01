@@ -31,8 +31,9 @@ const errataMarkers = new Map([
   [83764718, "\u2b07\ufe0f"], // Monster Reborn
   [83764719, "\u2b07\ufe0f"], // Monster Reborn alternate art
   [79571449, "\u2b07\ufe0f"], // Graceful Charity
+  [68638985, "\u267b\ufe0f"], // Frog the Jam
   [9126351, "\u2b06\ufe0f"], // Swap Frog
-  [20663556, "\u2b07\ufe0f"], // Substitoad
+  [20663556, "\u267b\ufe0f"], // Substitoad
   [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
   [86099788, "\u2b07\ufe0f"], // The Last Warrior from Another Planet
 ]);
@@ -198,10 +199,21 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Return 1 monster to gain an additional Normal Summon",
       9126351,
     );
-  const substitoadTextResult = db
-    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+  const frogTheJamTextResult = db
+    .prepare("UPDATE texts SET name = ?, desc = ? WHERE id = ?")
     .run(
-      'Once per turn: You can Tribute 1 monster; Special Summon 1 "Frog" monster from your Deck. "Frog" monsters cannot be destroyed by battle.',
+      "Frog the Jam",
+      'This card is always treated as a "Frog" and "Toad" card.\nA slime with the head of a frog, it attacks by croaking terribly.',
+      68638985,
+    );
+  const frogSetcodeResult = db
+    .prepare("UPDATE datas SET setcode = ? WHERE id IN (?, ?)")
+    .run(0x12, 68638985, 20663556);
+  const substitoadTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      'This card is always treated as a "Frog" and "Toad" card.\nDuring your turn (Quick Effect): You can Tribute 1 monster; Special Summon 1 "Frog" monster from your Deck. You can only Special Summon each "Frog" monster once per turn with a "Substitoad" effect.',
+      'Special Summon 1 "Frog" monster from your Deck',
       20663556,
     );
   const rykoTextResult = db
@@ -305,6 +317,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(swapFrogTextResult.changes) !== 1) {
     throw new Error("Expected to update Swap Frog text once");
+  }
+  if (Number(frogTheJamTextResult.changes) !== 1) {
+    throw new Error("Expected to update Frog the Jam text once");
+  }
+  if (Number(frogSetcodeResult.changes) !== 2) {
+    throw new Error("Expected to update Frog setcodes twice");
   }
   if (Number(substitoadTextResult.changes) !== 1) {
     throw new Error("Expected to update Substitoad text once");
