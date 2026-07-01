@@ -106,6 +106,7 @@ const limitChanges = new Map([
   ["46652477", 3], // The Transmigration Prophecy
   ["64697231", 0], // Trap Dustshoot
   ["17078030", 0], // Wall of Revealing Light
+  ["32723153", 0], // Magical Explosion
   ["84749824", 1], // Solemn Warning
   ["53334471", 1], // Gozen Match
   ["90846359", 1], // Rivalry of Warlords

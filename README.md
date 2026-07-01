@@ -149,6 +149,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Royal Oppression](https://yugioh.fandom.com/wiki/Royal_Oppression) | 1 | `0` | 0 |  |
 | [Exodia the Forbidden One](https://yugioh.fandom.com/wiki/Exodia_the_Forbidden_One) | 1 | `0` | 1 |  |
 | [Level Limit - Area B](https://yugioh.fandom.com/wiki/Level_Limit_-_Area_B) | 1 | `1` | 1 | ⬇️ |
+| [Magical Explosion](https://yugioh.fandom.com/wiki/Magical_Explosion) | 1 | `0` | 1 |  |
 | [Trap Dustshoot](https://yugioh.fandom.com/wiki/Trap_Dustshoot) | 1 | `0` | 1 |  |
 | [Wall of Revealing Light](https://yugioh.fandom.com/wiki/Wall_of_Revealing_Light) | 1 | `0` | 1 |  |
 | [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | 1 | `1` | 3 | ⬇️ |
@@ -189,7 +190,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Honest](https://yugioh.fandom.com/wiki/Honest) | 1 | `1` | 1 |  |
 | [Infernity Launcher](https://yugioh.fandom.com/wiki/Infernity_Launcher) | 1 | `1` | 1 |  |
 | [Limiter Removal](https://yugioh.fandom.com/wiki/Limiter_Removal) | 1 | `1` | 1 |  |
-| [Magical Explosion](https://yugioh.fandom.com/wiki/Magical_Explosion) | 1 | `1` | 1 |  |
 | [Marshmallon](https://yugioh.fandom.com/wiki/Marshmallon) | 1 | `1` | 1 |  |
 | [Messenger of Peace](https://yugioh.fandom.com/wiki/Messenger_of_Peace) | 1 | `1` | 1 | ⬇️ |
 | [Mind Control](https://yugioh.fandom.com/wiki/Mind_Control) | 1 | `1` | 1 |  |
