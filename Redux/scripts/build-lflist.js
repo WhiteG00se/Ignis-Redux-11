@@ -24,6 +24,7 @@ const limitChanges = new Map([
   ["511002992", 1], // Rescue Cat
   ["31560081", 2], // Magician of Faith
   ["511000818", 1], // Sinister Serpent
+  ["68638985", 1], // Slime Toad
   ["20663556", 3], // Substitoad
   ["93369354", 1], // Fishborg Blaster
   ["511000229", 1], // Dark Strike Fighter
@@ -123,7 +124,7 @@ const poolAdditions = [
   "3642509 3 --Elemental HERO Great Tornado",
   "1945387 3 --Elemental HERO Nova Master",
   "33574806 3 --Elemental HERO Escuridao",
-  "62671448 3 --Toad Master",
+  "62671448 1 --Toad Master",
 ];
 
 module.exports = function buildLflist({ reduxRoot }) {

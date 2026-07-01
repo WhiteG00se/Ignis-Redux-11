@@ -41,19 +41,24 @@ const { DatabaseSync } = require("node:sqlite");
 const officialIds = [$officialIdsJson];
 const unofficialIds = [$unofficialIdsJson];
 const jobs = [
-  ["Redux/modded/cards.cdb", officialIds],
-  ["Redux/modded/cards-unofficial.cdb", unofficialIds],
+  ["Redux/modded/cards.cdb", "Redux/vanilla/cards.cdb", officialIds],
+  ["Redux/modded/cards-unofficial.cdb", "Redux/vanilla/cards-unofficial.cdb", unofficialIds],
 ];
 const rows = [];
-for (const [dbPath, ids] of jobs) {
+for (const [dbPath, sourceDbPath, ids] of jobs) {
   const db = new DatabaseSync(dbPath);
+  const sourceDb = new DatabaseSync(sourceDbPath);
   const stmt = db.prepare("SELECT texts.id, texts.name, texts.desc, datas.type, datas.race, datas.atk, datas.def, datas.level, datas.attribute FROM texts JOIN datas ON datas.id = texts.id WHERE texts.id = ?");
+  const sourceStmt = sourceDb.prepare("SELECT type FROM datas WHERE id = ?");
   for (const id of ids) {
     const row = stmt.get(id);
     if (!row) throw new Error("Missing card metadata for " + id);
+    const sourceRow = sourceStmt.get(id);
+    row.sourceType = sourceRow ? sourceRow.type : row.type;
     rows.push(row);
   }
   db.close();
+  sourceDb.close();
 }
 console.log(JSON.stringify(rows));
 "@
@@ -286,6 +291,110 @@ function Get-MonsterTypeLine([int64]$type, [int64]$race) {
   if (($type -band 0x10) -ne 0) { $labels.Add("NORMAL") }
 
   return "[$($labels -join ' / ')]"
+}
+
+function Convert-NormalMonsterFrameToEffect(
+  [System.Drawing.Bitmap]$bitmap
+) {
+  $width = $bitmap.Width
+  $height = $bitmap.Height
+  $artLeft = [int]($width * 0.104)
+  $artTop = [int]($height * 0.173)
+  $artRight = [int]($width * 0.899)
+  $artBottom = [int]($height * 0.715)
+  $attributeX = [int]($width * 718 / 813)
+  $attributeY = [int]($height * 88 / 1185)
+  $attributeRadius = [int]($width * 37 / 813)
+  $attributeRadiusSquared = $attributeRadius * $attributeRadius
+  $rect = New-Object System.Drawing.Rectangle(0, 0, $width, $height)
+  $data = $bitmap.LockBits(
+    $rect,
+    [System.Drawing.Imaging.ImageLockMode]::ReadWrite,
+    [System.Drawing.Imaging.PixelFormat]::Format24bppRgb
+  )
+
+  try {
+    $bytes = New-Object byte[] ([Math]::Abs($data.Stride) * $height)
+    [System.Runtime.InteropServices.Marshal]::Copy($data.Scan0, $bytes, 0, $bytes.Length)
+
+    for ($y = 0; $y -lt $height; $y++) {
+      for ($x = 0; $x -lt $width; $x++) {
+        if ($x -ge $artLeft -and $x -le $artRight -and $y -ge $artTop -and $y -le $artBottom) {
+          continue
+        }
+
+        $dx = $x - $attributeX
+        $dy = $y - $attributeY
+        if (($dx * $dx + $dy * $dy) -le $attributeRadiusSquared) {
+          continue
+        }
+
+        $offset = ($y * $data.Stride) + ($x * 3)
+        $b = [int]$bytes[$offset]
+        $g = [int]$bytes[$offset + 1]
+        $r = [int]$bytes[$offset + 2]
+        if ($r -lt 80 -or $g -lt 55 -or $r -lt ($b + 12) -or $g -lt ($b - 5)) {
+          continue
+        }
+
+        if ([Math]::Max($r, [Math]::Max($g, $b)) -lt 45) {
+          continue
+        }
+
+        $targetB = $b * 0.594
+        $targetG = $g * 0.596
+        $targetR = $r * 0.938
+        $luma = (0.299 * $r) + (0.587 * $g) + (0.114 * $b)
+        $highlightBlend = [Math]::Max(0.0, [Math]::Min(1.0, ($luma - 150.0) / 60.0))
+        $effectBlend = 1.0 - (0.97 * $highlightBlend)
+
+        $bytes[$offset] = [byte][Math]::Max(0, [Math]::Min(255, [Math]::Round($b + (($targetB - $b) * $effectBlend))))
+        $bytes[$offset + 1] = [byte][Math]::Max(0, [Math]::Min(255, [Math]::Round($g + (($targetG - $g) * $effectBlend))))
+        $bytes[$offset + 2] = [byte][Math]::Max(0, [Math]::Min(255, [Math]::Round($r + (($targetR - $r) * $effectBlend))))
+      }
+    }
+
+    [System.Runtime.InteropServices.Marshal]::Copy($bytes, 0, $data.Scan0, $bytes.Length)
+  } finally {
+    $bitmap.UnlockBits($data)
+  }
+}
+
+function Copy-CircleFromBitmap(
+  [System.Drawing.Graphics]$graphics,
+  [System.Drawing.Bitmap]$source,
+  [int]$centerX,
+  [int]$centerY,
+  [int]$radius
+) {
+  $rect = New-Object System.Drawing.Rectangle(
+    ($centerX - $radius),
+    ($centerY - $radius),
+    ($radius * 2),
+    ($radius * 2)
+  )
+  $clip = New-Object System.Drawing.Drawing2D.GraphicsPath
+  $clip.AddEllipse($rect)
+  $state = $graphics.Save()
+  $graphics.SetClip($clip)
+  $graphics.DrawImage($source, $rect, $rect, [System.Drawing.GraphicsUnit]::Pixel)
+  $graphics.Restore($state)
+  $clip.Dispose()
+}
+
+function Restore-MonsterIconsFromSource(
+  [System.Drawing.Graphics]$graphics,
+  [System.Drawing.Bitmap]$source,
+  [int]$level
+) {
+  Copy-CircleFromBitmap $graphics $source 718 88 37
+
+  $visibleLevel = [Math]::Min(12, [Math]::Max(0, ($level -band 0xff)))
+  $starRadius = [int]([Math]::Ceiling((192 - 145) / 2))
+  $starSpacing = ($starRadius * 2) + 2
+  for ($starIndex = 0; $starIndex -lt $visibleLevel; $starIndex++) {
+    Copy-CircleFromBitmap $graphics $source (707 - ($starIndex * $starSpacing)) 169 $starRadius
+  }
 }
 
 function Add-GoldErrataFrame(
@@ -531,6 +640,19 @@ foreach ($card in $cards) {
   $graphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
   $graphics.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::AntiAliasGridFit
   $graphics.DrawImage($src, 0, 0, $targetWidth, $targetHeight)
+  $sourceBitmap = $bitmap.Clone()
+
+  $targetType = [int64]$card.type
+  $sourceType = [int64]$card.sourceType
+  if (
+    (($targetType -band 0x20) -ne 0) -and
+    (($targetType -band 0x10) -eq 0) -and
+    (($sourceType -band 0x10) -ne 0) -and
+    (($sourceType -band 0x20) -eq 0)
+  ) {
+    Convert-NormalMonsterFrameToEffect $bitmap
+    Restore-MonsterIconsFromSource $graphics $sourceBitmap ([int]$card.level)
+  }
 
   $layout = Get-TextLayout $bitmap.Width $bitmap.Height ([int64]$card.type)
   $preserved = $null
@@ -625,6 +747,7 @@ foreach ($card in $cards) {
   $font.Dispose()
   $graphics.Dispose()
   $bitmap.Dispose()
+  $sourceBitmap.Dispose()
   $src.Dispose()
   $inputStream.Dispose()
   [System.IO.File]::WriteAllBytes($output, $out.ToArray())

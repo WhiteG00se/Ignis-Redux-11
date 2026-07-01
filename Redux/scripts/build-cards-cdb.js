@@ -204,27 +204,30 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       9126351,
     );
   const slimeToadTextResult = db
-    .prepare("UPDATE texts SET name = ?, desc = ? WHERE id = ?")
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ? WHERE id = ?")
     .run(
       "Slime Toad",
-      '(This card is always treated as a "Frog" card.)\nIts actual name is "Frog, the Jam"!\nA slime with the head of a frog, it attacks by croaking terribly.',
+      '(This card is always treated as a "Frog" card.) Its actual name is "FROG THE JAM"!\nIf this card is Normal or Special Summoned from your hand, or flipped face-up: You can target 1 "Frog" monster in your GY; equip that target to this card. This card gains level, ATK and DEF equal to the original stats of the equipped monster. You can only use this effect of "Slime Toad" once per turn.',
+      'Equip 1 "Frog" monster from your GY to this card',
       68638985,
     );
   const frogSetcodeResult = db
     .prepare("UPDATE datas SET setcode = ? WHERE id IN (?, ?)")
     .run(0x12, 68638985, 20663556);
   const slimeToadTypeResult = db
-    .prepare("UPDATE datas SET type = type | ? WHERE id = ?")
-    .run(0x1000, 68638985);
+    .prepare("UPDATE datas SET type = (type | ?) & ~? WHERE id = ?")
+    .run(0x1020, 0x10, 68638985);
   const toadMasterTextResult = db
-    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
-      '(This card is always treated as a "Frog" card.)\nA hermit frog that has been in existence for thousands of years, it attacks with tadpoles.',
+      '(This card is always treated as a "Frog" card.)\nYou can discard 1 WATER monster to Special Summon this card from your hand.\nIf this card is sent to the GY, Special Summon 1 "Tadpole Token" (Aqua-Type/WATER/Level 2/Tuner/ATK 500/DEF 500).',
+      "Discard 1 WATER monster to Special Summon this card",
+      'Special Summon 1 "Tadpole Token"',
       62671448,
     );
   const toadMasterDataResult = db
-    .prepare("UPDATE datas SET type = type | ?, setcode = ? WHERE id = ?")
-    .run(0x1000, 0x12, 62671448);
+    .prepare("UPDATE datas SET type = (type | ?) & ~?, setcode = ? WHERE id = ?")
+    .run(0x1020, 0x10, 0x12, 62671448);
   const substitoadTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
