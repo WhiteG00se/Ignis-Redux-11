@@ -4,6 +4,7 @@ const path = require("path");
 const { copyFileInRedux } = require("./utils");
 
 const errataMarkers = new Map([
+  [72989440, "\u2b07\ufe0f"], // Black Luster Soldier - Envoy of the Beginning alternate art
   [72989439, "⬇️"], // Black Luster Soldier - Envoy of the Beginning
   [69243953, "⬆️"], // Butterfly Dagger - Elma
   [4031928, "⬇️"], // Change of Heart
@@ -39,6 +40,7 @@ const errataMarkers = new Map([
   [86099788, "\u2b07\ufe0f"], // The Last Warrior from Another Planet
 ]);
 const errataNamePrefix = "[Redux] ";
+const blackLusterSoldierPasscodes = [72989439, 72989440];
 
 module.exports = function buildCardsDb({ reduxRoot }) {
   const output = path.join(reduxRoot, "modded", "cards.cdb");
@@ -50,6 +52,28 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   });
 
   const db = new DatabaseSync(output);
+  const blackLusterSoldierAlternateArtResult = db
+    .prepare(
+      `INSERT INTO datas (
+        id, ot, alias, setcode, type, atk, def, level, race, attribute, category
+      )
+      SELECT ?, ot, ?, setcode, type, atk, def, level, race, attribute, category
+      FROM datas
+      WHERE id = ?`,
+    )
+    .run(72989440, 72989439, 72989439);
+  const blackLusterSoldierAlternateArtTextResult = db
+    .prepare(
+      `INSERT INTO texts (
+        id, name, desc, str1, str2, str3, str4, str5, str6, str7, str8, str9,
+        str10, str11, str12, str13, str14, str15, str16
+      )
+      SELECT ?, name, desc, str1, str2, str3, str4, str5, str6, str7, str8, str9,
+        str10, str11, str12, str13, str14, str15, str16
+      FROM texts
+      WHERE id = ?`,
+    )
+    .run(72989440, 72989439);
   const lastWillTextResult = db
     .prepare("UPDATE texts SET desc = ?, str2 = ? WHERE id = ?")
     .run(
@@ -137,6 +161,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "If this card is Normal or Special Summoned, or flipped face-up: Set both players' LP to 8000.",
       78706415,
     );
+  const fiberJarTypeResult = db
+    .prepare("UPDATE datas SET type = (type | ?) & ~? WHERE id = ?")
+    .run(0x1000, 0x200000, 78706415);
   const painfulChoiceTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
@@ -145,10 +172,10 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       74191942,
     );
   const blackLusterSoldierTextResult = db
-    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .prepare("UPDATE texts SET desc = ? WHERE id IN (?, ?)")
     .run(
       "Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn, you can activate 1 of these effects.\r\n● Target 1 face-up monster on the field; banish it. This card cannot attack the turn this effect is activated.\r\n● If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row, but it cannot inflict battle damage with that attack.",
-      72989439,
+      ...blackLusterSoldierPasscodes,
     );
   const elementalHeroStratosTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id IN (?, ?)")
@@ -308,12 +335,25 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   if (Number(fiberJarTextResult.changes) !== 1) {
     throw new Error("Expected to update Fiber Jar text once");
   }
+  if (Number(fiberJarTypeResult.changes) !== 1) {
+    throw new Error("Expected to update Fiber Jar type once");
+  }
   if (Number(painfulChoiceTextResult.changes) !== 1) {
     throw new Error("Expected to update Painful Choice text once");
   }
-  if (Number(blackLusterSoldierTextResult.changes) !== 1) {
+  if (Number(blackLusterSoldierAlternateArtResult.changes) !== 1) {
     throw new Error(
-      "Expected to update Black Luster Soldier - Envoy of the Beginning text once",
+      "Expected to add Black Luster Soldier - Envoy of the Beginning alternate art data once",
+    );
+  }
+  if (Number(blackLusterSoldierAlternateArtTextResult.changes) !== 1) {
+    throw new Error(
+      "Expected to add Black Luster Soldier - Envoy of the Beginning alternate art text once",
+    );
+  }
+  if (Number(blackLusterSoldierTextResult.changes) !== 2) {
+    throw new Error(
+      "Expected to update Black Luster Soldier - Envoy of the Beginning text twice",
     );
   }
   if (Number(elementalHeroStratosTextResult.changes) !== 2) {
