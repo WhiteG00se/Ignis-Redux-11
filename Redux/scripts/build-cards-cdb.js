@@ -206,11 +206,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       82732705,
     );
   const gatewayOfTheSixTextResult = db
-    .prepare("UPDATE texts SET desc = ?, str2 = ?, str3 = ? WHERE id = ?")
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
-      'Each time a "Six Samurai" monster(s) is Normal or Special Summoned, place 2 Bushido Counters on this card. You can only control 1 face-up "Gateway of the Six". You can remove Bushido Counters from your field to activate these effects.\n\u25cf2 Counters: Target 1 "Six Samurai" or "Shien" Effect Monster; that target gains 500 ATK until the end of this turn.\n\u25cf4 Counters: Target 1 "Shien" Effect Monster in your GY; Special Summon that target.\n\u25cf6 Counters: Add 1 "Six Samurai" monster from your Deck or GY to your hand.',
-      '4 Counters: Target 1 "Shien" Effect Monster in your GY; Special Summon that target.',
-      '6 Counters: Add 1 "Six Samurai" monster from your Deck or GY to your hand.',
+      'Each time a "Six Samurai" monster(s) is Normal or Special Summoned, place 2 Bushido Counters on this card. You can only control 1 "Gateway of the Six". You can remove Bushido Counters from your field to activate these effects. You can only use each of these effects of "Gateway of the Six" once per turn.\n\u25cf2 Counters: Target 1 "Six Samurai" monster; that target gains 300 ATK.\n\u25cf4 Counters: Add 1 "Six Samurai" monster from your Deck or GY to your hand.\n\u25cf6 Counters: Target 1 "Shien" monster in your GY; Special Summon that target.',
+      '2 Counters: Target 1 face-up "Six Samurai" monster; that target gains 300 ATK.',
+      '4 Counters: Add 1 "Six Samurai" monster from your Deck or GY to your hand.',
+      '6 Counters: Target 1 "Shien" monster in your GY; Special Summon that target.',
       27970830,
     );
   const blackWhirlwindTextResult = db

@@ -101,7 +101,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Yata-Garasu](https://yugioh.fandom.com/wiki/Yata-Garasu) | ⬇️ Skips Draw Phase unless opponent has 1 or fewer cards in hand |
 | `2` [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 🔄 Once per turn; banishes 1 hand card as cost; banishes itself; no battle damage |
 | `2` [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | ⬇️ Searches in End Phase; once per turn; attacks can target any Des Frog |
-| `2` [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | ⬇️ 4 counters revive; 6 counters search; only 1 face-up |
+| `2` [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | ⬇️ 300 ATK boost for Six Samurai only; each effect once per turn; only 1 controlled |
 | `2` [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | ⬇️ Draw 3; banish 3 |
 | `2` [Maxx "C"](https://yugioh.fandom.com/wiki/Maxx_%22C%22) | ⬇️ Chain to a Special Summon; Maxx "C" draws up to 2 per turn |
 | `2` [Monster Reborn](https://yugioh.fandom.com/wiki/Monster_Reborn) | ⬇️ Discard 1; becomes Equip Spell; destroys revived monster if it leaves |
