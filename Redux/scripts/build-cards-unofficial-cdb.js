@@ -87,7 +87,7 @@ module.exports = function buildCardsUnofficialDb({ reduxRoot }) {
   const mindMasterTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      'You can only use this effect of "Mind Master" once per turn. You can Tribute 1 monster; Special Summon 1 Level 4 or lower Psychic-Type monster from your hand, Deck, or GY in face-up Attack Position.',
+      'You can only use this effect of "Mind Master" once per turn. You can Tribute 1 monster; Special Summon 1 Level 4 or lower Psychic-Type monster from your hand, Deck, or GY.',
       511003019,
     ); // Mind Master (Pre-Errata)
   const diskCommanderTextResult = db
