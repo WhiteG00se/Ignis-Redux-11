@@ -117,6 +117,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Number 12: Crimson Shadow Armor Ninja](https://yugioh.fandom.com/wiki/Number_12:_Crimson_Shadow_Armor_Ninja) | ⬇️ Costs 2 materials |
 | `3` [Number 20: Giga-Brilliant](https://yugioh.fandom.com/wiki/Number_20:_Giga-Brilliant) | ⬆️ Gives 300 ATK/DEF |
 | `3` [Number 94: Crystalzero](https://yugioh.fandom.com/wiki/Number_94:_Crystalzero) | ⬆️ Materials can be any Attribute |
+| `3` [Ojama King](https://yugioh.fandom.com/wiki/Ojama_King) | ⬇️ Must first be Fusion Summoned |
 | `2` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
 | `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |

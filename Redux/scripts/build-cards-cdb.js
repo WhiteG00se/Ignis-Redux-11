@@ -42,6 +42,7 @@ const errataMarkers = new Map([
   [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
   [62070231, "\u2b06\ufe0f"], // Number 94: Crystalzero
   [86099788, "\u2b07\ufe0f"], // The Last Warrior from Another Planet
+  [90140980, "\u2b07\ufe0f"], // Ojama King
   [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
 ]);
@@ -146,6 +147,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .run(
       '"Zombyra the Dark" + "Maryokutai"\nNeither player can Special Summon monsters.',
       86099788,
+    );
+  const ojamaKingTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      '"Ojama Green" + "Ojama Yellow" + "Ojama Black"\nMust first be Fusion Summoned. Choose up to 3 of your opponent\'s unused Monster Zones. Those zones cannot be used.',
+      90140980,
     );
   const yataGarasuTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
@@ -411,6 +418,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(lastWarriorTextResult.changes) !== 1) {
     throw new Error("Expected to update The Last Warrior from Another Planet text once");
+  }
+  if (Number(ojamaKingTextResult.changes) !== 1) {
+    throw new Error("Expected to update Ojama King text once");
   }
   if (Number(yataGarasuTextResult.changes) !== 1) {
     throw new Error("Expected to update Yata-Garasu text once");
