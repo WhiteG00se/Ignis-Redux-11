@@ -76,7 +76,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
 | `1` [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | ⬇️ Face-up banish only; second attack deals no damage |
 | `1` [Brionac, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Brionac,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
-| `1` [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | ⬇️ Discard 1; stolen monster: no battle damage while on field |
+| `2` [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | ⬇️ Discard 1; stolen monster: no battle damage while on field |
 | `1` [Chaos Emperor Dragon - Envoy of the End](https://yugioh.fandom.com/wiki/Chaos_Emperor_Dragon_-_Envoy_of_the_End) | 🔄 Banish 3 LIGHT or DARK monsters (at least 1 each); summon effect has no LP cost; destroy other cards; both gain 300 LP per card |
 | `1` [Cyber-Stein](https://yugioh.fandom.com/wiki/Cyber-Stein) | 🔄 Counts as Cyber; summon/flip trigger; no LP cost; Fusion monster: Defense Position & 0 ATK; Level 7+ effects negated |
 | `1` [Dark Hole](https://yugioh.fandom.com/wiki/Dark_Hole) | ⬇️ No battle damage |
@@ -115,7 +115,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | ⬆️ ATK/DEF: 1600/1200 to 1900/1900 |
 | `3` [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | ⬇️ Once per turn |
 | `3` [Night Assailant](https://yugioh.fandom.com/wiki/Night_Assailant) | ⬇️ Once per turn |
-| `3` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
+| `2` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
 | `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
 | `3` [The Last Warrior from Another Planet](https://yugioh.fandom.com/wiki/The_Last_Warrior_from_Another_Planet) | ⬇️ No monster destruction; only blocks Special Summons |
@@ -158,7 +158,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | 1 | `1` | 3 | ⬇️ |
 | [Final Countdown](https://yugioh.fandom.com/wiki/Final_Countdown) | 3 | `0` | 3 |  |
 | [Gearfried the Iron Knight](https://yugioh.fandom.com/wiki/Gearfried_the_Iron_Knight) | 3 | `0` | 3 |  |
-| [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | 0 | `1` | 0 | ⬇️ |
+| [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | 0 | `2` | 0 | ⬇️ |
 | [Chaos Emperor Dragon - Envoy of the End](https://yugioh.fandom.com/wiki/Chaos_Emperor_Dragon_-_Envoy_of_the_End) | 0 | `1` | 0 | 🔄 |
 | [Cyber-Stein](https://yugioh.fandom.com/wiki/Cyber-Stein) | 0 | `1` | 0 | 🔄 |
 | [Dark Magician of Chaos](https://yugioh.fandom.com/wiki/Dark_Magician_of_Chaos) | 0 | `1` | 0 | ⬇️ |
@@ -271,7 +271,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Magician of Faith](https://yugioh.fandom.com/wiki/Magician_of_Faith) | 0 | `3` | 0 |  |
 | [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | 0 | `3` | 0 | ⬆️ |
 | [Metamorphosis](https://yugioh.fandom.com/wiki/Metamorphosis) | 0 | `3` | 0 |  |
-| [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | 0 | `1` | 0 | ⬇️ |
+| [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | 0 | `2` | 0 | ⬇️ |
 | [Temple of the Kings](https://yugioh.fandom.com/wiki/Temple_of_the_Kings) | 0 | `3` | 0 |  |
 | [Time Seal](https://yugioh.fandom.com/wiki/Time_Seal) | 0 | `3` | 0 |  |
 | [Tribe-Infecting Virus](https://yugioh.fandom.com/wiki/Tribe-Infecting_Virus) | 0 | `3` | 0 |  |

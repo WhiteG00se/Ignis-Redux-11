@@ -7,12 +7,12 @@ const limitChanges = new Map([
   ["85602018", 1], // Last Will
   ["23557835", 2], // Dimension Fusion
   ["17484499", 3], // Exchange of the Spirit
-  ["4031928", 1], // Change of Heart
+  ["4031928", 2], // Change of Heart
   ["511000819", 1], // Chaos Emperor Dragon - Envoy of the End (Pre-Errata)
   ["511003012", 2], // Witch of the Black Forest (Pre-Errata)
   ["69015963", 1], // Cyber-Stein
   ["3078576", 1], // Yata-Garasu
-  ["12580477", 1], // Raigeki
+  ["12580477", 2], // Raigeki
   ["34206604", 1], // Magical Scientist
   ["78706415", 1], // Fiber Jar
   ["74191942", 1], // Painful Choice
