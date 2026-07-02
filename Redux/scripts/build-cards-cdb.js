@@ -135,7 +135,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const cyberSteinTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      "If this card is Normal or Special Summoned, or flipped face-up: You can Special Summon 1 Fusion Monster from your Extra Deck in face-up Defense Position, but its ATK becomes 0, also if it is Level 7 or higher, negate its effects.",
+      "If this card is Normal or Special Summoned, or flipped face-up: You can Special Summon 1 Level 10 or lower Fusion Monster from your Extra Deck in face-up Defense Position, but its ATK becomes 0, also if it is Level 7 or higher, negate its effects.",
       69015963,
     );
   const cyberSteinSetcodeResult = db
