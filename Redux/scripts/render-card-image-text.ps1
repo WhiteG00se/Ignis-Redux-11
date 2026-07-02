@@ -5,7 +5,7 @@ param(
     85602018, 3136426, 34206604, 44656491, 74191942, 82732705, 84749824,
     52687916, 3078576, 12580477, 23434538,
     12580478, 83764718, 83764719, 79571449, 9126351, 17484499, 21502796,
-    86099788, 20663556, 46239604, 68638985, 62671448
+    86099788, 20663556, 46239604, 68638985, 62671448, 19333131, 47805931
   ),
   [int[]]$UnofficialIds = @(
     511002993, 511000819, 511001039, 511000229, 511003116, 511002996,
@@ -446,7 +446,8 @@ function Add-GoldErrataFrame(
 }
 
 function Add-GoldErrataLetter(
-  [System.Drawing.Graphics]$graphics
+  [System.Drawing.Graphics]$graphics,
+  [int]$x
 ) {
   $fontSize = 74
   $font = New-Object System.Drawing.Font("Times New Roman", $fontSize, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
@@ -499,7 +500,7 @@ function Add-GoldErrataLetter(
   )
 
   $state = $graphics.Save()
-  $graphics.TranslateTransform(91, 174)
+  $graphics.TranslateTransform($x, 174)
   $graphics.RotateTransform(7)
   $graphics.FillPath($brush, $path)
   $graphics.DrawPath($shadowPen, $path)
@@ -518,10 +519,12 @@ function Add-GoldErrataLetter(
 function Add-ErrataMarker(
   [System.Drawing.Graphics]$graphics,
   [int]$width,
-  [int]$height
+  [int]$height,
+  [int64]$type
 ) {
   Add-GoldErrataFrame $graphics $width $height
-  Add-GoldErrataLetter $graphics
+  $letterX = if (($type -band 0x800000) -ne 0) { 66 } else { 91 }
+  Add-GoldErrataLetter $graphics $letterX
 }
 
 function Get-TextLayout([int]$width, [int]$height, [int64]$type) {
@@ -737,7 +740,7 @@ foreach ($card in $cards) {
   }
 
   if ([string]$card.name -like "[[]Redux[]]*") {
-    Add-ErrataMarker $graphics $bitmap.Width $bitmap.Height
+    Add-ErrataMarker $graphics $bitmap.Width $bitmap.Height ([int64]$card.type)
   }
   Add-SpellTrapSubtypeIcon $graphics $bitmap.Width $bitmap.Height ([int64]$card.type)
 

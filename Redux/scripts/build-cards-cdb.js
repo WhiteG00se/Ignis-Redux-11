@@ -37,6 +37,8 @@ const errataMarkers = new Map([
   [68638985, "\u267b\ufe0f"], // Slime Toad
   [46239604, "\u2b07\ufe0f"], // Dupe Frog
   [62671448, "\u267b\ufe0f"], // Toad Master
+  [19333131, "\u2b07\ufe0f"], // Number 12: Crimson Shadow Armor Ninja
+  [47805931, "\u2b06\ufe0f"], // Number 20: Giga-Brilliant
   [9126351, "\u2b06\ufe0f"], // Swap Frog
   [20663556, "\u267b\ufe0f"], // Substitoad
   [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
@@ -237,6 +239,20 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .run(
       "The equipped monster gains 800 ATK/DEF. When this card is destroyed and sent to the Graveyard while equipped: You can return this card to the hand.",
       69243953,
+    );
+  const crimsonShadowArmorNinjaTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      '2 Level 5 monsters\nOnce per turn, during either player\'s turn (Quick Effect): You can detach 2 Xyz Materials from this card; this turn, face-up "Ninja" monsters on the field cannot be destroyed by battle or by card effects.',
+      "Destruction immunity",
+      19333131,
+    );
+  const gigaBrilliantTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      "2 Level 3 monsters\nOnce per turn: You can detach 1 Xyz Material from this card; all face-up monsters you currently control gain 300 ATK/DEF.",
+      "Gain ATK/DEF",
+      47805931,
     );
   const swapFrogTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
@@ -440,6 +456,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(butterflyDaggerElmaTextResult.changes) !== 1) {
     throw new Error("Expected to update Butterfly Dagger - Elma text once");
+  }
+  if (Number(crimsonShadowArmorNinjaTextResult.changes) !== 1) {
+    throw new Error("Expected to update Number 12: Crimson Shadow Armor Ninja text once");
+  }
+  if (Number(gigaBrilliantTextResult.changes) !== 1) {
+    throw new Error("Expected to update Number 20: Giga-Brilliant text once");
   }
   if (Number(swapFrogTextResult.changes) !== 1) {
     throw new Error("Expected to update Swap Frog text once");

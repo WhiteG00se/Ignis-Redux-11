@@ -115,6 +115,8 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | ⬆️ ATK/DEF: 1600/1200 to 1900/1900 |
 | `3` [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | ⬇️ Once per turn |
 | `3` [Night Assailant](https://yugioh.fandom.com/wiki/Night_Assailant) | ⬇️ Once per turn |
+| `3` [Number 12: Crimson Shadow Armor Ninja](https://yugioh.fandom.com/wiki/Number_12:_Crimson_Shadow_Armor_Ninja) | ⬇️ Costs 2 materials |
+| `3` [Number 20: Giga-Brilliant](https://yugioh.fandom.com/wiki/Number_20:_Giga-Brilliant) | ⬆️ Gives 300 ATK/DEF |
 | `2` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
 | `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
@@ -221,6 +223,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Gachi Gachi Gantetsu](https://yugioh.fandom.com/wiki/Gachi_Gachi_Gantetsu) | 3 | `1` | 3 |  |
 | [Gladiator Beast War Chariot](https://yugioh.fandom.com/wiki/Gladiator_Beast_War_Chariot) | 3 | `1` | 3 |  |
 | [Gozen Match](https://yugioh.fandom.com/wiki/Gozen_Match) | 3 | `1` | 3 |  |
+| [Number 12: Crimson Shadow Armor Ninja](https://yugioh.fandom.com/wiki/Number_12:_Crimson_Shadow_Armor_Ninja) | 3 | `3` | 3 | ⬇️ |
 | [Rivalry of Warlords](https://yugioh.fandom.com/wiki/Rivalry_of_Warlords) | 3 | `1` | 3 |  |
 | [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | 3 | `1` | 3 | ⬆️ |
 | [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | 0 | `2` | 0 | ⬇️ |
