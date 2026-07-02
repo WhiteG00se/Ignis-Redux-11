@@ -209,7 +209,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Mystical Space Typhoon](https://yugioh.fandom.com/wiki/Mystical_Space_Typhoon) | 2 | `1` | 3 |  |
 | [Fishborg Blaster](https://yugioh.fandom.com/wiki/Fishborg_Blaster) | 3 | `1` | 0 | ⬇️ |
 | [Legendary Six Samurai - Shi En](https://yugioh.fandom.com/wiki/Legendary_Six_Samurai_-_Shi_En) | 3 | `1` | 1 |  |
-| [Primal Seed](https://yugioh.fandom.com/wiki/Primal_Seed) | 3 | `1` | 1 |  |
 | [Shien's Smoke Signal](https://yugioh.fandom.com/wiki/Shien's_Smoke_Signal) | 3 | `1` | 1 |  |
 | [T.G. Hyper Librarian](https://yugioh.fandom.com/wiki/T.G._Hyper_Librarian) | 3 | `1` | 1 |  |
 | [Trishula, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Trishula,_Dragon_of_the_Ice_Barrier) | 3 | `1` | 1 | ⬇️ |
@@ -293,6 +292,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Magical Stone Excavation](https://yugioh.fandom.com/wiki/Magical_Stone_Excavation) | 2 | `3` | 2 |  |
 | [Judgment Dragon](https://yugioh.fandom.com/wiki/Judgment_Dragon) | 2 | `3` | 3 |  |
 | [Overload Fusion](https://yugioh.fandom.com/wiki/Overload_Fusion) | 2 | `3` | 3 |  |
+| [Primal Seed](https://yugioh.fandom.com/wiki/Primal_Seed) | 3 | `3` | 1 |  |
 | [Spirit Reaper](https://yugioh.fandom.com/wiki/Spirit_Reaper) | 2 | `3` | 3 |  |
 | [Dewloren, Tiger King of the Ice Barrier](https://yugioh.fandom.com/wiki/Dewloren,_Tiger_King_of_the_Ice_Barrier) | 3 | `3` | 2 |  |
 

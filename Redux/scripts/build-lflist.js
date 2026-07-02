@@ -55,6 +55,7 @@ const limitChanges = new Map([
   ["45809008", 3], // Destiny Draw
   ["72302403", 1], // Swords of Revealing Light
   ["72405967", 1], // Royal Tribute
+  ["23701465", 3], // Primal Seed
   ["98494543", 3], // Magical Stone Excavation
   ["91623717", 0], // Chain Strike
   ["29843091", 1], // Ojama Trio
