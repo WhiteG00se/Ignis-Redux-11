@@ -6,7 +6,7 @@ const clientPath = path.join(repoRoot, "Ignis-Redux-11.exe");
 
 const masterRule1Param = 0x000d0700;
 const redux11Param = 0x000d0500;
-const masterRule1ForbiddenTypes = 0x05800000;
+const redux11ForbiddenTypes = 0x05000000;
 const expectedMasterRule1References = 7;
 
 function uint32le(value) {
@@ -93,7 +93,7 @@ function patchDefaultForbiddenTypes(binary) {
   injected[0] = 0xc7;
   injected[1] = 0x87;
   injected.writeUInt32LE(0x8c, 2);
-  injected.writeUInt32LE(masterRule1ForbiddenTypes, 6);
+  injected.writeUInt32LE(redux11ForbiddenTypes, 6);
   injected[10] = 0xc3;
 
   const callOffset = offsets[0];
