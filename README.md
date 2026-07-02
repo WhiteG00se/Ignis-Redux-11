@@ -73,6 +73,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 <!-- prettier-ignore -->
 | Cardname | Changes |
 | --- | --- |
+| `3` ["A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Tribute Reptile; can draw; GY effect summons Alien from hand once per turn |
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
 | `1` [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | ⬇️ Face-up banish only; second attack deals no damage |
 | `1` [Brionac, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Brionac,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
@@ -138,6 +139,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 <!-- prettier-ignore -->
 | Cardname | Mar 2011 | Redux | Sep 2011 | Errata |
 | --- | :---: | :---: | :---: | :---: |
+| ["A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | 3 | `3` | 3 | ⬆️ |
 | [Brain Control](https://yugioh.fandom.com/wiki/Brain_Control) | 0 | `0` | 0 |  |
 | [Card of Safe Return](https://yugioh.fandom.com/wiki/Card_of_Safe_Return) | 0 | `0` | 0 |  |
 | [Cold Wave](https://yugioh.fandom.com/wiki/Cold_Wave) | 0 | `0` | 0 |  |

@@ -46,6 +46,7 @@ const errataMarkers = new Map([
   [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
   [40391316, "\u2b07\ufe0f"], // Ojama Knight
+  [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
 ]);
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
@@ -110,6 +111,14 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "You cannot inflict battle damage this turn",
       12580477,
       12580478,
+    );
+  const aCellScatterBurstTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .run(
+      'Tribute 1 Reptile monster; distribute new A-Counters equal to its Level among your opponent\'s face-up monsters. After this effect resolves, you can draw 1 card.\nDuring your Main Phase: You can banish this card from your GY; Special Summon 1 "Alien" monster from your hand. You can only use this GY effect once per turn.',
+      "Draw 1 card",
+      'Special Summon 1 "Alien" monster from your hand',
+      73262676,
     );
   const monsterRebornTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id IN (?, ?)")
@@ -404,6 +413,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(raigekiTextResult.changes) !== 2) {
     throw new Error("Expected to update Raigeki text twice");
+  }
+  if (Number(aCellScatterBurstTextResult.changes) !== 1) {
+    throw new Error('Expected to update "A" Cell Scatter Burst text once');
   }
   if (Number(monsterRebornTextResult.changes) !== 2) {
     throw new Error("Expected to update Monster Reborn text twice");
