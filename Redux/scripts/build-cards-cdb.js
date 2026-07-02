@@ -47,6 +47,7 @@ const errataMarkers = new Map([
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
   [40391316, "\u2b07\ufe0f"], // Ojama Knight
   [62437709, "\u267b\ufe0f"], // Alien Grey
+  [652362, "\u2b06\ufe0f"], // Alien Ammonite
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
   [99342953, "\u2b07\ufe0f"], // Code A Ancient Ruins
   [96875080, "\u267b\ufe0f"], // Orbital Bombardment
@@ -124,6 +125,13 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Send 1 Spell/Trap from your Deck to the GY",
       "Place 1 A-Counter on 1 face-up card on the field",
       62437709,
+    );
+  const alienAmmoniteTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      'If this card is Normal or Special Summoned from your hand or GY: You can target 1 Level 4 or lower "Alien" monster in your GY; Special Summon it. You can only use this effect of "Alien Ammonite" once per turn.',
+      'Special Summon 1 Level 4 or lower "Alien" monster from your GY',
+      652362,
     );
   const aCellScatterBurstTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
@@ -452,6 +460,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(alienGreyTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Grey text once");
+  }
+  if (Number(alienAmmoniteTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Ammonite text once");
   }
   if (Number(aCellScatterBurstTextResult.changes) !== 1) {
     throw new Error('Expected to update "A" Cell Scatter Burst text once');
