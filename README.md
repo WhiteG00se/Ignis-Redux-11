@@ -82,7 +82,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Dark Hole](https://yugioh.fandom.com/wiki/Dark_Hole) | ⬇️ No battle damage |
 | `1` [Dark Magician of Chaos](https://yugioh.fandom.com/wiki/Dark_Magician_of_Chaos) | ⬇️ Once per turn |
 | `1` [Dark Strike Fighter](https://yugioh.fandom.com/wiki/Dark_Strike_Fighter) | ⬇️ Once per turn |
-| `1` [Elemental HERO Stratos](https://yugioh.fandom.com/wiki/Elemental_HERO_Stratos) | ⬇️ Once per turn |
 | `1` [Fiber Jar](https://yugioh.fandom.com/wiki/Fiber_Jar) | 🔄 Tuner; summon/flip trigger; sets both players to 8000 LP |
 | `1` [Fishborg Blaster](https://yugioh.fandom.com/wiki/Fishborg_Blaster) | ⬇️ Once per turn |
 | `1` [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | ⬇️ End Phase upkeep; optional 1000 LP |
@@ -190,7 +189,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Charge of the Light Brigade](https://yugioh.fandom.com/wiki/Charge_of_the_Light_Brigade) | 1 | `1` | 1 |  |
 | [Dark Armed Dragon](https://yugioh.fandom.com/wiki/Dark_Armed_Dragon) | 1 | `1` | 1 |  |
 | [Dark Hole](https://yugioh.fandom.com/wiki/Dark_Hole) | 1 | `1` | 1 | ⬇️ |
-| [Elemental HERO Stratos](https://yugioh.fandom.com/wiki/Elemental_HERO_Stratos) | 1 | `1` | 1 | ⬇️ |
+| [Elemental HERO Stratos](https://yugioh.fandom.com/wiki/Elemental_HERO_Stratos) | 1 | `1` | 1 |  |
 | [Future Fusion](https://yugioh.fandom.com/wiki/Future_Fusion) | 1 | `1` | 1 |  |
 | [Gorz the Emissary of Darkness](https://yugioh.fandom.com/wiki/Gorz_the_Emissary_of_Darkness) | 1 | `1` | 1 |  |
 | [Honest](https://yugioh.fandom.com/wiki/Honest) | 1 | `1` | 1 |  |

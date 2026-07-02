@@ -11,8 +11,6 @@ const errataMarkers = new Map([
   [69015963, "♻️"], // Cyber-Stein
   [53129443, "⬇️"], // Dark Hole
   [23557835, "♻️"], // Dimension Fusion
-  [40044918, "⬇️"], // Elemental HERO Stratos
-  [40044919, "⬇️"], // Elemental HERO Stratos alternate art
   [17484499, "⬇️"], // Exchange of the Spirit
   [78706415, "\u267b\ufe0f"], // Fiber Jar
   [93369354, "⬇️"], // Fishborg Blaster
@@ -189,13 +187,6 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .run(
       "Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn, you can activate 1 of these effects.\r\n● Target 1 face-up monster on the field; banish it. This card cannot attack the turn this effect is activated.\r\n● If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row, but it cannot inflict battle damage with that attack.",
       ...blackLusterSoldierPasscodes,
-    );
-  const elementalHeroStratosTextResult = db
-    .prepare("UPDATE texts SET desc = ? WHERE id IN (?, ?)")
-    .run(
-      'When this card is Normal or Special Summoned: You can activate 1 of these effects.\r\n\u25cf Destroy Spells/Traps on the field, up to the number of "HERO" monsters you control, except this card.\r\n\u25cf Add 1 "HERO" monster from your Deck to your hand.\r\nYou can only use this effect of "Elemental HERO Stratos" once per turn.',
-      40044918,
-      40044919,
     );
   const solemnWarningTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
@@ -446,9 +437,6 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     throw new Error(
       "Expected to update Black Luster Soldier - Envoy of the Beginning text twice",
     );
-  }
-  if (Number(elementalHeroStratosTextResult.changes) !== 2) {
-    throw new Error("Expected to update Elemental HERO Stratos text twice");
   }
   if (Number(solemnWarningTextResult.changes) !== 1) {
     throw new Error("Expected to update Solemn Warning text once");
