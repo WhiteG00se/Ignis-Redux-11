@@ -12,10 +12,4 @@ Gottoms, Synchro with anything, tribute anything
 Rework level 9 Synchro ally of justice field marshal,
 1 tuner + anything, piercing dmg and draw card when dealing battle damage to opponent
 
-Fix XYZ
-
-Script Error with Chaos Deck
-Number 20
-Number 94
-
 Buff Aliens

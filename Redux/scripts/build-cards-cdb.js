@@ -251,7 +251,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const crimsonShadowArmorNinjaTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      '2 Level 5 monsters\nOnce per turn, during either player\'s turn (Quick Effect): You can detach 2 Xyz Materials from this card; this turn, face-up "Ninja" monsters on the field cannot be destroyed by battle or by card effects.',
+      '2 Level 5 monsters\nDuring either player\'s turn (Quick Effect): You can detach 2 Xyz Materials from this card; this turn, face-up "Ninja" monsters cannot be destroyed by battle or by card effects.',
       "Destruction immunity",
       19333131,
     );
