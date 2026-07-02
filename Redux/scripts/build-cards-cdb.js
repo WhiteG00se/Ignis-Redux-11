@@ -18,6 +18,7 @@ const errataMarkers = new Map([
   [93369354, "⬇️"], // Fishborg Blaster
   [27970830, "⬇️"], // Gateway of the Six
   [85742772, "\u2b07\ufe0f"], // Gravity Bind
+  [91351370, "\u2b07\ufe0f"], // Black Whirlwind
   [85602018, "⬇️"], // Last Will
   [3136426, "\u2b07\ufe0f"], // Level Limit - Area B
   [34206604, "♻️"], // Magical Scientist
@@ -211,6 +212,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       '4 Counters: Target 1 "Shien" Effect Monster in your GY; Special Summon that target.',
       '6 Counters: Add 1 "Six Samurai" monster from your Deck or GY to your hand.',
       27970830,
+    );
+  const blackWhirlwindTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      'When a "Blackwing" monster is Normal Summoned to your field: You can add 1 "Blackwing" monster from your Deck to your hand with less ATK than that monster. You can only use this effect of "Black Whirlwind" once per turn.',
+      91351370,
     );
   const trishulaTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
@@ -420,6 +427,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(gatewayOfTheSixTextResult.changes) !== 1) {
     throw new Error("Expected to update Gateway of the Six text once");
+  }
+  if (Number(blackWhirlwindTextResult.changes) !== 1) {
+    throw new Error("Expected to update Black Whirlwind text once");
   }
   if (Number(trishulaTextResult.changes) !== 1) {
     throw new Error("Expected to update Trishula, Dragon of the Ice Barrier text once");

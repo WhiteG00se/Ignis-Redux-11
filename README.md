@@ -73,6 +73,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 <!-- prettier-ignore -->
 | Cardname | Changes |
 | --- | --- |
+| `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
 | `1` [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | ⬇️ Face-up banish only; second attack deals no damage |
 | `1` [Brionac, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Brionac,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
 | `1` [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | ⬇️ Discard 1; stolen monster: no battle damage while on field |
@@ -176,8 +177,8 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | 0 | `1` | 1 | ⬇️ |
 | [Heavy Storm](https://yugioh.fandom.com/wiki/Heavy_Storm) | 0 | `1` | 1 |  |
 | [Giant Trunade](https://yugioh.fandom.com/wiki/Giant_Trunade) | 1 | `1` | 0 |  |
-| [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | 1 | `1` | 1 |  |
-| [Blackwing - Gale the Whirlwind](https://yugioh.fandom.com/wiki/Blackwing_-_Gale_the_Whirlwind) | 1 | `1` | 1 |  |
+| [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | 1 | `2` | 1 | ⬇️ |
+| [Blackwing - Gale the Whirlwind](https://yugioh.fandom.com/wiki/Blackwing_-_Gale_the_Whirlwind) | 1 | `2` | 1 |  |
 | [Blackwing - Kalut the Moon Shadow](https://yugioh.fandom.com/wiki/Blackwing_-_Kalut_the_Moon_Shadow) | 1 | `1` | 1 |  |
 | [Brionac, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Brionac,_Dragon_of_the_Ice_Barrier) | 1 | `1` | 1 | ⬇️ |
 | [Card Destruction](https://yugioh.fandom.com/wiki/Card_Destruction) | 1 | `1` | 1 |  |

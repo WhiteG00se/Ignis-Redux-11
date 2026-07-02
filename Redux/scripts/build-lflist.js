@@ -73,6 +73,8 @@ const limitChanges = new Map([
   ["28297833", 2], // Necroface
   ["14943837", 3], // Debris Dragon
   ["73580471", 1], // Black Rose Dragon
+  ["91351370", 2], // Black Whirlwind
+  ["2009101", 2], // Blackwing - Gale the Whirlwind
   ["95503687", 2], // Lumina, Lightsworn Summoner
   ["511002631", 2], // Sangan
   ["27970830", 2], // Gateway of the Six
