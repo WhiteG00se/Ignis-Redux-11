@@ -45,6 +45,7 @@ const errataMarkers = new Map([
   [90140980, "\u2b07\ufe0f"], // Ojama King
   [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
+  [40391316, "\u2b07\ufe0f"], // Ojama Knight
 ]);
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
@@ -153,6 +154,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .run(
       '"Ojama Green" + "Ojama Yellow" + "Ojama Black"\nMust first be Fusion Summoned. Choose up to 3 of your opponent\'s unused Monster Zones. Those zones cannot be used.',
       90140980,
+    );
+  const ojamaKnightTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      '2 "Ojama" monsters\nMust first be Fusion Summoned. Choose up to 2 of your opponent\'s unused Monster Zones. Those zones cannot be used.',
+      40391316,
     );
   const yataGarasuTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
@@ -421,6 +428,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(ojamaKingTextResult.changes) !== 1) {
     throw new Error("Expected to update Ojama King text once");
+  }
+  if (Number(ojamaKnightTextResult.changes) !== 1) {
+    throw new Error("Expected to update Ojama Knight text once");
   }
   if (Number(yataGarasuTextResult.changes) !== 1) {
     throw new Error("Expected to update Yata-Garasu text once");
