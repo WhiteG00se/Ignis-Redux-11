@@ -84,7 +84,7 @@ const limitChanges = new Map([
   ["2295440", 2], // One for One
   ["32807846", 2], // Reinforcement of the Army
   ["213326", 1], // E - Emergency Call
-  ["23434538", 0], // Maxx "C"
+  ["23434538", 2], // Maxx "C"
   ["43040603", 3], // Monster Gate
   ["58577036", 2], // Reasoning
   ["67169062", 2], // Pot of Avarice

@@ -21,6 +21,7 @@ const errataMarkers = new Map([
   [85602018, "⬇️"], // Last Will
   [3136426, "\u2b07\ufe0f"], // Level Limit - Area B
   [34206604, "♻️"], // Magical Scientist
+  [23434538, "\u2b07\ufe0f"], // Maxx "C"
   [44656491, "\u2b07\ufe0f"], // Messenger of Peace
   [74191942, "⬇️"], // Painful Choice
   [82732705, "⬆️"], // Skill Drain
@@ -155,6 +156,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .run(
       'If this card is Normal or Special Summoned, or flipped face-up: You can Special Summon 1 Level 6 or lower Fusion Monster from your Extra Deck in face-up Defense Position, but it cannot inflict battle damage until your next End Phase.',
       34206604,
+    );
+  const maxxCTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      'When your opponent Special Summons a monster(s): You can send this card from your hand to the GY; draw 1 card, also each time your opponent Special Summons a monster(s) this turn, draw 1 card. You can only draw up to 2 cards with the effect of "Maxx "C"" per turn.',
+      23434538,
     );
   const fiberJarTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
@@ -374,6 +381,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(magicalScientistTextResult.changes) !== 1) {
     throw new Error("Expected to update Magical Scientist text once");
+  }
+  if (Number(maxxCTextResult.changes) !== 1) {
+    throw new Error('Expected to update Maxx "C" text once');
   }
   if (Number(fiberJarTextResult.changes) !== 1) {
     throw new Error("Expected to update Fiber Jar text once");

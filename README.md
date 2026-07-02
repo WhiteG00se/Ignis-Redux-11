@@ -102,6 +102,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `2` [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | ⬇️ Searches in End Phase; once per turn; attacks can target any Des Frog |
 | `2` [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | ⬇️ 4 counters revive; 6 counters search; only 1 face-up |
 | `2` [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | ⬇️ Draw 3; banish 3 |
+| `2` [Maxx "C"](https://yugioh.fandom.com/wiki/Maxx_%22C%22) | ⬇️ Chain to a Special Summon; Maxx "C" draws up to 2 per turn |
 | `2` [Monster Reborn](https://yugioh.fandom.com/wiki/Monster_Reborn) | ⬇️ Discard 1; becomes Equip Spell; destroys revived monster if it leaves |
 | `2` [Sangan](https://yugioh.fandom.com/wiki/Sangan) | ⬇️ Once per turn |
 | `2` [Slime Toad](https://yugioh.fandom.com/wiki/Slime_Toad) | 🔄 Effect Tuner; always Frog; equips Frog from GY and gains stats |
@@ -156,7 +157,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Gravity Bind](https://yugioh.fandom.com/wiki/Gravity_Bind) | 1 | `1` | 3 | ⬇️ |
 | [Final Countdown](https://yugioh.fandom.com/wiki/Final_Countdown) | 3 | `0` | 3 |  |
 | [Gearfried the Iron Knight](https://yugioh.fandom.com/wiki/Gearfried_the_Iron_Knight) | 3 | `0` | 3 |  |
-| [Maxx "C"](https://yugioh.fandom.com/wiki/Maxx_%22C%22) | 3 | `0` | 3 |  |
 | [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | 0 | `1` | 0 | ⬇️ |
 | [Chaos Emperor Dragon - Envoy of the End](https://yugioh.fandom.com/wiki/Chaos_Emperor_Dragon_-_Envoy_of_the_End) | 0 | `1` | 0 | 🔄 |
 | [Cyber-Stein](https://yugioh.fandom.com/wiki/Cyber-Stein) | 0 | `1` | 0 | 🔄 |
@@ -237,6 +237,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | 1 | `2` | 1 | ⬇️ |
 | [Gladiator Beast Bestiari](https://yugioh.fandom.com/wiki/Gladiator_Beast_Bestiari) | 1 | `2` | 1 |  |
 | [Lumina, Lightsworn Summoner](https://yugioh.fandom.com/wiki/Lumina,_Lightsworn_Summoner) | 1 | `2` | 1 |  |
+| [Maxx "C"](https://yugioh.fandom.com/wiki/Maxx_%22C%22) | 3 | `2` | 3 | ⬇️ |
 | [Mezuki](https://yugioh.fandom.com/wiki/Mezuki) | 1 | `2` | 1 |  |
 | [Monster Reborn](https://yugioh.fandom.com/wiki/Monster_Reborn) | 1 | `2` | 1 | ⬇️ |
 | [Necroface](https://yugioh.fandom.com/wiki/Necroface) | 1 | `2` | 1 |  |
