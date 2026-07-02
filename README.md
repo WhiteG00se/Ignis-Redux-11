@@ -122,6 +122,8 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
 | `3` [The Last Warrior from Another Planet](https://yugioh.fandom.com/wiki/The_Last_Warrior_from_Another_Planet) | ⬇️ No monster destruction; only blocks Special Summons |
 | `1` [Toad Master](https://yugioh.fandom.com/wiki/Toad_Master) | 🔄 Added; Effect Tuner; always Frog; discards WATER to summon; makes Tadpole Token |
+| `3` [X-Saber Airbellum](https://yugioh.fandom.com/wiki/X-Saber_Airbellum) | ⬇️ Once per turn |
+| `3` [XX-Saber Gottoms](https://yugioh.fandom.com/wiki/XX-Saber_Gottoms) | ⬇️ Once per turn |
 
 </details>
 

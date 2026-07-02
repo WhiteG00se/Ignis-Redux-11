@@ -43,6 +43,8 @@ const errataMarkers = new Map([
   [20663556, "\u267b\ufe0f"], // Substitoad
   [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
   [86099788, "\u2b07\ufe0f"], // The Last Warrior from Another Planet
+  [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
+  [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
 ]);
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
@@ -361,6 +363,18 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Level 4 or higher monsters cannot attack. Once per turn, during your End Phase, pay 1000 LP or destroy this card.",
       85742772,
     );
+  const xSaberAirbellumTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      'If this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from your opponent\'s hand. You can only use this effect of "X-Saber Airbellum" once per turn.',
+      90508760,
+    );
+  const xxSaberGottomsTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      '1 Tuner + 1 or more EARTH monsters\nYou can Tribute 1 "X-Saber" monster; discard 1 random card from your opponent\'s hand. You can only use this effect of "XX-Saber Gottoms" once per turn.',
+      52352005,
+    );
   const markErrataName = db.prepare("UPDATE texts SET name = ? || name || ? WHERE id = ?");
   const errataNameResults = [...errataMarkers].map(([id, marker]) =>
     markErrataName.run(errataNamePrefix, ` ${marker}`, id),
@@ -504,6 +518,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(gravityBindTextResult.changes) !== 1) {
     throw new Error("Expected to update Gravity Bind text once");
+  }
+  if (Number(xSaberAirbellumTextResult.changes) !== 1) {
+    throw new Error("Expected to update X-Saber Airbellum text once");
+  }
+  if (Number(xxSaberGottomsTextResult.changes) !== 1) {
+    throw new Error("Expected to update XX-Saber Gottoms text once");
   }
   if (errataNameResults.some((result) => Number(result.changes) !== 1)) {
     throw new Error("Expected to mark each official Redux errata card name once");
