@@ -201,7 +201,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Torrential Tribute](https://yugioh.fandom.com/wiki/Torrential_Tribute) | 1 | `1` | 1 |  |
 | [Mind Crush](https://yugioh.fandom.com/wiki/Mind_Crush) | 1 | `1` | 2 |  |
 | [Swords of Revealing Light](https://yugioh.fandom.com/wiki/Swords_of_Revealing_Light) | 1 | `1` | 2 |  |
-| [Chain Strike](https://yugioh.fandom.com/wiki/Chain_Strike) | 2 | `1` | 2 |  |
+| [Chain Strike](https://yugioh.fandom.com/wiki/Chain_Strike) | 2 | `0` | 2 |  |
 | [Magic Cylinder](https://yugioh.fandom.com/wiki/Magic_Cylinder) | 2 | `1` | 2 |  |
 | [Ojama Trio](https://yugioh.fandom.com/wiki/Ojama_Trio) | 2 | `1` | 2 |  |
 | [Royal Tribute](https://yugioh.fandom.com/wiki/Royal_Tribute) | 2 | `1` | 2 |  |

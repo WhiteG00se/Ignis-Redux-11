@@ -56,7 +56,7 @@ const limitChanges = new Map([
   ["72302403", 1], // Swords of Revealing Light
   ["72405967", 1], // Royal Tribute
   ["98494543", 3], // Magical Stone Excavation
-  ["91623717", 1], // Chain Strike
+  ["91623717", 0], // Chain Strike
   ["29843091", 1], // Ojama Trio
   ["62279055", 1], // Magic Cylinder
   ["15800838", 1], // Mind Crush
