@@ -112,7 +112,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 🔄 Once per turn; draw 1 on any Special Summon |
 | `3` [Exchange of the Spirit](https://yugioh.fandom.com/wiki/Exchange_of_the_Spirit) | ⬇️ once per duel (later format official errata) |
 | `3` [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | ⬆️ ATK/DEF: 1600/1200 to 1900/1900 |
-| `3` [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | ⬇️ Once per turn |
+| `1` [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | 🔄 Once per turn; no LP cost; tributes any monster; summons from hand/Deck/GY |
 | `3` [Night Assailant](https://yugioh.fandom.com/wiki/Night_Assailant) | ⬇️ Once per turn |
 | `3` [Number 12: Crimson Shadow Armor Ninja](https://yugioh.fandom.com/wiki/Number_12:_Crimson_Shadow_Armor_Ninja) | ⬇️ Costs 2 materials |
 | `3` [Number 20: Giga-Brilliant](https://yugioh.fandom.com/wiki/Number_20:_Giga-Brilliant) | ⬆️ Gives 300 ATK/DEF |
@@ -279,7 +279,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Temple of the Kings](https://yugioh.fandom.com/wiki/Temple_of_the_Kings) | 0 | `3` | 0 |  |
 | [Time Seal](https://yugioh.fandom.com/wiki/Time_Seal) | 0 | `3` | 0 |  |
 | [Tribe-Infecting Virus](https://yugioh.fandom.com/wiki/Tribe-Infecting_Virus) | 0 | `3` | 0 |  |
-| [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | 1 | `3` | 0 | ⬇️ |
+| [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | 1 | `1` | 0 | 🔄 |
 | [Allure of Darkness](https://yugioh.fandom.com/wiki/Allure_of_Darkness) | 1 | `3` | 1 |  |
 | [Left Arm of the Forbidden One](https://yugioh.fandom.com/wiki/Left_Arm_of_the_Forbidden_One) | 1 | `3` | 1 |  |
 | [Left Leg of the Forbidden One](https://yugioh.fandom.com/wiki/Left_Leg_of_the_Forbidden_One) | 1 | `3` | 1 |  |
