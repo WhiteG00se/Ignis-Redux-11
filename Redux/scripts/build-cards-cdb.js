@@ -33,6 +33,7 @@ const errataMarkers = new Map([
   [83764719, "\u2b07\ufe0f"], // Monster Reborn alternate art
   [79571449, "\u2b07\ufe0f"], // Graceful Charity
   [68638985, "\u267b\ufe0f"], // Slime Toad
+  [46239604, "\u2b07\ufe0f"], // Dupe Frog
   [62671448, "\u267b\ufe0f"], // Toad Master
   [9126351, "\u2b06\ufe0f"], // Swap Frog
   [20663556, "\u267b\ufe0f"], // Substitoad
@@ -293,9 +294,16 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const substitoadTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      '(This card is always treated as a "Frog" card.)\nDuring your turn (Quick Effect): You can Tribute 1 monster; Special Summon 1 "Frog" monster from your hand, Deck, or GY. You can only Special Summon each "Frog" monster once per turn with a "Substitoad" effect.',
+      '(This card is always treated as a "Frog" card.)\nDuring your turn (Quick Effect): You can Tribute 1 monster; Special Summon 1 "Frog" monster from your hand, Deck, or GY. You can only Special Summon each "Frog" monster up to twice per turn with a "Substitoad" effect.',
       'Special Summon 1 "Frog" monster from your hand, Deck, or GY',
       20663556,
+    );
+  const dupeFrogTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      'This card\'s name becomes "Des Frog" while on the field. Monsters your opponent controls cannot target monsters for attacks, except "Des Frog". If this card is sent from the field to the GY: During the End Phase of this turn, you can add 1 "Frog" monster from your Deck or GY to your hand, except "Dupe Frog". You can only use this effect of "Dupe Frog" once per turn.',
+      "Add 1 Frog in the End Phase",
+      46239604,
     );
   const rykoTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
@@ -438,6 +446,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(substitoadTextResult.changes) !== 1) {
     throw new Error("Expected to update Substitoad text once");
+  }
+  if (Number(dupeFrogTextResult.changes) !== 1) {
+    throw new Error("Expected to update Dupe Frog text once");
   }
   if (Number(rykoTextResult.changes) !== 1) {
     throw new Error("Expected to update Ryko, Lightsworn Hunter text once");

@@ -24,8 +24,9 @@ const limitChanges = new Map([
   ["511002992", 1], // Rescue Cat
   ["31560081", 3], // Magician of Faith
   ["511000818", 1], // Sinister Serpent
-  ["68638985", 1], // Slime Toad
-  ["20663556", 3], // Substitoad
+  ["68638985", 2], // Slime Toad
+  ["46239604", 2], // Dupe Frog
+  ["20663556", 2], // Substitoad
   ["93369354", 1], // Fishborg Blaster
   ["511000229", 1], // Dark Strike Fighter
   ["511002994", 1], // Goyo Guardian
@@ -91,6 +92,7 @@ const limitChanges = new Map([
   ["46052429", 2], // Advanced Ritual Art
   ["14087893", 2], // Book of Moon
   ["48976825", 2], // Burial from a Different Dimension
+  ["6540606", 2], // Spiritual Water Art - Aoi
   ["35059553", 1], // Kaiser Colosseum
   ["83986578", 1], // King Tiger Wanghu
   ["81674782", 1], // Dimensional Fissure

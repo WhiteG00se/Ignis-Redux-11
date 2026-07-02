@@ -32,7 +32,7 @@ function s.flagcode(c)
 	return id+code
 end
 function s.filter(c,e,tp)
-	return c:IsSetCard(SET_FROG) and Duel.GetFlagEffect(tp,s.flagcode(c))==0
+	return c:IsSetCard(SET_FROG) and Duel.GetFlagEffect(tp,s.flagcode(c))<2
 		and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
 end
 function s.target(e,tp,eg,ep,ev,re,r,rp,chk)

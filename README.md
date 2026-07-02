@@ -98,22 +98,23 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `1` [Solemn Warning](https://yugioh.fandom.com/wiki/Solemn_Warning) | ⬆️ Cost reduced to 1000 LP |
 | `1` [Trishula, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Trishula,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per duel |
 | `1` [Yata-Garasu](https://yugioh.fandom.com/wiki/Yata-Garasu) | ⬇️ Skips Draw Phase unless opponent has 1 or fewer cards in hand |
-| `2` [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | ⬇️ Draw 3; banish 3 |
 | `2` [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 🔄 Once per turn; banishes 1 hand card as cost; banishes itself; no battle damage |
+| `2` [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | ⬇️ Searches in End Phase; once per turn; attacks can target any Des Frog |
 | `2` [Gateway of the Six](https://yugioh.fandom.com/wiki/Gateway_of_the_Six) | ⬇️ 4 counters revive; 6 counters search; only 1 face-up |
+| `2` [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | ⬇️ Draw 3; banish 3 |
 | `2` [Monster Reborn](https://yugioh.fandom.com/wiki/Monster_Reborn) | ⬇️ Discard 1; becomes Equip Spell; destroys revived monster if it leaves |
 | `2` [Sangan](https://yugioh.fandom.com/wiki/Sangan) | ⬇️ Once per turn |
+| `2` [Slime Toad](https://yugioh.fandom.com/wiki/Slime_Toad) | 🔄 Effect Tuner; always Frog; equips Frog from GY and gains stats |
+| `2` [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 🔄 Counts as Frog; Quick Effect; summons from hand/Deck/GY; each Frog twice per turn |
 | `2` [Witch of the Black Forest](https://yugioh.fandom.com/wiki/Witch_of_the_Black_Forest) | ⬇️ Once per turn; searches less than 1000 DEF |
 | `3` [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | ⬆️ Equipped monster gains 800 ATK/DEF |
 | `3` [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 🔄 Once per turn; draw 1 on any Special Summon |
 | `3` [Exchange of the Spirit](https://yugioh.fandom.com/wiki/Exchange_of_the_Spirit) | ⬇️ once per duel (later format official errata) |
-| `1` [Slime Toad](https://yugioh.fandom.com/wiki/Slime_Toad) | 🔄 Effect Tuner; always Frog; equips Frog from GY and gains stats |
 | `3` [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | ⬆️ ATK/DEF: 1600/1200 to 1900/1900 |
 | `3` [Mind Master](https://yugioh.fandom.com/wiki/Mind_Master) | ⬇️ Once per turn |
 | `3` [Night Assailant](https://yugioh.fandom.com/wiki/Night_Assailant) | ⬇️ Once per turn |
 | `3` [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | ⬇️ Discard 1; no battle damage |
 | `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
-| `3` [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 🔄 Counts as Frog; Quick Effect; summons from hand/Deck/GY; each Frog once per turn |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
 | `3` [The Last Warrior from Another Planet](https://yugioh.fandom.com/wiki/The_Last_Warrior_from_Another_Planet) | ⬇️ No monster destruction; only blocks Special Summons |
 | `1` [Toad Master](https://yugioh.fandom.com/wiki/Toad_Master) | 🔄 Added; Effect Tuner; always Frog; discards WATER to summon; makes Tadpole Token |
@@ -225,6 +226,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Symbol of Heritage](https://yugioh.fandom.com/wiki/Symbol_of_Heritage) | 3 | `1` | 3 |  |
 | [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | 0 | `2` | 0 | ⬇️ |
 | [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 0 | `2` | 0 | 🔄 |
+| [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 0 | `2` | 0 | 🔄 |
 | [Witch of the Black Forest](https://yugioh.fandom.com/wiki/Witch_of_the_Black_Forest) | 0 | `2` | 0 | ⬇️ |
 | [Tsukuyomi](https://yugioh.fandom.com/wiki/Tsukuyomi) | 0 | `2` | 0 |  |
 | [Advanced Ritual Art](https://yugioh.fandom.com/wiki/Advanced_Ritual_Art) | 1 | `2` | 1 |  |
@@ -246,6 +248,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Return from the Different Dimension](https://yugioh.fandom.com/wiki/Return_from_the_Different_Dimension) | 1 | `2` | 1 |  |
 | [Sangan](https://yugioh.fandom.com/wiki/Sangan) | 1 | `2` | 1 | ⬇️ |
 | [Scapegoat](https://yugioh.fandom.com/wiki/Scapegoat) | 1 | `2` | 1 |  |
+| [Spiritual Water Art - Aoi](https://yugioh.fandom.com/wiki/Spiritual_Water_Art_-_Aoi) | 1 | `2` | 1 |  |
 | [Call of the Haunted](https://yugioh.fandom.com/wiki/Call_of_the_Haunted) | 1 | `2` | 2 |  |
 | [Necro Gardna](https://yugioh.fandom.com/wiki/Necro_Gardna) | 1 | `2` | 2 |  |
 | [Archlord Kristya](https://yugioh.fandom.com/wiki/Archlord_Kristya) | 2 | `2` | 2 |  |
@@ -255,11 +258,13 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Megamorph](https://yugioh.fandom.com/wiki/Megamorph) | 2 | `2` | 3 |  |
 | [Formula Synchron](https://yugioh.fandom.com/wiki/Formula_Synchron) | 3 | `2` | 1 |  |
 | [Pot of Avarice](https://yugioh.fandom.com/wiki/Pot_of_Avarice) | 3 | `2` | 1 |  |
+| [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | 3 | `2` | 3 | ⬇️ |
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `1` | 3 |  |
 | [Kaiser Colosseum](https://yugioh.fandom.com/wiki/Kaiser_Colosseum) | 3 | `1` | 3 |  |
 | [King Tiger Wanghu](https://yugioh.fandom.com/wiki/King_Tiger_Wanghu) | 3 | `1` | 3 |  |
 | [Macro Cosmos](https://yugioh.fandom.com/wiki/Macro_Cosmos) | 3 | `1` | 3 |  |
 | [Saber Hole](https://yugioh.fandom.com/wiki/Saber_Hole) | 3 | `2` | 3 |  |
+| [Slime Toad](https://yugioh.fandom.com/wiki/Slime_Toad) | 3 | `2` | 3 | 🔄 |
 | [Self-Destruct Button](https://yugioh.fandom.com/wiki/Self-Destruct_Button) | 3 | `0` | 3 |  |
 | [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | 0 | `3` | 0 | ⬆️ |
 | [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 0 | `3` | 0 | 🔄 |
@@ -267,7 +272,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Makyura the Destructor](https://yugioh.fandom.com/wiki/Makyura_the_Destructor) | 0 | `3` | 0 | ⬆️ |
 | [Metamorphosis](https://yugioh.fandom.com/wiki/Metamorphosis) | 0 | `3` | 0 |  |
 | [Raigeki](https://yugioh.fandom.com/wiki/Raigeki) | 0 | `1` | 0 | ⬇️ |
-| [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 0 | `3` | 0 | 🔄 |
 | [Temple of the Kings](https://yugioh.fandom.com/wiki/Temple_of_the_Kings) | 0 | `3` | 0 |  |
 | [Time Seal](https://yugioh.fandom.com/wiki/Time_Seal) | 0 | `3` | 0 |  |
 | [Tribe-Infecting Virus](https://yugioh.fandom.com/wiki/Tribe-Infecting_Virus) | 0 | `3` | 0 |  |

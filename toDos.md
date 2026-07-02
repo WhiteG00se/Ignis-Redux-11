@@ -4,4 +4,3 @@ card deck editor to width, aspect ratio fix, dynamic card amount
 
 elimination matches, no side board limit, rename side deck
 
-AOI to limited?
