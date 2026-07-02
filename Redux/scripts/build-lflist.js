@@ -51,7 +51,7 @@ const limitChanges = new Map([
   ["79106360", 1], // Morphing Jar #2
   ["85087012", 3], // Card Trooper
   ["70583986", 3], // Dewloren, Tiger King of the Ice Barrier
-  ["45305419", 1], // Symbol of Heritage
+  ["45305419", 3], // Symbol of Heritage
   ["45809008", 3], // Destiny Draw
   ["72302403", 1], // Swords of Revealing Light
   ["72405967", 1], // Royal Tribute
@@ -75,7 +75,7 @@ const limitChanges = new Map([
   ["95503687", 2], // Lumina, Lightsworn Summoner
   ["511002631", 2], // Sangan
   ["27970830", 2], // Gateway of the Six
-  ["48686504", 3], // Lonefire Blossom
+  ["48686504", 2], // Lonefire Blossom
   ["15341821", 2], // Dandylion
   ["16226796", 3], // Night Assailant (Pre-Errata)
   ["33420078", 2], // Plaguespreader Zombie

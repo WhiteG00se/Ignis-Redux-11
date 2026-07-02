@@ -223,7 +223,6 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Gozen Match](https://yugioh.fandom.com/wiki/Gozen_Match) | 3 | `1` | 3 |  |
 | [Rivalry of Warlords](https://yugioh.fandom.com/wiki/Rivalry_of_Warlords) | 3 | `1` | 3 |  |
 | [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | 3 | `1` | 3 | ⬆️ |
-| [Symbol of Heritage](https://yugioh.fandom.com/wiki/Symbol_of_Heritage) | 3 | `1` | 3 |  |
 | [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | 0 | `2` | 0 | ⬇️ |
 | [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 0 | `2` | 0 | 🔄 |
 | [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 0 | `2` | 0 | 🔄 |
@@ -288,7 +287,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Summoner Monk](https://yugioh.fandom.com/wiki/Summoner_Monk) | 1 | `3` | 2 |  |
 | [Tragoedia](https://yugioh.fandom.com/wiki/Tragoedia) | 1 | `3` | 2 |  |
 | [Debris Dragon](https://yugioh.fandom.com/wiki/Debris_Dragon) | 2 | `3` | 1 |  |
-| [Lonefire Blossom](https://yugioh.fandom.com/wiki/Lonefire_Blossom) | 2 | `3` | 1 |  |
+| [Lonefire Blossom](https://yugioh.fandom.com/wiki/Lonefire_Blossom) | 2 | `2` | 1 |  |
 | [Card Trooper](https://yugioh.fandom.com/wiki/Card_Trooper) | 2 | `3` | 2 |  |
 | [Magical Stone Excavation](https://yugioh.fandom.com/wiki/Magical_Stone_Excavation) | 2 | `3` | 2 |  |
 | [Judgment Dragon](https://yugioh.fandom.com/wiki/Judgment_Dragon) | 2 | `3` | 3 |  |
