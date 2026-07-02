@@ -117,6 +117,7 @@ const limitChanges = new Map([
   ["90846359", 1], // Rivalry of Warlords
   ["82732705", 1], // Skill Drain
   ["53567095", 2], // Icarus Attack
+  ["99342953", 2], // Code A Ancient Ruins
 ]);
 
 const extraPrintEntries = new Map([

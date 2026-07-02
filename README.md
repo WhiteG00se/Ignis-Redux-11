@@ -76,6 +76,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` ["A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Tribute Reptile; can draw; GY effect summons Alien from hand once per turn |
 | `3` [Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Send Reptile from hand or field; bottom-decks any field card; GY effect gives A-Counters |
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
+| `2` [Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | ⬇️ Hard once per turn; summons Reptile from hand/GY |
 | `1` [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | ⬇️ Face-up banish only; second attack deals no damage |
 | `1` [Brionac, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Brionac,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
 | `2` [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | ⬇️ Discard 1; stolen monster: no battle damage while on field |
@@ -269,6 +270,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Megamorph](https://yugioh.fandom.com/wiki/Megamorph) | 2 | `2` | 3 |  |
 | [Formula Synchron](https://yugioh.fandom.com/wiki/Formula_Synchron) | 3 | `2` | 1 |  |
 | [Pot of Avarice](https://yugioh.fandom.com/wiki/Pot_of_Avarice) | 3 | `2` | 1 |  |
+| [Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 3 | `2` | 3 | ⬇️ |
 | [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | 3 | `2` | 3 | ⬇️ |
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `1` | 3 |  |
 | [Kaiser Colosseum](https://yugioh.fandom.com/wiki/Kaiser_Colosseum) | 3 | `1` | 3 |  |

@@ -47,6 +47,7 @@ const errataMarkers = new Map([
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
   [40391316, "\u2b07\ufe0f"], // Ojama Knight
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
+  [99342953, "\u2b07\ufe0f"], // Code A Ancient Ruins
   [96875080, "\u267b\ufe0f"], // Orbital Bombardment
 ]);
 const errataNamePrefix = "[Redux] ";
@@ -128,6 +129,13 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Place 1 card on the bottom of the owner's Deck",
       "Place 1 A-Counter on your opponent's monsters",
       96875080,
+    );
+  const codeAAncientRuinsTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      'Each time a face-up "Alien" monster(s) is destroyed, place 1 A-Counter on this card. You can remove 2 A-Counters from anywhere on the field; Special Summon 1 Reptile monster from your hand or GY. You can only use this effect of "Code A Ancient Ruins" once per turn.',
+      "Special Summon 1 Reptile monster from your hand or GY",
+      99342953,
     );
   const monsterRebornTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id IN (?, ?)")
@@ -428,6 +436,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(orbitalBombardmentTextResult.changes) !== 1) {
     throw new Error("Expected to update Orbital Bombardment text once");
+  }
+  if (Number(codeAAncientRuinsTextResult.changes) !== 1) {
+    throw new Error("Expected to update Code A Ancient Ruins text once");
   }
   if (Number(monsterRebornTextResult.changes) !== 2) {
     throw new Error("Expected to update Monster Reborn text twice");
