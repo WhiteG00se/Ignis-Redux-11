@@ -40,6 +40,7 @@ const errataMarkers = new Map([
   [9126351, "\u2b06\ufe0f"], // Swap Frog
   [20663556, "\u267b\ufe0f"], // Substitoad
   [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
+  [62070231, "\u2b06\ufe0f"], // Number 94: Crystalzero
   [86099788, "\u2b07\ufe0f"], // The Last Warrior from Another Planet
   [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
@@ -246,6 +247,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "2 Level 3 monsters\nOnce per turn: You can detach 1 Xyz Material from this card; all face-up monsters you currently control gain 300 ATK/DEF.",
       "Gain ATK/DEF",
       47805931,
+    );
+  const crystalzeroTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      "2 Level 5 monsters\nDuring either player's turn: You can detach 1 Xyz Material from this card, then target 1 face-up monster on the field; its ATK becomes half its current ATK until the end of your turn.",
+      62070231,
     );
   const swapFrogTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
@@ -464,6 +471,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(gigaBrilliantTextResult.changes) !== 1) {
     throw new Error("Expected to update Number 20: Giga-Brilliant text once");
+  }
+  if (Number(crystalzeroTextResult.changes) !== 1) {
+    throw new Error("Expected to update Number 94: Crystalzero text once");
   }
   if (Number(swapFrogTextResult.changes) !== 1) {
     throw new Error("Expected to update Swap Frog text once");
