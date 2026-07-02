@@ -46,6 +46,7 @@ const errataMarkers = new Map([
   [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
   [40391316, "\u2b07\ufe0f"], // Ojama Knight
+  [98719226, "\u2b06\ufe0f"], // Alien Warrior
   [62437709, "\u267b\ufe0f"], // Alien Grey
   [652362, "\u2b06\ufe0f"], // Alien Ammonite
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
@@ -116,6 +117,13 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "You cannot inflict battle damage this turn",
       12580477,
       12580478,
+    );
+  const alienWarriorTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      'If this card is destroyed: You can place 2 A-Counters on face-up cards on the field. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK/DEF for each A-Counter during damage calculation only.)',
+      "Place 2 A-Counters on face-up cards on the field",
+      98719226,
     );
   const alienGreyTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
@@ -457,6 +465,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(raigekiTextResult.changes) !== 2) {
     throw new Error("Expected to update Raigeki text twice");
+  }
+  if (Number(alienWarriorTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Warrior text once");
   }
   if (Number(alienGreyTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Grey text once");
