@@ -49,6 +49,7 @@ const errataMarkers = new Map([
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
   [99342953, "\u2b07\ufe0f"], // Code A Ancient Ruins
   [96875080, "\u267b\ufe0f"], // Orbital Bombardment
+  [24082387, "\u267b\ufe0f"], // Crop Circles
 ]);
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
@@ -136,6 +137,14 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       'Each time a face-up "Alien" monster(s) is destroyed, place 1 A-Counter on this card. You can remove 2 A-Counters from anywhere on the field; Special Summon 1 Reptile monster from your hand or GY. You can only use this effect of "Code A Ancient Ruins" once per turn.',
       "Special Summon 1 Reptile monster from your hand or GY",
       99342953,
+    );
+  const cropCirclesTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .run(
+      'Activate only if there are A-Counters on the field. Flip all cards that can be flipped face-down.\nYou can banish this card from your GY; add 1 "Alien" monster from your Deck to your hand.',
+      "Flip all cards that can be flipped face-down",
+      'Add 1 "Alien" monster from your Deck to your hand',
+      24082387,
     );
   const monsterRebornTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id IN (?, ?)")
@@ -439,6 +448,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(codeAAncientRuinsTextResult.changes) !== 1) {
     throw new Error("Expected to update Code A Ancient Ruins text once");
+  }
+  if (Number(cropCirclesTextResult.changes) !== 1) {
+    throw new Error("Expected to update Crop Circles text once");
   }
   if (Number(monsterRebornTextResult.changes) !== 2) {
     throw new Error("Expected to update Monster Reborn text twice");

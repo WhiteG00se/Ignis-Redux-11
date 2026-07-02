@@ -82,6 +82,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `2` [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | ⬇️ Discard 1; stolen monster: no battle damage while on field |
 | `1` [Chaos Emperor Dragon - Envoy of the End](https://yugioh.fandom.com/wiki/Chaos_Emperor_Dragon_-_Envoy_of_the_End) | 🔄 Banish 3 LIGHT or DARK monsters (at least 1 each); summon effect has no LP cost; destroy other cards; both gain 300 LP per card |
 | `1` [Cyber-Stein](https://yugioh.fandom.com/wiki/Cyber-Stein) | 🔄 Counts as Cyber; summon/flip trigger; no LP cost; Level 10 or lower Fusion monster: Defense Position & 0 ATK; Level 7+ effects negated |
+| `1` [Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 🔄 Needs A-Counter on field; flips cards face-down; GY effect searches Alien monster |
 | `1` [Dark Hole](https://yugioh.fandom.com/wiki/Dark_Hole) | ⬇️ No battle damage |
 | `1` [Dark Magician of Chaos](https://yugioh.fandom.com/wiki/Dark_Magician_of_Chaos) | ⬇️ Once per turn |
 | `1` [Dark Strike Fighter](https://yugioh.fandom.com/wiki/Dark_Strike_Fighter) | ⬇️ Once per turn |
@@ -272,6 +273,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Pot of Avarice](https://yugioh.fandom.com/wiki/Pot_of_Avarice) | 3 | `2` | 1 |  |
 | [Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 3 | `2` | 3 | ⬇️ |
 | [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | 3 | `2` | 3 | ⬇️ |
+| [Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 3 | `1` | 3 | 🔄 |
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `1` | 3 |  |
 | [Kaiser Colosseum](https://yugioh.fandom.com/wiki/Kaiser_Colosseum) | 3 | `1` | 3 |  |
 | [King Tiger Wanghu](https://yugioh.fandom.com/wiki/King_Tiger_Wanghu) | 3 | `1` | 3 |  |
