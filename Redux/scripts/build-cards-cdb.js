@@ -47,6 +47,7 @@ const errataMarkers = new Map([
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
   [40391316, "\u2b07\ufe0f"], // Ojama Knight
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
+  [96875080, "\u267b\ufe0f"], // Orbital Bombardment
 ]);
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
@@ -119,6 +120,14 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Draw 1 card",
       'Special Summon 1 "Alien" monster from your hand',
       73262676,
+    );
+  const orbitalBombardmentTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .run(
+      "Send 1 Reptile monster from your hand or field to the GY, then target 1 card on the field; place that target on the bottom of the owner's Deck.\nYou can banish this card from your GY; place 1 A-Counter on all face-up monsters your opponent controls that can have an A-Counter.",
+      "Place 1 card on the bottom of the owner's Deck",
+      "Place 1 A-Counter on your opponent's monsters",
+      96875080,
     );
   const monsterRebornTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id IN (?, ?)")
@@ -416,6 +425,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(aCellScatterBurstTextResult.changes) !== 1) {
     throw new Error('Expected to update "A" Cell Scatter Burst text once');
+  }
+  if (Number(orbitalBombardmentTextResult.changes) !== 1) {
+    throw new Error("Expected to update Orbital Bombardment text once");
   }
   if (Number(monsterRebornTextResult.changes) !== 2) {
     throw new Error("Expected to update Monster Reborn text twice");
