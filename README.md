@@ -74,6 +74,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | Cardname | Changes |
 | --- | --- |
 | `3` ["A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Tribute Reptile; can draw; GY effect summons Alien from hand once per turn |
+| `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; End Phase GY effect sends Spell/Trap or gives A-Counter |
 | `3` [Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Send Reptile from hand or field; bottom-decks any field card; GY effect gives A-Counters |
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
 | `2` [Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | ⬇️ Hard once per turn; summons Reptile from hand/GY |
@@ -143,6 +144,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | Cardname | Mar 2011 | Redux | Sep 2011 | Errata |
 | --- | :---: | :---: | :---: | :---: |
 | ["A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | 3 | `3` | 3 | ⬆️ |
+| [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 3 | `3` | 3 | 🔄 |
 | [Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 3 | `3` | 3 | 🔄 |
 | [Brain Control](https://yugioh.fandom.com/wiki/Brain_Control) | 0 | `0` | 0 |  |
 | [Card of Safe Return](https://yugioh.fandom.com/wiki/Card_of_Safe_Return) | 0 | `0` | 0 |  |

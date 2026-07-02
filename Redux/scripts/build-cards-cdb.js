@@ -46,6 +46,7 @@ const errataMarkers = new Map([
   [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
   [40391316, "\u2b07\ufe0f"], // Ojama Knight
+  [62437709, "\u267b\ufe0f"], // Alien Grey
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
   [99342953, "\u2b07\ufe0f"], // Code A Ancient Ruins
   [96875080, "\u267b\ufe0f"], // Orbital Bombardment
@@ -114,6 +115,15 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "You cannot inflict battle damage this turn",
       12580477,
       12580478,
+    );
+  const alienGreyTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
+    .run(
+      "If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card.\nDuring either player's End Phase: You can banish this card from your GY; activate 1 of these effects.\n●Send 1 Spell/Trap from your Deck to the GY.\n●Place 1 A-Counter on 1 face-up card on the field.",
+      "Draw 1 card",
+      "Send 1 Spell/Trap from your Deck to the GY",
+      "Place 1 A-Counter on 1 face-up card on the field",
+      62437709,
     );
   const aCellScatterBurstTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
@@ -439,6 +449,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(raigekiTextResult.changes) !== 2) {
     throw new Error("Expected to update Raigeki text twice");
+  }
+  if (Number(alienGreyTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Grey text once");
   }
   if (Number(aCellScatterBurstTextResult.changes) !== 1) {
     throw new Error('Expected to update "A" Cell Scatter Burst text once');
