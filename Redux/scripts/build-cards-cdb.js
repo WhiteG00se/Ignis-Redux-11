@@ -46,6 +46,7 @@ const errataMarkers = new Map([
   [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
   [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
   [40391316, "\u2b07\ufe0f"], // Ojama Knight
+  [62315111, "\u267b\ufe0f"], // Alien Hunter
   [98719226, "\u2b06\ufe0f"], // Alien Warrior
   [62437709, "\u267b\ufe0f"], // Alien Grey
   [652362, "\u2b06\ufe0f"], // Alien Ammonite
@@ -124,6 +125,13 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       'If this card is destroyed: You can place 2 A-Counters on face-up cards on the field. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK/DEF for each A-Counter during damage calculation only.)',
       "Place 2 A-Counters on face-up cards on the field",
       98719226,
+    );
+  const alienHunterTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      "During your Standby Phase, if you control no monsters and this card is in your GY: You can place 1 Reptile monster from your hand on the bottom of your Deck; Special Summon this card. If this card is Special Summoned this way, you can draw 1 card and place 1 A-Counter on 1 face-up card on the field.",
+      "Special Summon this card from your GY",
+      62315111,
     );
   const alienGreyTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
@@ -468,6 +476,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(alienWarriorTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Warrior text once");
+  }
+  if (Number(alienHunterTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Hunter text once");
   }
   if (Number(alienGreyTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Grey text once");
