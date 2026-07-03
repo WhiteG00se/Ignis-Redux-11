@@ -61,6 +61,7 @@ module.exports = {
     39163598, // Planet Pollutant Virus
     97127906, // Alien Shocktrooper
     51192573, // Alien Cosmic Horror Gangi'el
+    68319538, // Cosmic Fortress Gol'gar
     69461394, // Ally of Justice Field Marshal
   ],
   unofficial: [

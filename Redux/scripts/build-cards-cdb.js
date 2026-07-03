@@ -467,6 +467,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       '1 Tuner + 1 or more EARTH monsters\nYou can Tribute 1 "X-Saber" monster; discard 1 random card from your opponent\'s hand. You can only use this effect of "XX-Saber Gottoms" once per turn.',
       52352005,
     );
+  const cosmicFortressGolgarTextResult = db
+    .prepare("UPDATE texts SET desc = ? WHERE id = ?")
+    .run(
+      "1 Reptile + 1 or more non-Tuner monsters\nOnce per turn, you can select any number of face-up Spell or Trap Cards. Return those cards to their owners' hands, and distribute new A-Counters among monsters on the field equal to the number of cards returned. Once per turn, you can remove 2 A-Counters from anywhere on the field to destroy 1 card your opponent controls.",
+      68319538,
+    );
   const fieldMarshalTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
@@ -686,6 +692,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(xxSaberGottomsTextResult.changes) !== 1) {
     throw new Error("Expected to update XX-Saber Gottoms text once");
+  }
+  if (Number(cosmicFortressGolgarTextResult.changes) !== 1) {
+    throw new Error("Expected to update Cosmic Fortress Gol'gar text once");
   }
   if (Number(fieldMarshalTextResult.changes) !== 1) {
     throw new Error("Expected to update Ally of Justice Field Marshal text once");
