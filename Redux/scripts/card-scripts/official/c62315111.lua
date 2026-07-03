@@ -4,29 +4,37 @@ function s.initial_effect(c)
 	--Special Summon this card from your GY
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(id,0))
-	e1:SetCategory(CATEGORY_SPECIAL_SUMMON+CATEGORY_DRAW+CATEGORY_COUNTER)
-	e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_TRIGGER_O)
-	e1:SetCode(EVENT_PHASE+PHASE_STANDBY)
+	e1:SetCategory(CATEGORY_SPECIAL_SUMMON+CATEGORY_DRAW+CATEGORY_COUNTER+CATEGORY_REMOVE)
+	e1:SetType(EFFECT_TYPE_IGNITION)
 	e1:SetRange(LOCATION_GRAVE)
-	e1:SetCountLimit(1,id)
+	e1:SetCountLimit(1,id,EFFECT_COUNT_CODE_OATH)
 	e1:SetCondition(s.spcon)
 	e1:SetCost(s.spcost)
 	e1:SetTarget(s.sptarget)
 	e1:SetOperation(s.spoperation)
 	c:RegisterEffect(e1)
 end
+s.listed_series={SET_ALIEN}
 s.counter_place_list={COUNTER_A}
 function s.spcon(e,tp,eg,ep,ev,re,r,rp)
-	return Duel.IsTurnPlayer(tp) and not Duel.IsExistingMatchingCard(Card.IsMonster,tp,LOCATION_MZONE,0,1,nil)
+	return not Duel.IsExistingMatchingCard(Card.IsMonster,tp,LOCATION_MZONE,0,1,nil)
 end
-function s.costfilter(c)
-	return c:IsRace(RACE_REPTILE) and c:IsMonster() and c:IsAbleToDeckAsCost()
+function s.handcostfilter(c)
+	return c:IsSetCard(SET_ALIEN) and c:IsAbleToDeckAsCost()
+end
+function s.gycostfilter(c,exc)
+	return c:IsAbleToRemoveAsCost() and c~=exc
 end
 function s.spcost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(s.costfilter,tp,LOCATION_HAND,0,1,nil) end
+	local c=e:GetHandler()
+	if chk==0 then return Duel.IsExistingMatchingCard(s.handcostfilter,tp,LOCATION_HAND,0,1,nil)
+		and Duel.IsExistingMatchingCard(s.gycostfilter,tp,LOCATION_GRAVE,0,2,c) end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TODECK)
-	local g=Duel.SelectMatchingCard(tp,s.costfilter,tp,LOCATION_HAND,0,1,1,nil)
-	Duel.SendtoDeck(g,nil,SEQ_DECKBOTTOM,REASON_COST)
+	local hg=Duel.SelectMatchingCard(tp,s.handcostfilter,tp,LOCATION_HAND,0,1,1,nil)
+	Duel.SendtoDeck(hg,nil,SEQ_DECKBOTTOM,REASON_COST)
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
+	local rg=Duel.SelectMatchingCard(tp,s.gycostfilter,tp,LOCATION_GRAVE,0,2,2,c)
+	Duel.Remove(rg,POS_FACEUP,REASON_COST)
 end
 function s.ctfilter(c)
 	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1)
