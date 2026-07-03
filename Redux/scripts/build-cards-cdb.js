@@ -62,6 +62,7 @@ const errataMarkers = new Map([
   [53291093, "\u267b\ufe0f"], // Mysterious Triangle
   [60946968, "\u267b\ufe0f"], // Otherworld - The "A" Zone
   [39163598, "\u267b\ufe0f"], // Planet Pollutant Virus
+  [97127906, "\u267b\ufe0f"], // Alien Shocktrooper
 ]);
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
@@ -187,6 +188,16 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienDogTypeResult = db
     .prepare("UPDATE datas SET type = (type | ?) WHERE id = ?")
     .run(0x1000, 15475415);
+  const alienShocktrooperTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      'If this card battles a monster with an A-Counter on it, during the Battle Step: You can banish 1 card from your GY, then send 1 banished card to the GY.',
+      "Banish 1 card from your GY, then send 1 banished card to the GY",
+      97127906,
+    );
+  const alienShocktrooperTypeResult = db
+    .prepare("UPDATE datas SET type = (type | ?) & ~? WHERE id = ?")
+    .run(0x20, 0x10, 97127906);
   const alienAmmoniteTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
@@ -569,6 +580,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(alienDogTypeResult.changes) !== 1) {
     throw new Error("Expected to update Alien Dog type once");
+  }
+  if (Number(alienShocktrooperTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Shocktrooper text once");
+  }
+  if (Number(alienShocktrooperTypeResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Shocktrooper type once");
   }
   if (Number(alienAmmoniteTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Ammonite text once");

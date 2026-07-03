@@ -88,6 +88,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Alien Otherworld - The "A" Zone](https://yugioh.fandom.com/wiki/Otherworld_-_The_%22A%22_Zone) | 🔄 Counts as Alien |
 | `3` [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 🔄 Shares high-level Alien control limit; A-Counters on all face-up non-Alien cards |
 | `3` [Alien Planet Pollutant Virus](https://yugioh.fandom.com/wiki/Planet_Pollutant_Virus) | 🔄 Counts as Alien |
+| `3` [Alien Shocktrooper](https://yugioh.fandom.com/wiki/Alien_Shocktrooper) | 🔄 Battle Step effect vs A-Counter monsters; banish from GY then send banished card to GY |
 | `3` [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | ⬆️ Destroy trigger; gives 2 A-Counters on non-Alien card(s) |
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
 | `1` [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | ⬇️ Face-up banish only; second attack deals no damage |
@@ -160,6 +161,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 3 | `3` | 3 | 🔄 |
 | [Alien Mothership Muusik'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 3 | `3` | 3 | 🔄 |
 | [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 3 | `3` | 3 | 🔄 |
+| [Alien Shocktrooper](https://yugioh.fandom.com/wiki/Alien_Shocktrooper) | 3 | `3` | 3 | 🔄 |
 | [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | 3 | `3` | 3 | ⬆️ |
 | [Alien Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 3 | `3` | 3 | 🔄 |
 | [Brain Control](https://yugioh.fandom.com/wiki/Brain_Control) | 0 | `0` | 0 |  |
