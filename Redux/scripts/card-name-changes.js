@@ -12,4 +12,5 @@ module.exports = new Set([
   53291093, // Alien Mysterious Triangle
   60946968, // Alien Otherworld - The "A" Zone
   39163598, // Alien Planet Pollutant Virus
+  51192573, // Alien Cosmic Horror Gangi'el
 ]);

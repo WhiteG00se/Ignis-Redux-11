@@ -63,6 +63,7 @@ const errataMarkers = new Map([
   [60946968, "\u267b\ufe0f"], // Otherworld - The "A" Zone
   [39163598, "\u267b\ufe0f"], // Planet Pollutant Virus
   [97127906, "\u267b\ufe0f"], // Alien Shocktrooper
+  [51192573, "\u267b\ufe0f"], // Alien Cosmic Horror Gangi'el
 ]);
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
@@ -198,6 +199,18 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienShocktrooperTypeResult = db
     .prepare("UPDATE datas SET type = (type | ?) & ~? WHERE id = ?")
     .run(0x20, 0x10, 97127906);
+  const alienCosmicHorrorGangielTextResult = db
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .run(
+      "Alien Cosmic Horror Gangi'el",
+      'If you have exactly 3 banished "Alien" cards: You can Special Summon this card from your hand. You can remove 1 A-Counter from anywhere on the field, and move 1 banished "Alien" card to your GY, then target 1 card on the field; return that target to its owner\'s hand. You can only use this effect of "Alien Cosmic Horror Gangi\'el" once per turn. You can only control 1 Level 6 or higher "Alien" monster.',
+      "Special Summon this card from your hand",
+      "Return 1 card on the field to its owner's hand",
+      51192573,
+    );
+  const alienCosmicHorrorGangielSetcodeResult = db
+    .prepare("UPDATE datas SET setcode = ? WHERE id = ?")
+    .run(0xc, 51192573);
   const alienAmmoniteTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
@@ -586,6 +599,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(alienShocktrooperTypeResult.changes) !== 1) {
     throw new Error("Expected to update Alien Shocktrooper type once");
+  }
+  if (Number(alienCosmicHorrorGangielTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Cosmic Horror Gangi'el text once");
+  }
+  if (Number(alienCosmicHorrorGangielSetcodeResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Cosmic Horror Gangi'el setcode once");
   }
   if (Number(alienAmmoniteTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Ammonite text once");

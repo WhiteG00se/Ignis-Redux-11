@@ -76,6 +76,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Alien "A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Counts as Alien; Tribute Alien; A-Counters on non-Alien cards; can draw; shared Alien GY effect summons from hand |
 | `3` [Alien Ammonite](https://yugioh.fandom.com/wiki/Alien_Ammonite) | ⬆️ Summon from hand/GY trigger; once per turn; summoned monster stays |
 | `3` [Alien Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 🔄 Counts as Alien; hard once per turn; summons Reptile from hand/GY |
+| `3` [Alien Cosmic Horror Gangi'el](https://yugioh.fandom.com/wiki/Cosmic_Horror_Gangi%27el) | 🔄 Counts as Alien; hand summon with exactly 3 banished Aliens; hard once per turn bounce; shares high-level Alien control limit |
 | `1` [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 🔄 Counts as Alien; flips cards face-down; shared Alien GY effect searches monster |
 | `3` [Alien Dog](https://yugioh.fandom.com/wiki/Alien_Dog) | ⬆️ Hand special summon while controlling Alien; once per turn 1 A-Counter on non-Alien card; Tuner |
 | `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; shared Alien GY effect sends Spell/Trap from Deck |
