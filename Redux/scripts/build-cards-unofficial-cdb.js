@@ -3,24 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const { copyFileInRedux } = require("./utils");
-
-const errataPasscodes = [
-  511002993, // Brionac, Dragon of the Ice Barrier
-  511000819, // Chaos Emperor Dragon - Envoy of the End
-  511001039, // Dark Magician of Chaos
-  511000229, // Dark Strike Fighter
-  511003116, // Destiny HERO - Disk Commander
-  511002996, // Imperial Order
-  21593987, // Makyura the Destructor
-  511003019, // Mind Master
-  16226796, // Night Assailant
-  511002992, // Rescue Cat
-  511000824, // Ring of Destruction
-  511000825, // Ring of Destruction alternate art
-  511002631, // Sangan
-  511000818, // Sinister Serpent
-  511003012, // Witch of the Black Forest
-];
+const { unofficial: errataPasscodes } = require("./redux-errata-passcodes");
 const errataNamePrefix = "[Redux] ";
 
 module.exports = function buildCardsUnofficialDb({ reduxRoot }) {

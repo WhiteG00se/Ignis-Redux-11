@@ -1,27 +1,25 @@
 param(
-  [int[]]$OfficialIds = @(
-    72989439, 72989440, 69243953, 4031928, 40391316, 69015963, 53129443,
-    23557835, 78706415, 93369354, 27970830, 85742772,
-    85602018, 3136426, 34206604, 44656491, 74191942, 82732705, 84749824,
-    90140980,
-    52687916, 3078576, 12580477, 23434538,
-    12580478, 83764718, 83764719, 79571449, 9126351, 17484499, 21502796,
-    86099788, 20663556, 46239604, 68638985, 62671448, 19333131, 47805931,
-    62070231, 90508760, 52352005, 15475415, 62315111, 98719226, 62437709, 652362, 73262676,
-    97697678, 99342953, 96875080, 24082387, 24104865, 63253763, 97127906, 51192573,
-    21768554, 53291093, 60946968, 39163598
-  ),
-  [int[]]$UnofficialIds = @(
-    511002993, 511000819, 511001039, 511000229, 511003116, 511002996,
-    21593987, 511003019, 16226796, 511002992, 511000824, 511000825, 511002631,
-    511000818, 511003012
-  ),
+  [int[]]$OfficialIds,
+  [int[]]$UnofficialIds,
   [switch]$OnlySpellTrap,
   [switch]$OnlyMonster
 )
 
 $ErrorActionPreference = "Stop"
 Add-Type -AssemblyName System.Drawing
+
+$passcodesScript = Join-Path $PSScriptRoot "redux-errata-passcodes.js"
+$passcodeJson = node -e "console.log(JSON.stringify(require(process.argv[1])))" $passcodesScript
+if ($LASTEXITCODE -ne 0) {
+  throw "Failed to load Redux errata passcodes"
+}
+$passcodes = $passcodeJson | ConvertFrom-Json
+if (-not $PSBoundParameters.ContainsKey("OfficialIds")) {
+  $OfficialIds = @($passcodes.official)
+}
+if (-not $PSBoundParameters.ContainsKey("UnofficialIds")) {
+  $UnofficialIds = @($passcodes.unofficial)
+}
 
 $repoRoot = Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "..\..")
 $assetsDir = Join-Path $repoRoot "Redux\assets\pics"

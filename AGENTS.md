@@ -53,12 +53,18 @@ For new Redux changes:
 2. Do not edit the baseline in `Redux/vanilla/` when making a format change.
 3. Express LF list and database changes in `Redux/scripts/`, then rebuild.
    Express effect-script overrides in `Redux/scripts/card-scripts/`, which
-   EDOPro reads directly.
+   EDOPro reads directly. Add new errata passcodes only to
+   `Redux/scripts/redux-errata-passcodes.js`.
 4. Update `README.md` whenever a card's forbidden / limited status, stats, or
    other card properties change, or its effect / English card text is errataed.
    Document all Redux banned-list changes in the banned-list table and all
    custom errata in the errata table.
-5. Verify generated output after the build, and verify behavior in EDOPro when
+5. Render Redux errata artwork into `Redux/assets/pics/` for every passcode in
+   `redux-errata-passcodes.js` (golden frame, shiny `R`, generated `.cdb` text).
+   Run `powershell -NoProfile -ExecutionPolicy Bypass -File Redux/scripts/render-card-image-text.ps1`
+   after adding or changing errata card text. The Redux build fails if any listed
+   passcode is missing its `Redux/assets/pics/<id>.jpg` file.
+6. Verify generated output after the build, and verify behavior in EDOPro when
    runtime load order or effect behavior matters.
 
 In the `README.md` errata table, describe changes in short and simplistic summary phrases (easy language)
