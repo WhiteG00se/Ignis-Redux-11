@@ -50,11 +50,14 @@ end
 function s.spop(e,tp,eg,ep,ev,re,r,rp,c)
 	Duel.RemoveCounter(tp,1,1,COUNTER_A,2,REASON_COST)
 end
+function s.ctfilter(c)
+	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1) and not c:IsSetCard(SET_ALIEN)
+end
 function s.cttg(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(Card.IsFaceup,tp,0,LOCATION_MZONE,1,nil) end
+	if chk==0 then return Duel.IsExistingMatchingCard(s.ctfilter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,nil) end
 end
 function s.ctop(e,tp,eg,ep,ev,re,r,rp)
-	local g=Duel.GetMatchingGroup(Card.IsFaceup,tp,0,LOCATION_MZONE,nil)
+	local g=Duel.GetMatchingGroup(s.ctfilter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,nil)
 	for tc in aux.Next(g) do
 		tc:AddCounter(COUNTER_A,1)
 	end

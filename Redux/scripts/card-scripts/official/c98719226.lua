@@ -28,7 +28,7 @@ end
 s.listed_series={SET_ALIEN}
 s.counter_place_list={COUNTER_A}
 function s.ctfilter(c)
-	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1)
+	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1) and not c:IsSetCard(SET_ALIEN)
 end
 function s.cttarget(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(s.ctfilter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,nil) end

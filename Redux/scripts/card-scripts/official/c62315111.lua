@@ -37,7 +37,7 @@ function s.spcost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Remove(rg,POS_FACEUP,REASON_COST)
 end
 function s.ctfilter(c)
-	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1)
+	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1) and not c:IsSetCard(SET_ALIEN)
 end
 function s.sptarget(e,tp,eg,ep,ev,re,r,rp,chk)
 	local c=e:GetHandler()

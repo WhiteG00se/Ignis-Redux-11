@@ -54,7 +54,7 @@ function s.activate(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function s.ctfilter(c)
-	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1)
+	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1) and not c:IsSetCard(SET_ALIEN)
 end
 function s.cttarget(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsOnField() and s.ctfilter(chkc) end

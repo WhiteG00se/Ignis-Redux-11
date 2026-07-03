@@ -141,8 +141,8 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienWarriorTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      'If this card is destroyed: You can place 2 A-Counters on face-up cards on the field. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK/DEF for each A-Counter during damage calculation only.)',
-      "Place 2 A-Counters on face-up cards on the field",
+      'If this card is destroyed: You can place 2 A-Counters on face-up non-"Alien" card(s). (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK/DEF for each A-Counter during damage calculation only.)',
+      'Place 2 A-Counters on face-up non-"Alien" card(s)',
       98719226,
     );
   const alienMotherTextResult = db
@@ -156,24 +156,24 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienOverlordTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      'You can remove 2 A-Counters from anywhere on the field to Special Summon this card from your hand. Once per turn, you can place 1 A-Counter on each face-up monster your opponent controls. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK and DEF for each A-Counter during damage calculation only.) You can only control 1 Level 6 or higher "Alien" monster.',
-      "Place A-Counters",
+      'You can remove 2 A-Counters from anywhere on the field to Special Summon this card from your hand. Once per turn, you can place 1 A-Counter on each face-up non-"Alien" card. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK and DEF for each A-Counter during damage calculation only.) You can only control 1 Level 6 or higher "Alien" monster.',
+      'Place 1 A-Counter on each face-up non-"Alien" card',
       63253763,
     );
   const alienHunterTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      'During your Main Phase, if you control no monsters and this card is in your GY: You can place 1 "Alien" card from your hand on the bottom of your Deck and banish 2 cards from your GY; Special Summon this card. If this card is Special Summoned this way, you can draw 1 card and place 1 A-Counter on 1 face-up card on the field. You can only use this effect of "Alien Hunter" once per turn.',
+      'During your Main Phase, if you control no monsters and this card is in your GY: You can place 1 "Alien" card from your hand on the bottom of your Deck and banish 2 cards from your GY; Special Summon this card. If this card is Special Summoned this way, you can draw 1 card and place 1 A-Counter on 1 face-up non-"Alien" card. You can only use this effect of "Alien Hunter" once per turn.',
       "Special Summon this card from your GY",
       62315111,
     );
   const alienGreyTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
-      'If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card.\nDuring either player\'s End Phase: You can banish this card from your GY; activate 1 of these effects. You can only use 1 "Alien" GY effect that banishes itself per turn.\n●Send 1 Spell/Trap from your Deck to the GY.\n●Place 1 A-Counter on 1 face-up card on the field.',
+      'If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card.\nDuring either player\'s End Phase: You can banish this card from your GY; send 1 Spell/Trap from your Deck to the GY. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Draw 1 card",
       "Send 1 Spell/Trap from your Deck to the GY",
-      "Place 1 A-Counter on 1 face-up card on the field",
+      "",
       62437709,
     );
   const alienDogTextResult = db
@@ -211,7 +211,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
       'Alien "A" Cell Scatter Burst',
-      'Tribute 1 Reptile monster; distribute new A-Counters equal to its Level among your opponent\'s face-up monsters. After this effect resolves, you can draw 1 card.\nDuring your Main Phase: You can banish this card from your GY; Special Summon 1 "Alien" monster from your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      'Tribute 1 "Alien" monster; distribute new A-Counters equal to its Level among face-up non-"Alien" cards. After this effect resolves, you can draw 1 card.\nDuring your Main Phase: You can banish this card from your GY; Special Summon 1 "Alien" monster from your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Draw 1 card",
       'Special Summon 1 "Alien" monster from your hand',
       73262676,
@@ -220,9 +220,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
       "Alien Orbital Bombardment",
-      'Send 1 "Alien" monster from your hand or field to the GY, then target 1 card on the field; place that target on the bottom of the owner\'s Deck. You can banish this card from your GY; place 1 A-Counter on 1 face-up card on the field that can have an A-Counter. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      'Send 1 "Alien" monster from your hand or field to the GY, then target 1 card on the field; place that target on the bottom of the owner\'s Deck. You can banish this card from your GY; place 1 A-Counter on 1 face-up non-"Alien" card. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Place 1 card on the bottom of the owner's Deck",
-      "Place 1 A-Counter on 1 face-up card",
+      'Place 1 A-Counter on 1 face-up non-"Alien" card',
       96875080,
     );
   const codeAAncientRuinsTextResult = db

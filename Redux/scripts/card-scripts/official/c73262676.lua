@@ -26,7 +26,7 @@ end
 s.listed_series={SET_ALIEN}
 s.counter_place_list={COUNTER_A}
 function s.cfilter(c)
-	return c:IsRace(RACE_REPTILE) and c:HasLevel()
+	return c:IsSetCard(SET_ALIEN) and c:IsMonster() and c:HasLevel()
 end
 function s.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.CheckReleaseGroupCost(tp,s.cfilter,1,false,nil,nil) end
@@ -36,17 +36,17 @@ function s.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Release(g,REASON_COST)
 end
 function s.ctfilter(c)
-	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1)
+	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1) and not c:IsSetCard(SET_ALIEN)
 end
 function s.target(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(s.ctfilter,tp,0,LOCATION_MZONE,1,nil) end
+	if chk==0 then return Duel.IsExistingMatchingCard(s.ctfilter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,nil) end
 	Duel.SetOperationInfo(0,CATEGORY_COUNTER,nil,1,0,COUNTER_A)
 	Duel.SetPossibleOperationInfo(0,CATEGORY_DRAW,nil,0,tp,1)
 end
 function s.operation(e,tp,eg,ep,ev,re,r,rp)
 	local ct=e:GetLabel()
 	for i=1,ct do
-		local g=Duel.GetMatchingGroup(s.ctfilter,tp,0,LOCATION_MZONE,nil)
+		local g=Duel.GetMatchingGroup(s.ctfilter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,nil)
 		if #g==0 then break end
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_COUNTER)
 		local sg=g:Select(tp,1,1,nil)

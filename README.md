@@ -73,22 +73,22 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 <!-- prettier-ignore -->
 | Cardname | Changes |
 | --- | --- |
-| `3` [Alien "A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Counts as Alien; Tribute Reptile; can draw; shared Alien GY effect summons from hand |
+| `3` [Alien "A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Counts as Alien; Tribute Alien; A-Counters on non-Alien cards; can draw; shared Alien GY effect summons from hand |
 | `3` [Alien Ammonite](https://yugioh.fandom.com/wiki/Alien_Ammonite) | ⬆️ Summon from hand/GY trigger; once per turn; summoned monster stays |
 | `3` [Alien Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 🔄 Counts as Alien; hard once per turn; summons Reptile from hand/GY |
 | `1` [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 🔄 Counts as Alien; flips cards face-down; shared Alien GY effect searches monster |
 | `3` [Alien Dog](https://yugioh.fandom.com/wiki/Alien_Dog) | ⬆️ Hand special summon while controlling Alien; once per turn 1 A-Counter on non-Alien card; Tuner |
-| `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; shared Alien GY effect sends Spell/Trap or gives A-Counter |
-| `3` [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 🔄 Main Phase GY summon by bottom-decking Alien from hand and banishing 2 GY cards; hard once per turn; can draw and give A-Counter |
+| `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; shared Alien GY effect sends Spell/Trap from Deck |
+| `3` [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 🔄 Main Phase GY summon by bottom-decking Alien from hand and banishing 2 GY cards; hard once per turn; can draw and give A-Counter on non-Alien card |
 | `3` [Alien Mass Hypnosis](https://yugioh.fandom.com/wiki/Mass_Hypnosis) | 🔄 Counts as Alien |
 | `3` [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 🔄 Summons itself with A-Counters; steals battle-destroyed A-Counter monsters; protects itself |
 | `3` [Alien Mothership Muusik'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 🔄 Counts as Alien; discards to summon itself; banish from GY to summon or search Alien |
 | `3` [Alien Mysterious Triangle](https://yugioh.fandom.com/wiki/Mysterious_Triangle) | 🔄 Counts as Alien |
-| `3` [Alien Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Counts as Alien; costs an Alien; bottom-decks any field card; shared Alien GY effect gives 1 A-Counter on 1 face-up card |
+| `3` [Alien Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Counts as Alien; costs an Alien; bottom-decks any field card; shared Alien GY effect gives 1 A-Counter on non-Alien card |
 | `3` [Alien Otherworld - The "A" Zone](https://yugioh.fandom.com/wiki/Otherworld_-_The_%22A%22_Zone) | 🔄 Counts as Alien |
-| `3` [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 🔄 Shares high-level Alien control limit |
+| `3` [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 🔄 Shares high-level Alien control limit; A-Counters on all face-up non-Alien cards |
 | `3` [Alien Planet Pollutant Virus](https://yugioh.fandom.com/wiki/Planet_Pollutant_Virus) | 🔄 Counts as Alien |
-| `3` [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | ⬆️ Destroy trigger; gives 2 A-Counters anywhere on field |
+| `3` [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | ⬆️ Destroy trigger; gives 2 A-Counters on non-Alien card(s) |
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
 | `1` [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | ⬇️ Face-up banish only; second attack deals no damage |
 | `1` [Brionac, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Brionac,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
