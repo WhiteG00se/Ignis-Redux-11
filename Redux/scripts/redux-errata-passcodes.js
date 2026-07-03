@@ -50,7 +50,7 @@ module.exports = {
     62437709, // Alien Grey
     15475415, // Alien Dog
     652362, // Alien Ammonite
-    97697678, // Alien Mothership Muusik'i
+    97697678, // Alien Mothership Musk'i
     73262676, // "A" Cell Scatter Burst
     99342953, // Code A Ancient Ruins
     96875080, // Orbital Bombardment

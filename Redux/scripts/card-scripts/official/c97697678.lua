@@ -1,4 +1,4 @@
---Alien Mothership Muusik'I (Redux-11 errata)
+--Alien Mothership Musk'I (Redux-11 errata)
 local s,id=GetID()
 function s.initial_effect(c)
 	--Special Summon this card from your hand

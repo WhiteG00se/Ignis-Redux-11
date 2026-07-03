@@ -159,8 +159,8 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienMothershipMuusikiTextResult = db
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
-      "Alien Mothership Muusik'I",
-      'You can discard 1 card; Special Summon this card from your hand if you control no monsters. You can banish 1 card from your GY; activate 1 of these effects. You can only use this effect of "Alien Mothership Muusik\'I" once per turn.\n●Special Summon 1 Level 4 or lower "Alien" monster from your Deck.\n●Add 1 "Alien" card from your Deck or GY to your hand.',
+      "Alien Mothership Musk'I",
+      'You can discard 1 card; Special Summon this card from your hand if you control no monsters. You can banish 1 card from your GY; activate 1 of these effects. You can only use this effect of "Alien Mothership Musk\'I" once per turn.\n●Special Summon 1 Level 4 or lower "Alien" monster from your Deck.\n●Add 1 "Alien" card from your Deck or GY to your hand.',
       "Special Summon this card from your hand",
       'Special Summon 1 Level 4 or lower "Alien" monster from your Deck',
       'Add 1 "Alien" card from your Deck or GY to your hand',
@@ -529,10 +529,10 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     throw new Error("Expected to update Alien Ammonite text once");
   }
   if (Number(alienMothershipMuusikiTextResult.changes) !== 1) {
-    throw new Error("Expected to update Alien Mothership Muusik'i text once");
+    throw new Error("Expected to update Alien Mothership Musk'i text once");
   }
   if (Number(alienMothershipMuusikiSetcodeResult.changes) !== 1) {
-    throw new Error("Expected to update Alien Mothership Muusik'i setcode once");
+    throw new Error("Expected to update Alien Mothership Musk'i setcode once");
   }
   if (Number(aCellScatterBurstTextResult.changes) !== 1) {
     throw new Error('Expected to update "A" Cell Scatter Burst text once');
