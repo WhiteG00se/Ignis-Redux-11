@@ -283,7 +283,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Return from the Different Dimension](https://yugioh.fandom.com/wiki/Return_from_the_Different_Dimension) | 1 | `2` | 1 |  |
 | [Sangan](https://yugioh.fandom.com/wiki/Sangan) | 1 | `2` | 1 | ⬇️ |
 | [Scapegoat](https://yugioh.fandom.com/wiki/Scapegoat) | 1 | `2` | 1 |  |
-| [Spiritual Water Art - Aoi](https://yugioh.fandom.com/wiki/Spiritual_Water_Art_-_Aoi) | 1 | `1` | 1 |  |
+| [Spiritual Water Art - Aoi](https://yugioh.fandom.com/wiki/Spiritual_Water_Art_-_Aoi) | 1 | `2` | 1 |  |
 | [Call of the Haunted](https://yugioh.fandom.com/wiki/Call_of_the_Haunted) | 1 | `2` | 2 |  |
 | [Necro Gardna](https://yugioh.fandom.com/wiki/Necro_Gardna) | 1 | `2` | 2 |  |
 | [Archlord Kristya](https://yugioh.fandom.com/wiki/Archlord_Kristya) | 2 | `2` | 2 |  |
