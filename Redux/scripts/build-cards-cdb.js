@@ -50,6 +50,7 @@ const errataMarkers = new Map([
   [98719226, "\u2b06\ufe0f"], // Alien Warrior
   [62437709, "\u267b\ufe0f"], // Alien Grey
   [652362, "\u2b06\ufe0f"], // Alien Ammonite
+  [97697678, "\u267b\ufe0f"], // Alien Mothership Muusik'i
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
   [99342953, "\u2b07\ufe0f"], // Code A Ancient Ruins
   [96875080, "\u267b\ufe0f"], // Orbital Bombardment
@@ -149,6 +150,19 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       'Special Summon 1 Level 4 or lower "Alien" monster from your GY',
       652362,
     );
+  const alienMothershipMuusikiTextResult = db
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
+    .run(
+      "Alien Mothership Muusik'I",
+      'You can discard 1 card; Special Summon this card from your hand if you control no monsters.\nYou can banish 1 card from your GY; activate 1 of these effects. You can only use this effect of "Alien Mothership Muusik\'I" once per turn.\n●Special Summon 1 Level 4 or lower "Alien" monster from your Deck.\n●Add 1 "Alien" card from your Deck or GY to your hand.',
+      "Special Summon this card from your hand",
+      'Special Summon 1 Level 4 or lower "Alien" monster from your Deck',
+      'Add 1 "Alien" card from your Deck or GY to your hand',
+      97697678,
+    );
+  const alienMothershipMuusikiSetcodeResult = db
+    .prepare("UPDATE datas SET setcode = ? WHERE id = ?")
+    .run(0xc, 97697678);
   const aCellScatterBurstTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
@@ -485,6 +499,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(alienAmmoniteTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Ammonite text once");
+  }
+  if (Number(alienMothershipMuusikiTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Mothership Muusik'i text once");
+  }
+  if (Number(alienMothershipMuusikiSetcodeResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Mothership Muusik'i setcode once");
   }
   if (Number(aCellScatterBurstTextResult.changes) !== 1) {
     throw new Error('Expected to update "A" Cell Scatter Burst text once');

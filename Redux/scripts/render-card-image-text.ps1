@@ -8,7 +8,7 @@ param(
     12580478, 83764718, 83764719, 79571449, 9126351, 17484499, 21502796,
     86099788, 20663556, 46239604, 68638985, 62671448, 19333131, 47805931,
     62070231, 90508760, 52352005, 62315111, 98719226, 62437709, 652362, 73262676,
-    99342953, 96875080, 24082387
+    97697678, 99342953, 96875080, 24082387
   ),
   [int[]]$UnofficialIds = @(
     511002993, 511000819, 511001039, 511000229, 511003116, 511002996,
@@ -52,11 +52,12 @@ for (const [dbPath, sourceDbPath, ids] of jobs) {
   const db = new DatabaseSync(dbPath);
   const sourceDb = new DatabaseSync(sourceDbPath);
   const stmt = db.prepare("SELECT texts.id, texts.name, texts.desc, datas.type, datas.race, datas.atk, datas.def, datas.level, datas.attribute FROM texts JOIN datas ON datas.id = texts.id WHERE texts.id = ?");
-  const sourceStmt = sourceDb.prepare("SELECT type FROM datas WHERE id = ?");
+  const sourceStmt = sourceDb.prepare("SELECT texts.name, datas.type FROM texts JOIN datas ON datas.id = texts.id WHERE texts.id = ?");
   for (const id of ids) {
     const row = stmt.get(id);
     if (!row) throw new Error("Missing card metadata for " + id);
     const sourceRow = sourceStmt.get(id);
+    row.sourceName = sourceRow ? sourceRow.name : row.name;
     row.sourceType = sourceRow ? sourceRow.type : row.type;
     rows.push(row);
   }
@@ -530,6 +531,177 @@ function Add-ErrataMarker(
   Add-GoldErrataLetter $graphics $letterX
 }
 
+function Get-CleanCardName([string]$name) {
+  return (($name -replace '^\[Redux\]\s*', '') -replace '\s*[^\x00-\x7F]+$', '')
+}
+
+function Add-CardNameText(
+  [System.Drawing.Graphics]$graphics,
+  [System.Drawing.Bitmap]$bitmap,
+  [string]$name
+) {
+  $cleanName = Get-CleanCardName $name
+  $nameText = $cleanName.ToUpperInvariant()
+  $patchRect = New-Object System.Drawing.Rectangle(59, 61, 609, 64)
+  $templatePath = Join-Path $repoRoot "Redux\assets\templates\monster-name-textbox.png"
+  if (-not (Test-Path -LiteralPath $templatePath)) {
+    throw "Missing monster name textbox template: $templatePath"
+  }
+
+  $templateBytes = [System.IO.File]::ReadAllBytes($templatePath)
+  $templateStream = New-Object System.IO.MemoryStream @(,$templateBytes)
+  $templateImage = [System.Drawing.Image]::FromStream($templateStream)
+  $graphics.DrawImage($templateImage, $patchRect)
+  $templateImage.Dispose()
+  $templateStream.Dispose()
+
+  $fontFamily = New-Object System.Drawing.FontFamily("Times New Roman")
+  $format = [System.Drawing.StringFormat]::GenericTypographic
+  $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::Black)
+  $wordGap = [float]24
+  $largeSmallGap = [float]1.5
+  $maxTextWidth = [float]609
+
+  function Get-NameSegmentWidth(
+    [string]$text,
+    [float]$top,
+    [float]$bottom,
+    [float]$widthScale
+  ) {
+    if ($text.Length -eq 0) {
+      return [float]0
+    }
+
+    $path = New-Object System.Drawing.Drawing2D.GraphicsPath
+    $path.AddString(
+      $text,
+      $fontFamily,
+      [int][System.Drawing.FontStyle]::Bold,
+      [float]100,
+      [System.Drawing.PointF]::new(0, 0),
+      $format
+    )
+    $bounds = $path.GetBounds()
+    $height = $bottom - $top
+    $scaleY = $height / $bounds.Height
+    $width = [float]($bounds.Width * $scaleY * $widthScale)
+    $path.Dispose()
+    return $width
+  }
+
+  function Add-NameSegment(
+    [string]$text,
+    [float]$left,
+    [float]$top,
+    [float]$bottom,
+    [float]$widthScale
+  ) {
+    if ($text.Length -eq 0) {
+      return [float]0
+    }
+
+    $path = New-Object System.Drawing.Drawing2D.GraphicsPath
+    $path.AddString(
+      $text,
+      $fontFamily,
+      [int][System.Drawing.FontStyle]::Bold,
+      [float]100,
+      [System.Drawing.PointF]::new(0, 0),
+      $format
+    )
+    $bounds = $path.GetBounds()
+    $height = $bottom - $top
+    $scaleY = $height / $bounds.Height
+    $scaleX = $scaleY * $widthScale
+    $state = $graphics.Save()
+    $graphics.TranslateTransform(
+      [float]($left - ($bounds.Left * $scaleX)),
+      [float]($bottom - ($bounds.Bottom * $scaleY))
+    )
+    $graphics.ScaleTransform([float]$scaleX, [float]$scaleY)
+    $graphics.FillPath($brush, $path)
+    $graphics.Restore($state)
+    $width = [float]($bounds.Width * $scaleX)
+    $path.Dispose()
+    return $width
+  }
+
+  function Get-NameRuns(
+    [string]$word,
+    [string]$sourceWord
+  ) {
+    $runs = New-Object System.Collections.Generic.List[object]
+    $currentText = ""
+    $currentIsLarge = $null
+
+    for ($charIndex = 0; $charIndex -lt $word.Length; $charIndex++) {
+      $char = $word.Substring($charIndex, 1)
+      $sourceChar = $sourceWord.Substring($charIndex, 1)
+      $isLarge = $charIndex -eq 0 -or ($sourceChar -cmatch '[A-Z]')
+      if ($null -ne $currentIsLarge -and $currentIsLarge -ne $isLarge) {
+        $runs.Add([PSCustomObject]@{ Text = $currentText; IsLarge = $currentIsLarge })
+        $currentText = ""
+      }
+      $currentText += $char
+      $currentIsLarge = $isLarge
+    }
+
+    if ($currentText.Length -gt 0) {
+      $runs.Add([PSCustomObject]@{ Text = $currentText; IsLarge = $currentIsLarge })
+    }
+
+    return $runs
+  }
+
+  $words = @($nameText -split " " | Where-Object { $_.Length -gt 0 })
+  $fullWidth = [float]0
+  $sourceWords = @(($cleanName -split " ") | Where-Object { $_.Length -gt 0 })
+  for ($wordIndex = 0; $wordIndex -lt $words.Count; $wordIndex++) {
+    $word = $words[$wordIndex]
+    $sourceWord = $sourceWords[$wordIndex]
+    $previousRunWasLarge = $false
+    foreach ($run in (Get-NameRuns $word $sourceWord)) {
+      if ($previousRunWasLarge -and -not $run.IsLarge) {
+        $fullWidth += $largeSmallGap
+      }
+      if ($run.IsLarge) {
+        $fullWidth += Get-NameSegmentWidth $run.Text 69 115 1
+      } else {
+        $fullWidth += Get-NameSegmentWidth $run.Text 80 115 1
+      }
+      $previousRunWasLarge = $run.IsLarge
+    }
+    $fullWidth += $wordGap
+  }
+  if ($words.Count -gt 0) {
+    $fullWidth -= $wordGap
+  }
+  $widthScale = if ($fullWidth -gt $maxTextWidth) { $maxTextWidth / $fullWidth } else { [float]1 }
+  $x = [float]59
+
+  for ($wordIndex = 0; $wordIndex -lt $words.Count; $wordIndex++) {
+    $word = $words[$wordIndex]
+    $sourceWord = $sourceWords[$wordIndex]
+    $previousRunWasLarge = $false
+    foreach ($run in (Get-NameRuns $word $sourceWord)) {
+      if ($previousRunWasLarge -and -not $run.IsLarge) {
+        $x += $largeSmallGap * $widthScale
+      }
+      if ($run.IsLarge) {
+        $x += Add-NameSegment $run.Text $x 69 115 $widthScale
+      } else {
+        $x += Add-NameSegment $run.Text $x 80 115 $widthScale
+      }
+      $previousRunWasLarge = $run.IsLarge
+    }
+    $x += $wordGap * $widthScale
+  }
+
+  $brush.Dispose()
+  $format.Dispose()
+  $fontFamily.Dispose()
+}
+
 function Get-TextLayout([int]$width, [int]$height, [int64]$type) {
   $isSpellOrTrap = (($type -band 0x2) -ne 0) -or (($type -band 0x4) -ne 0)
 
@@ -742,6 +914,9 @@ foreach ($card in $cards) {
     $statFont.Dispose()
   }
 
+  if ((Get-CleanCardName ([string]$card.name)) -ne (Get-CleanCardName ([string]$card.sourceName))) {
+    Add-CardNameText $graphics $bitmap ([string]$card.name)
+  }
   if ([string]$card.name -like "[[]Redux[]]*") {
     Add-ErrataMarker $graphics $bitmap.Width $bitmap.Height ([int64]$card.type)
   }
