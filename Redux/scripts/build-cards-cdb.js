@@ -199,9 +199,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
       "Alien Crop Circles",
-      'Activate only if there are A-Counters on the field. Flip all cards that can be flipped face-down. You can banish this card from your GY; add 1 "Alien" monster from your Deck to your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      'Activate only if there are A-Counters on the field. Flip all cards that can be flipped face-down. You can banish this card from your GY; add 1 "Alien" card from your Deck to your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Flip all cards that can be flipped face-down",
-      'Add 1 "Alien" monster from your Deck to your hand',
+      'Add 1 "Alien" card from your Deck to your hand',
       24082387,
     );
   const massHypnosisTextResult = db
