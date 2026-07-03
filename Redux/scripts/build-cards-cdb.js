@@ -266,8 +266,17 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       'Add 1 "Alien" monster from your Deck to your hand',
       24082387,
     );
+  const massHypnosisTextResult = db
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
+    .run(
+      "Alien Mass Hypnosis",
+      'Target up to 2 face-up monsters your opponent controls with A-Counters, and take control of them. Monsters taken by this effect cannot inflict battle damage this turn. During each of your End Phases, destroy this card. You can banish this card from your GY and discard the bottom card of your Deck; flip 1 face-up card on the field face-down. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      "During each of your End Phases, destroy this card",
+      "Monsters taken cannot inflict battle damage this turn",
+      "Flip 1 face-up card on the field face-down",
+      21768554,
+    );
   const alienNamedSpellTrapTextResults = [
-    [21768554, "Alien Mass Hypnosis"],
     [53291093, "Alien Mysterious Triangle"],
     [60946968, 'Alien Otherworld - The "A" Zone'],
     [39163598, "Alien Planet Pollutant Virus"],
@@ -626,6 +635,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(cropCirclesTextResult.changes) !== 1) {
     throw new Error("Expected to update Crop Circles text once");
+  }
+  if (Number(massHypnosisTextResult.changes) !== 1) {
+    throw new Error("Expected to update Mass Hypnosis text once");
   }
   if (alienNamedSpellTrapTextResults.some((result) => Number(result.changes) !== 1)) {
     throw new Error("Expected to update Alien Spell/Trap names once each");

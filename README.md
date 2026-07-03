@@ -81,7 +81,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Alien Dog](https://yugioh.fandom.com/wiki/Alien_Dog) | ⬆️ Hand special summon while controlling Alien; once per turn 1 A-Counter on non-Alien card; Tuner |
 | `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; shared Alien GY effect sends Spell/Trap from Deck |
 | `3` [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 🔄 Main Phase GY summon by bottom-decking Alien from hand and banishing 2 GY cards; hard once per turn; can draw and give A-Counter on non-Alien card |
-| `3` [Alien Mass Hypnosis](https://yugioh.fandom.com/wiki/Mass_Hypnosis) | 🔄 Counts as Alien |
+| `3` [Alien Mass Hypnosis](https://yugioh.fandom.com/wiki/Mass_Hypnosis) | 🔄 Counts as Alien; controls up to 2 A-Counter monsters; they deal no battle damage; shared Alien GY effect flips 1 card face-down |
 | `3` [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 🔄 Summons itself with A-Counters; steals battle-destroyed A-Counter monsters; protects itself |
 | `3` [Alien Mothership Muusik'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 🔄 Counts as Alien; discards to summon itself; banish from GY to summon or search Alien |
 | `3` [Alien Mysterious Triangle](https://yugioh.fandom.com/wiki/Mysterious_Triangle) | 🔄 Counts as Alien |

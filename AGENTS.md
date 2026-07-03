@@ -64,6 +64,11 @@ For new Redux changes:
 In the `README.md` errata table, describe changes in short and simplistic summary phrases (easy language)
 consistent with the existing entries rather than full card-text wording.
 
+In errataed card effect text (`.cdb` desc fields), do not insert line breaks
+(`\n`). Write the effect as continuous prose. The only exceptions are bullet
+points of list-style effects (`●` lines) and cases where the user explicitly
+requests a line break.
+
 When changing a card, check whether the selected passcode has alternate-art or
 alias print rows in the relevant `.cdb`. Apply Redux name markers, text changes,
 type/stat/property changes, and needed image metadata fixes to every print row
