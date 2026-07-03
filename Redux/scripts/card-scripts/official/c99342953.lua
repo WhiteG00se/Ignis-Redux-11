@@ -5,8 +5,9 @@ function s.initial_effect(c)
 	e1:SetType(EFFECT_TYPE_ACTIVATE)
 	e1:SetCode(EVENT_FREE_CHAIN)
 	c:RegisterEffect(e1)
-	--Place 1 A-Counter
+	--Place 1 A-Counter on 1 face-up non-"Alien" card
 	local e2=Effect.CreateEffect(c)
+	e2:SetCategory(CATEGORY_COUNTER)
 	e2:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
 	e2:SetRange(LOCATION_SZONE)
 	e2:SetCode(EVENT_DESTROYED)
@@ -25,16 +26,24 @@ function s.initial_effect(c)
 	e3:SetOperation(s.spop)
 	c:RegisterEffect(e3)
 end
-s.listed_series={SET_ALIEN}
 s.counter_place_list={COUNTER_A}
-function s.ctfilter(c)
+function s.ctdestroyfilter(c)
 	return c:IsPreviousLocation(LOCATION_MZONE) and c:IsPreviousPosition(POS_FACEUP) and c:IsPreviousSetCard(SET_ALIEN)
 end
+function s.ctplacefilter(c)
+	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1) and not c:IsSetCard(SET_ALIEN)
+end
 function s.ctcon(e,tp,eg,ep,ev,re,r,rp)
-	return eg:IsExists(s.ctfilter,1,nil)
+	return eg:IsExists(s.ctdestroyfilter,1,nil)
+		and Duel.IsExistingMatchingCard(s.ctplacefilter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,nil)
 end
 function s.ctop(e,tp,eg,ep,ev,re,r,rp)
-	e:GetHandler():AddCounter(COUNTER_NEED_ENABLE+COUNTER_A,1)
+	if not e:GetHandler():IsRelateToEffect(e) then return end
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_COUNTER)
+	local g=Duel.SelectMatchingCard(tp,s.ctplacefilter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,1,nil)
+	if #g>0 then
+		g:GetFirst():AddCounter(COUNTER_A,1)
+	end
 end
 function s.spcost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,1,COUNTER_A,2,REASON_COST) end

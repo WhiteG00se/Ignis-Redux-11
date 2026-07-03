@@ -5,7 +5,6 @@ module.exports = new Set([
   68638985, // Frog the Jam (was Slime Toad / FROG THE JAM)
   73262676, // Alien "A" Cell Scatter Burst
   97697678, // Alien Mothership Musk'I
-  99342953, // Alien Code A Ancient Ruins
   96875080, // Alien Orbital Bombardment
   24082387, // Alien Crop Circles
   21768554, // Alien Mass Hypnosis

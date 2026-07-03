@@ -75,7 +75,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | --- | --- |
 | `3` [Alien "A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Counts as Alien; Tribute Alien; A-Counters on non-Alien cards; can draw; shared Alien GY effect summons from hand |
 | `3` [Alien Ammonite](https://yugioh.fandom.com/wiki/Alien_Ammonite) | ⬆️ Summon from hand/GY trigger; once per turn; summoned monster stays |
-| `3` [Alien Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 🔄 Counts as Alien; hard once per turn; summons Reptile from hand/GY |
+| `3` [Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 🔄 Places A-Counters on non-Alien cards; hard once per turn; summons Reptile from hand/GY |
 | `3` [Alien Cosmic Horror Gangi'el](https://yugioh.fandom.com/wiki/Cosmic_Horror_Gangi%27el) | 🔄 Counts as Alien; hand summon with exactly 3 banished Aliens; hard once per turn bounce; shares high-level Alien control limit |
 | `3` [Cosmic Fortress Gol'gar](https://yugioh.fandom.com/wiki/Cosmic_Fortress_Gol%27gar) | 🔄 1 Reptile + 1+ non-Tuner monsters |
 | `1` [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 🔄 Counts as Alien; flips cards face-down; shared Alien GY effect searches card |
@@ -294,7 +294,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Megamorph](https://yugioh.fandom.com/wiki/Megamorph) | 2 | `2` | 3 |  |
 | [Formula Synchron](https://yugioh.fandom.com/wiki/Formula_Synchron) | 3 | `2` | 1 |  |
 | [Pot of Avarice](https://yugioh.fandom.com/wiki/Pot_of_Avarice) | 3 | `2` | 1 |  |
-| [Alien Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 3 | `2` | 3 | 🔄 |
+| [Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 3 | `2` | 3 | 🔄 |
 | [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | 3 | `3` | 3 | ⬇️ |
 | [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 3 | `1` | 3 | 🔄 |
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `1` | 3 |  |

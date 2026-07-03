@@ -8,7 +8,6 @@ const blackLusterSoldierPasscodes = [72989439, 72989440];
 const alienSpellTrapPasscodes = [
   73262676, // "A" Cell Scatter Burst
   17490535, // Alien Brain
-  99342953, // Code A Ancient Ruins
   24082387, // Crop Circles
   21768554, // Mass Hypnosis
   53291093, // Mysterious Triangle
@@ -188,11 +187,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       96875080,
     );
   const codeAAncientRuinsTextResult = db
-    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ? WHERE id = ?")
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
-      "Alien Code A Ancient Ruins",
-      'Each time a face-up "Alien" monster(s) is destroyed, place 1 A-Counter on this card. You can remove 2 A-Counters from anywhere on the field; Special Summon 1 Reptile monster from your hand or GY. You can only use this effect of "Code A Ancient Ruins" once per turn.',
+      "Code A Ancient Ruins",
+      'Each time a face-up "Alien" monster(s) is destroyed, place 1 A-Counter on 1 face-up non-"Alien" card. You can remove 2 A-Counters from anywhere on the field; Special Summon 1 Reptile monster from your hand or GY. You can only use this effect of "Code A Ancient Ruins" once per turn.',
       "Special Summon 1 Reptile monster from your hand or GY",
+      'Place 1 A-Counter on 1 face-up non-"Alien" card',
       99342953,
     );
   const cropCirclesTextResult = db
