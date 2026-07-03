@@ -51,6 +51,7 @@ const errataMarkers = new Map([
   [24104865, "\u267b\ufe0f"], // Alien Mother
   [63253763, "\u267b\ufe0f"], // Alien Overlord
   [62437709, "\u267b\ufe0f"], // Alien Grey
+  [15475415, "\u2b06\ufe0f"], // Alien Dog
   [652362, "\u2b06\ufe0f"], // Alien Ammonite
   [97697678, "\u267b\ufe0f"], // Alien Mothership Muusik'i
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
@@ -175,6 +176,17 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "Place 1 A-Counter on 1 face-up card on the field",
       62437709,
     );
+  const alienDogTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .run(
+      'While you control a face-up "Alien" monster and this card is in your hand: You can Special Summon this card. Once per turn: You can place 1 A-Counter on 1 face-up non-"Alien" card. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK and DEF for each A-Counter during damage calculation only.)',
+      "Special Summon this card from your hand",
+      'Place 1 A-Counter on 1 face-up non-"Alien" card',
+      15475415,
+    );
+  const alienDogTypeResult = db
+    .prepare("UPDATE datas SET type = (type | ?) WHERE id = ?")
+    .run(0x1000, 15475415);
   const alienAmmoniteTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
@@ -551,6 +563,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(alienGreyTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Grey text once");
+  }
+  if (Number(alienDogTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Dog text once");
+  }
+  if (Number(alienDogTypeResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Dog type once");
   }
   if (Number(alienAmmoniteTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Ammonite text once");

@@ -77,6 +77,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Alien Ammonite](https://yugioh.fandom.com/wiki/Alien_Ammonite) | ⬆️ Summon from hand/GY trigger; once per turn; summoned monster stays |
 | `3` [Alien Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 🔄 Counts as Alien; hard once per turn; summons Reptile from hand/GY |
 | `1` [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 🔄 Counts as Alien; flips cards face-down; shared Alien GY effect searches monster |
+| `3` [Alien Dog](https://yugioh.fandom.com/wiki/Alien_Dog) | ⬆️ Hand special summon while controlling Alien; once per turn 1 A-Counter on non-Alien card; Tuner |
 | `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; shared Alien GY effect sends Spell/Trap or gives A-Counter |
 | `3` [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 🔄 Main Phase GY summon by bottom-decking Alien from hand and banishing 2 GY cards; hard once per turn; can draw and give A-Counter |
 | `3` [Alien Mass Hypnosis](https://yugioh.fandom.com/wiki/Mass_Hypnosis) | 🔄 Counts as Alien |
