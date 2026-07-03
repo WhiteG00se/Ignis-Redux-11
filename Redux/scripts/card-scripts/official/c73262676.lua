@@ -1,5 +1,6 @@
---"A" Cell Scatter Burst (Redux-11 errata)
+--Alien "A" Cell Scatter Burst (Redux-11 errata)
 local s,id=GetID()
+local REDUX_ALIEN_GY_EFFECT=62437709
 function s.initial_effect(c)
 	--Place A-Counters, then you can draw 1 card
 	local e1=Effect.CreateEffect(c)
@@ -16,7 +17,7 @@ function s.initial_effect(c)
 	e2:SetCategory(CATEGORY_SPECIAL_SUMMON)
 	e2:SetType(EFFECT_TYPE_IGNITION)
 	e2:SetRange(LOCATION_GRAVE)
-	e2:SetCountLimit(1,id)
+	e2:SetCountLimit(1,REDUX_ALIEN_GY_EFFECT)
 	e2:SetCost(aux.bfgcost)
 	e2:SetTarget(s.sptarget)
 	e2:SetOperation(s.spoperation)

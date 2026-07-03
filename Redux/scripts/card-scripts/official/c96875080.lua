@@ -1,5 +1,6 @@
---Orbital Bombardment (Redux-11 errata)
+--Alien Orbital Bombardment (Redux-11 errata)
 local s,id=GetID()
+local REDUX_ALIEN_GY_EFFECT=62437709
 function s.initial_effect(c)
 	--Place 1 card on the bottom of the owner's Deck
 	local e1=Effect.CreateEffect(c)
@@ -18,6 +19,7 @@ function s.initial_effect(c)
 	e2:SetCategory(CATEGORY_COUNTER)
 	e2:SetType(EFFECT_TYPE_IGNITION)
 	e2:SetRange(LOCATION_GRAVE)
+	e2:SetCountLimit(1,REDUX_ALIEN_GY_EFFECT)
 	e2:SetCost(aux.bfgcost)
 	e2:SetTarget(s.cttarget)
 	e2:SetOperation(s.ctoperation)

@@ -73,23 +73,27 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 <!-- prettier-ignore -->
 | Cardname | Changes |
 | --- | --- |
-| `3` ["A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Tribute Reptile; can draw; GY effect summons Alien from hand once per turn |
+| `3` [Alien "A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | ⬆️ Counts as Alien; Tribute Reptile; can draw; shared Alien GY effect summons from hand |
 | `3` [Alien Ammonite](https://yugioh.fandom.com/wiki/Alien_Ammonite) | ⬆️ Summon from hand/GY trigger; once per turn; summoned monster stays |
-| `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; End Phase GY effect sends Spell/Trap or gives A-Counter |
+| `3` [Alien Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 🔄 Counts as Alien; hard once per turn; summons Reptile from hand/GY |
+| `1` [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 🔄 Counts as Alien; flips cards face-down; shared Alien GY effect searches monster |
+| `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; shared Alien GY effect sends Spell/Trap or gives A-Counter |
 | `2` [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 🔄 Standby GY summon by bottom-decking Reptile from hand; can draw and give A-Counter |
+| `3` [Alien Mass Hypnosis](https://yugioh.fandom.com/wiki/Mass_Hypnosis) | 🔄 Counts as Alien |
 | `3` [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 🔄 Summons itself with A-Counters; steals battle-destroyed A-Counter monsters; protects itself |
 | `3` [Alien Mothership Muusik'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 🔄 Counts as Alien; discards to summon itself; banish from GY to summon or search Alien |
+| `3` [Alien Mysterious Triangle](https://yugioh.fandom.com/wiki/Mysterious_Triangle) | 🔄 Counts as Alien |
+| `3` [Alien Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Counts as Alien; bottom-decks any field card; shared Alien GY effect gives A-Counters |
+| `3` [Alien Otherworld - The "A" Zone](https://yugioh.fandom.com/wiki/Otherworld_-_The_%22A%22_Zone) | 🔄 Counts as Alien |
 | `3` [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 🔄 Shares high-level Alien control limit |
+| `3` [Alien Planet Pollutant Virus](https://yugioh.fandom.com/wiki/Planet_Pollutant_Virus) | 🔄 Counts as Alien |
 | `3` [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | ⬆️ Destroy trigger; gives 2 A-Counters anywhere on field |
-| `3` [Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Send Reptile from hand or field; bottom-decks any field card; GY effect gives A-Counters |
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
-| `2` [Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | ⬇️ Hard once per turn; summons Reptile from hand/GY |
 | `1` [Black Luster Soldier - Envoy of the Beginning](https://yugioh.fandom.com/wiki/Black_Luster_Soldier_-_Envoy_of_the_Beginning) | ⬇️ Face-up banish only; second attack deals no damage |
 | `1` [Brionac, Dragon of the Ice Barrier](https://yugioh.fandom.com/wiki/Brionac,_Dragon_of_the_Ice_Barrier) | ⬇️ Once per turn |
 | `2` [Change of Heart](https://yugioh.fandom.com/wiki/Change_of_Heart) | ⬇️ Discard 1; stolen monster: no battle damage while on field |
 | `1` [Chaos Emperor Dragon - Envoy of the End](https://yugioh.fandom.com/wiki/Chaos_Emperor_Dragon_-_Envoy_of_the_End) | 🔄 Banish 3 LIGHT or DARK monsters (at least 1 each); summon effect has no LP cost; destroy other cards; both gain 300 LP per card |
 | `1` [Cyber-Stein](https://yugioh.fandom.com/wiki/Cyber-Stein) | 🔄 Counts as Cyber; summon/flip trigger; no LP cost; Level 10 or lower Fusion monster: Defense Position & 0 ATK; Level 7+ effects negated |
-| `1` [Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 🔄 Needs A-Counter on field; flips cards face-down; GY effect searches Alien monster |
 | `1` [Dark Hole](https://yugioh.fandom.com/wiki/Dark_Hole) | ⬇️ No battle damage |
 | `1` [Dark Magician of Chaos](https://yugioh.fandom.com/wiki/Dark_Magician_of_Chaos) | ⬇️ Once per turn |
 | `1` [Dark Strike Fighter](https://yugioh.fandom.com/wiki/Dark_Strike_Fighter) | ⬇️ Once per turn |
@@ -149,14 +153,14 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 <!-- prettier-ignore -->
 | Cardname | Mar 2011 | Redux | Sep 2011 | Errata |
 | --- | :---: | :---: | :---: | :---: |
-| ["A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | 3 | `3` | 3 | ⬆️ |
+| [Alien "A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | 3 | `3` | 3 | ⬆️ |
 | [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 3 | `3` | 3 | 🔄 |
 | [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 3 | `2` | 3 | 🔄 |
 | [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 3 | `3` | 3 | 🔄 |
 | [Alien Mothership Muusik'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 3 | `3` | 3 | 🔄 |
 | [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 3 | `3` | 3 | 🔄 |
 | [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | 3 | `3` | 3 | ⬆️ |
-| [Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 3 | `3` | 3 | 🔄 |
+| [Alien Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 3 | `3` | 3 | 🔄 |
 | [Brain Control](https://yugioh.fandom.com/wiki/Brain_Control) | 0 | `0` | 0 |  |
 | [Card of Safe Return](https://yugioh.fandom.com/wiki/Card_of_Safe_Return) | 0 | `0` | 0 |  |
 | [Cold Wave](https://yugioh.fandom.com/wiki/Cold_Wave) | 0 | `0` | 0 |  |
@@ -284,9 +288,9 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Megamorph](https://yugioh.fandom.com/wiki/Megamorph) | 2 | `2` | 3 |  |
 | [Formula Synchron](https://yugioh.fandom.com/wiki/Formula_Synchron) | 3 | `2` | 1 |  |
 | [Pot of Avarice](https://yugioh.fandom.com/wiki/Pot_of_Avarice) | 3 | `2` | 1 |  |
-| [Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 3 | `2` | 3 | ⬇️ |
+| [Alien Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 3 | `2` | 3 | 🔄 |
 | [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | 3 | `2` | 3 | ⬇️ |
-| [Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 3 | `1` | 3 | 🔄 |
+| [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 3 | `1` | 3 | 🔄 |
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `1` | 3 |  |
 | [Kaiser Colosseum](https://yugioh.fandom.com/wiki/Kaiser_Colosseum) | 3 | `1` | 3 |  |
 | [King Tiger Wanghu](https://yugioh.fandom.com/wiki/King_Tiger_Wanghu) | 3 | `1` | 3 |  |

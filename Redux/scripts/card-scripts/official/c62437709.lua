@@ -1,5 +1,6 @@
 --Alien Grey (Redux-11 errata)
 local s,id=GetID()
+local REDUX_ALIEN_GY_EFFECT=62437709
 function s.initial_effect(c)
 	--Draw 1 card
 	local e1=Effect.CreateEffect(c)
@@ -24,6 +25,7 @@ function s.initial_effect(c)
 	e4:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_TRIGGER_O)
 	e4:SetCode(EVENT_PHASE+PHASE_END)
 	e4:SetRange(LOCATION_GRAVE)
+	e4:SetCountLimit(1,REDUX_ALIEN_GY_EFFECT)
 	e4:SetCost(aux.bfgcost)
 	e4:SetTarget(s.eptarget)
 	e4:SetOperation(s.epoperation)

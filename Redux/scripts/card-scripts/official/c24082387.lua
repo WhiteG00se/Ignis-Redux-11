@@ -1,5 +1,6 @@
---Crop Circles (Redux-11 errata)
+--Alien Crop Circles (Redux-11 errata)
 local s,id=GetID()
+local REDUX_ALIEN_GY_EFFECT=62437709
 function s.initial_effect(c)
 	--Flip all cards that can be flipped face-down
 	local e1=Effect.CreateEffect(c)
@@ -17,6 +18,7 @@ function s.initial_effect(c)
 	e2:SetCategory(CATEGORY_TOHAND+CATEGORY_SEARCH)
 	e2:SetType(EFFECT_TYPE_IGNITION)
 	e2:SetRange(LOCATION_GRAVE)
+	e2:SetCountLimit(1,REDUX_ALIEN_GY_EFFECT)
 	e2:SetCost(aux.bfgcost)
 	e2:SetTarget(s.thtarget)
 	e2:SetOperation(s.thoperation)

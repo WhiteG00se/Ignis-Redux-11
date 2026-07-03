@@ -8,7 +8,8 @@ param(
     12580478, 83764718, 83764719, 79571449, 9126351, 17484499, 21502796,
     86099788, 20663556, 46239604, 68638985, 62671448, 19333131, 47805931,
     62070231, 90508760, 52352005, 62315111, 98719226, 62437709, 652362, 73262676,
-    97697678, 99342953, 96875080, 24082387, 24104865, 63253763
+    97697678, 99342953, 96875080, 24082387, 24104865, 63253763,
+    21768554, 53291093, 60946968, 39163598
   ),
   [int[]]$UnofficialIds = @(
     511002993, 511000819, 511001039, 511000229, 511003116, 511002996,
@@ -538,14 +539,16 @@ function Get-CleanCardName([string]$name) {
 function Add-CardNameText(
   [System.Drawing.Graphics]$graphics,
   [System.Drawing.Bitmap]$bitmap,
-  [string]$name
+  [string]$name,
+  [int64]$type
 ) {
-  $cleanName = Get-CleanCardName $name
+  $cleanName = (Get-CleanCardName $name) -replace '"', ''
   $nameText = $cleanName.ToUpperInvariant()
   $patchRect = New-Object System.Drawing.Rectangle(59, 61, 609, 64)
-  $templatePath = Join-Path $repoRoot "Redux\assets\templates\monster-name-textbox.png"
+  $templateName = Get-NameTextboxTemplateName $type
+  $templatePath = Join-Path $repoRoot "Redux\assets\templates\$templateName"
   if (-not (Test-Path -LiteralPath $templatePath)) {
-    throw "Missing monster name textbox template: $templatePath"
+    throw "Missing name textbox template: $templatePath"
   }
 
   $templateBytes = [System.IO.File]::ReadAllBytes($templatePath)
@@ -557,7 +560,12 @@ function Add-CardNameText(
 
   $fontFamily = New-Object System.Drawing.FontFamily("Times New Roman")
   $format = [System.Drawing.StringFormat]::GenericTypographic
-  $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::Black)
+  $nameColor = if ((($type -band 0x2) -ne 0) -or (($type -band 0x4) -ne 0)) {
+    [System.Drawing.Color]::White
+  } else {
+    [System.Drawing.Color]::Black
+  }
+  $brush = New-Object System.Drawing.SolidBrush($nameColor)
   $wordGap = [float]24
   $largeSmallGap = [float]1.5
   $maxTextWidth = [float]609
@@ -570,6 +578,9 @@ function Add-CardNameText(
   ) {
     if ($text.Length -eq 0) {
       return [float]0
+    }
+    if ($text -eq "-") {
+      return [float](24 * $widthScale)
     }
 
     $path = New-Object System.Drawing.Drawing2D.GraphicsPath
@@ -598,6 +609,14 @@ function Add-CardNameText(
   ) {
     if ($text.Length -eq 0) {
       return [float]0
+    }
+    if ($text -eq "-") {
+      $dashWidth = [float](24 * $widthScale)
+      $dashY = [float](($top + $bottom) / 2)
+      $pen = New-Object System.Drawing.Pen($brush.Color, [float](3.5 * $widthScale))
+      $graphics.DrawLine($pen, [float]$left, $dashY, [float]($left + $dashWidth), $dashY)
+      $pen.Dispose()
+      return $dashWidth
     }
 
     $path = New-Object System.Drawing.Drawing2D.GraphicsPath
@@ -700,6 +719,32 @@ function Add-CardNameText(
   $brush.Dispose()
   $format.Dispose()
   $fontFamily.Dispose()
+}
+
+function Get-NameTextboxTemplateName([int64]$type) {
+  if (($type -band 0x2) -ne 0) {
+    return "spell-name-textbox.png"
+  }
+  if (($type -band 0x4) -ne 0) {
+    return "trap-name-textbox.png"
+  }
+  if (($type -band 0x40) -ne 0) {
+    return "fusion-name-textbox.png"
+  }
+  if (($type -band 0x80) -ne 0) {
+    return "ritual-monster-name-textbox.png"
+  }
+  if (($type -band 0x2000) -ne 0) {
+    return "synchro-name-textbox.png"
+  }
+  if (($type -band 0x800000) -ne 0) {
+    return "xyz-name-textbox.png"
+  }
+  if (($type -band 0x20) -ne 0) {
+    return "effect-monster-name-textbox.png"
+  }
+
+  return "normal-monster-name-textbox.png"
 }
 
 function Get-TextLayout([int]$width, [int]$height, [int64]$type) {
@@ -914,8 +959,10 @@ foreach ($card in $cards) {
     $statFont.Dispose()
   }
 
-  if ((Get-CleanCardName ([string]$card.name)) -ne (Get-CleanCardName ([string]$card.sourceName))) {
-    Add-CardNameText $graphics $bitmap ([string]$card.name)
+  $cleanTargetName = Get-CleanCardName ([string]$card.name)
+  $cleanSourceName = Get-CleanCardName ([string]$card.sourceName)
+  if ($cleanTargetName -ne $cleanSourceName) {
+    Add-CardNameText $graphics $bitmap ([string]$card.name) ([int64]$card.type)
   }
   if ([string]$card.name -like "[[]Redux[]]*") {
     Add-ErrataMarker $graphics $bitmap.Width $bitmap.Height ([int64]$card.type)

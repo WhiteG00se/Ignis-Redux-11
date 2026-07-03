@@ -54,12 +54,27 @@ const errataMarkers = new Map([
   [652362, "\u2b06\ufe0f"], // Alien Ammonite
   [97697678, "\u267b\ufe0f"], // Alien Mothership Muusik'i
   [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
-  [99342953, "\u2b07\ufe0f"], // Code A Ancient Ruins
+  [99342953, "\u267b\ufe0f"], // Code A Ancient Ruins
   [96875080, "\u267b\ufe0f"], // Orbital Bombardment
   [24082387, "\u267b\ufe0f"], // Crop Circles
+  [21768554, "\u267b\ufe0f"], // Mass Hypnosis
+  [53291093, "\u267b\ufe0f"], // Mysterious Triangle
+  [60946968, "\u267b\ufe0f"], // Otherworld - The "A" Zone
+  [39163598, "\u267b\ufe0f"], // Planet Pollutant Virus
 ]);
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
+const alienSpellTrapPasscodes = [
+  73262676, // "A" Cell Scatter Burst
+  17490535, // Alien Brain
+  99342953, // Code A Ancient Ruins
+  24082387, // Crop Circles
+  21768554, // Mass Hypnosis
+  53291093, // Mysterious Triangle
+  60946968, // Otherworld - The "A" Zone
+  39163598, // Planet Pollutant Virus
+  96875080, // Orbital Bombardment
+];
 
 module.exports = function buildCardsDb({ reduxRoot }) {
   const output = path.join(reduxRoot, "modded", "cards.cdb");
@@ -154,7 +169,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienGreyTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
-      "If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card.\nDuring either player's End Phase: You can banish this card from your GY; activate 1 of these effects.\n●Send 1 Spell/Trap from your Deck to the GY.\n●Place 1 A-Counter on 1 face-up card on the field.",
+      'If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card.\nDuring either player\'s End Phase: You can banish this card from your GY; activate 1 of these effects. You can only use 1 "Alien" GY effect that banishes itself per turn.\n●Send 1 Spell/Trap from your Deck to the GY.\n●Place 1 A-Counter on 1 face-up card on the field.',
       "Draw 1 card",
       "Send 1 Spell/Trap from your Deck to the GY",
       "Place 1 A-Counter on 1 face-up card on the field",
@@ -181,36 +196,53 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE datas SET setcode = ? WHERE id = ?")
     .run(0xc, 97697678);
   const aCellScatterBurstTextResult = db
-    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
-      'Tribute 1 Reptile monster; distribute new A-Counters equal to its Level among your opponent\'s face-up monsters. After this effect resolves, you can draw 1 card.\nDuring your Main Phase: You can banish this card from your GY; Special Summon 1 "Alien" monster from your hand. You can only use this GY effect once per turn.',
+      'Alien "A" Cell Scatter Burst',
+      'Tribute 1 Reptile monster; distribute new A-Counters equal to its Level among your opponent\'s face-up monsters. After this effect resolves, you can draw 1 card.\nDuring your Main Phase: You can banish this card from your GY; Special Summon 1 "Alien" monster from your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Draw 1 card",
       'Special Summon 1 "Alien" monster from your hand',
       73262676,
     );
   const orbitalBombardmentTextResult = db
-    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
-      "Send 1 Reptile monster from your hand or field to the GY, then target 1 card on the field; place that target on the bottom of the owner's Deck.\nYou can banish this card from your GY; place 1 A-Counter on all face-up monsters your opponent controls that can have an A-Counter.",
+      "Alien Orbital Bombardment",
+      'Send 1 Reptile monster from your hand or field to the GY, then target 1 card on the field; place that target on the bottom of the owner\'s Deck.\nYou can banish this card from your GY; place 1 A-Counter on all face-up monsters your opponent controls that can have an A-Counter. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Place 1 card on the bottom of the owner's Deck",
       "Place 1 A-Counter on your opponent's monsters",
       96875080,
     );
   const codeAAncientRuinsTextResult = db
-    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ? WHERE id = ?")
     .run(
+      "Alien Code A Ancient Ruins",
       'Each time a face-up "Alien" monster(s) is destroyed, place 1 A-Counter on this card. You can remove 2 A-Counters from anywhere on the field; Special Summon 1 Reptile monster from your hand or GY. You can only use this effect of "Code A Ancient Ruins" once per turn.',
       "Special Summon 1 Reptile monster from your hand or GY",
       99342953,
     );
   const cropCirclesTextResult = db
-    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
-      'Activate only if there are A-Counters on the field. Flip all cards that can be flipped face-down.\nYou can banish this card from your GY; add 1 "Alien" monster from your Deck to your hand.',
+      "Alien Crop Circles",
+      'Activate only if there are A-Counters on the field. Flip all cards that can be flipped face-down.\nYou can banish this card from your GY; add 1 "Alien" monster from your Deck to your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Flip all cards that can be flipped face-down",
       'Add 1 "Alien" monster from your Deck to your hand',
       24082387,
     );
+  const alienNamedSpellTrapTextResults = [
+    [21768554, "Alien Mass Hypnosis"],
+    [53291093, "Alien Mysterious Triangle"],
+    [60946968, 'Alien Otherworld - The "A" Zone'],
+    [39163598, "Alien Planet Pollutant Virus"],
+  ].map(([id, name]) => db.prepare("UPDATE texts SET name = ? WHERE id = ?").run(name, id));
+  const alienSpellTrapSetcodeResult = db
+    .prepare(
+      `UPDATE datas
+      SET setcode = ?
+      WHERE id IN (${alienSpellTrapPasscodes.map(() => "?").join(", ")})`,
+    )
+    .run(0xc, ...alienSpellTrapPasscodes);
   const monsterRebornTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id IN (?, ?)")
     .run(
@@ -540,6 +572,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(cropCirclesTextResult.changes) !== 1) {
     throw new Error("Expected to update Crop Circles text once");
+  }
+  if (alienNamedSpellTrapTextResults.some((result) => Number(result.changes) !== 1)) {
+    throw new Error("Expected to update Alien Spell/Trap names once each");
+  }
+  if (Number(alienSpellTrapSetcodeResult.changes) !== alienSpellTrapPasscodes.length) {
+    throw new Error("Expected to update Alien Spell/Trap setcodes");
   }
   if (Number(monsterRebornTextResult.changes) !== 2) {
     throw new Error("Expected to update Monster Reborn text twice");
