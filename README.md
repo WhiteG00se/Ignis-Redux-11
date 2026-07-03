@@ -83,7 +83,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 🔄 Summons itself with A-Counters; steals battle-destroyed A-Counter monsters; protects itself |
 | `3` [Alien Mothership Muusik'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 🔄 Counts as Alien; discards to summon itself; banish from GY to summon or search Alien |
 | `3` [Alien Mysterious Triangle](https://yugioh.fandom.com/wiki/Mysterious_Triangle) | 🔄 Counts as Alien |
-| `3` [Alien Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Counts as Alien; bottom-decks any field card; shared Alien GY effect gives A-Counters |
+| `3` [Alien Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Counts as Alien; costs an Alien; bottom-decks any field card; shared Alien GY effect gives 1 A-Counter on 1 face-up card |
 | `3` [Alien Otherworld - The "A" Zone](https://yugioh.fandom.com/wiki/Otherworld_-_The_%22A%22_Zone) | 🔄 Counts as Alien |
 | `3` [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 🔄 Shares high-level Alien control limit |
 | `3` [Alien Planet Pollutant Virus](https://yugioh.fandom.com/wiki/Planet_Pollutant_Virus) | 🔄 Counts as Alien |

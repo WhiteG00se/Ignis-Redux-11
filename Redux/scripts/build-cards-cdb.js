@@ -208,9 +208,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
       "Alien Orbital Bombardment",
-      'Send 1 Reptile monster from your hand or field to the GY, then target 1 card on the field; place that target on the bottom of the owner\'s Deck.\nYou can banish this card from your GY; place 1 A-Counter on all face-up monsters your opponent controls that can have an A-Counter. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      'Send 1 "Alien" monster from your hand or field to the GY, then target 1 card on the field; place that target on the bottom of the owner\'s Deck. You can banish this card from your GY; place 1 A-Counter on 1 face-up card on the field that can have an A-Counter. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Place 1 card on the bottom of the owner's Deck",
-      "Place 1 A-Counter on your opponent's monsters",
+      "Place 1 A-Counter on 1 face-up card",
       96875080,
     );
   const codeAAncientRuinsTextResult = db

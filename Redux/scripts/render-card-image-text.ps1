@@ -40,8 +40,10 @@ New-Item -ItemType Directory -Force -Path $vanillaPicsDir | Out-Null
 
 $officialIdsJson = $OfficialIds -join ","
 $unofficialIdsJson = $UnofficialIds -join ","
+$cardNameChangesJs = (Join-Path $PSScriptRoot "card-name-changes.js").Replace("\", "/")
 $metadataScript = @"
 const { DatabaseSync } = require("node:sqlite");
+const nameChangedIds = require("$cardNameChangesJs");
 const officialIds = [$officialIdsJson];
 const unofficialIds = [$unofficialIdsJson];
 const jobs = [
@@ -53,13 +55,13 @@ for (const [dbPath, sourceDbPath, ids] of jobs) {
   const db = new DatabaseSync(dbPath);
   const sourceDb = new DatabaseSync(sourceDbPath);
   const stmt = db.prepare("SELECT texts.id, texts.name, texts.desc, datas.type, datas.race, datas.atk, datas.def, datas.level, datas.attribute FROM texts JOIN datas ON datas.id = texts.id WHERE texts.id = ?");
-  const sourceStmt = sourceDb.prepare("SELECT texts.name, datas.type FROM texts JOIN datas ON datas.id = texts.id WHERE texts.id = ?");
+  const sourceStmt = sourceDb.prepare("SELECT datas.type FROM datas WHERE id = ?");
   for (const id of ids) {
     const row = stmt.get(id);
     if (!row) throw new Error("Missing card metadata for " + id);
     const sourceRow = sourceStmt.get(id);
-    row.sourceName = sourceRow ? sourceRow.name : row.name;
     row.sourceType = sourceRow ? sourceRow.type : row.type;
+    row.nameChangedByRedux = nameChangedIds.has(id);
     rows.push(row);
   }
   db.close();
@@ -959,9 +961,7 @@ foreach ($card in $cards) {
     $statFont.Dispose()
   }
 
-  $cleanTargetName = Get-CleanCardName ([string]$card.name)
-  $cleanSourceName = Get-CleanCardName ([string]$card.sourceName)
-  if ($cleanTargetName -ne $cleanSourceName) {
+  if ($card.nameChangedByRedux) {
     Add-CardNameText $graphics $bitmap ([string]$card.name) ([int64]$card.type)
   }
   if ([string]$card.name -like "[[]Redux[]]*") {
@@ -971,6 +971,8 @@ foreach ($card in $cards) {
 
   $out = New-Object System.IO.MemoryStream
   $bitmap.Save($out, $jpegCodec, $encoderParams)
+  $newBytes = $out.ToArray()
+  $out.Dispose()
   $brush.Dispose()
   $font.Dispose()
   $graphics.Dispose()
@@ -978,12 +980,34 @@ foreach ($card in $cards) {
   $sourceBitmap.Dispose()
   $src.Dispose()
   $inputStream.Dispose()
-  [System.IO.File]::WriteAllBytes($output, $out.ToArray())
-  $out.Dispose()
+
+  $status = "Written"
+  if (Test-Path -LiteralPath $output) {
+    $existingBytes = [System.IO.File]::ReadAllBytes($output)
+    if ($existingBytes.Length -eq $newBytes.Length) {
+      $same = $true
+      for ($i = 0; $i -lt $existingBytes.Length; $i++) {
+        if ($existingBytes[$i] -ne $newBytes[$i]) {
+          $same = $false
+          break
+        }
+      }
+      if ($same) {
+        $status = "Unchanged"
+      }
+    }
+  } else {
+    $status = "New"
+  }
+
+  if ($status -ne "Unchanged") {
+    [System.IO.File]::WriteAllBytes($output, $newBytes)
+  }
 
   $rendered.Add([PSCustomObject]@{
     Id = [int]$card.id
     Name = [string]$card.name
+    Status = $status
     Bytes = [int](Get-Item -LiteralPath $output).Length
     FontSize = [Math]::Round($fontSize, 2)
     Lines = $lines.Count
@@ -991,6 +1015,15 @@ foreach ($card in $cards) {
 }
 
 $rendered | Format-Table -AutoSize
+$changed = @($rendered | Where-Object { $_.Status -ne "Unchanged" })
+if ($changed.Count -gt 0) {
+  Write-Host ""
+  Write-Host "Updated $($changed.Count) image(s):"
+  $changed | Format-Table Id, Name, Status, Bytes -AutoSize
+} else {
+  Write-Host ""
+  Write-Host "No image files changed."
+}
 if ($missing.Count -gt 0) {
   throw "Missing source image(s): $($missing -join ', ')"
 }
