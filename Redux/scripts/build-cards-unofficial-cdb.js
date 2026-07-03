@@ -4,23 +4,23 @@ const path = require("path");
 
 const { copyFileInRedux } = require("./utils");
 
-const errataMarkers = new Map([
-  [511002993, "⬇️"], // Brionac, Dragon of the Ice Barrier
-  [511000819, "♻️"], // Chaos Emperor Dragon - Envoy of the End
-  [511001039, "⬇️"], // Dark Magician of Chaos
-  [511000229, "⬇️"], // Dark Strike Fighter
-  [511003116, "♻️"], // Destiny HERO - Disk Commander
-  [511002996, "⬇️"], // Imperial Order
-  [21593987, "⬆️"], // Makyura the Destructor
-  [511003019, "⬇️"], // Mind Master
-  [16226796, "⬇️"], // Night Assailant
-  [511002992, "⬇️"], // Rescue Cat
-  [511000824, "♻️"], // Ring of Destruction
-  [511000825, "♻️"], // Ring of Destruction alternate art
-  [511002631, "⬇️"], // Sangan
-  [511000818, "⬇️"], // Sinister Serpent
-  [511003012, "⬇️"], // Witch of the Black Forest
-]);
+const errataPasscodes = [
+  511002993, // Brionac, Dragon of the Ice Barrier
+  511000819, // Chaos Emperor Dragon - Envoy of the End
+  511001039, // Dark Magician of Chaos
+  511000229, // Dark Strike Fighter
+  511003116, // Destiny HERO - Disk Commander
+  511002996, // Imperial Order
+  21593987, // Makyura the Destructor
+  511003019, // Mind Master
+  16226796, // Night Assailant
+  511002992, // Rescue Cat
+  511000824, // Ring of Destruction
+  511000825, // Ring of Destruction alternate art
+  511002631, // Sangan
+  511000818, // Sinister Serpent
+  511003012, // Witch of the Black Forest
+];
 const errataNamePrefix = "[Redux] ";
 
 module.exports = function buildCardsUnofficialDb({ reduxRoot }) {
@@ -69,7 +69,7 @@ module.exports = function buildCardsUnofficialDb({ reduxRoot }) {
   const nightAssailantTextResult = db
     .prepare("UPDATE texts SET desc = ? WHERE id = ?")
     .run(
-      'FLIP: Target 1 monster your opponent controls; destroy that target.\r\nWhen this card is sent from the hand to the GY: Target 1 Flip monster in your GY, except this card; return that target to the hand. You can only use this effect of "Night Assailant" once per turn.',
+      'FLIP: Target 1 monster your opponent controls; destroy that target. When this card is sent from the hand to the GY: Target 1 Flip monster in your GY, except this card; return that target to the hand. You can only use this effect of "Night Assailant" once per turn.',
       16226796,
     ); // Night Assailant (Pre-Errata)
   const sanganTextResult = db
@@ -141,9 +141,9 @@ module.exports = function buildCardsUnofficialDb({ reduxRoot }) {
       511000824,
       511000825,
     ); // Ring of Destruction (Pre-Errata)
-  const markErrataName = db.prepare("UPDATE texts SET name = ? || name || ? WHERE id = ?");
-  const errataNameResults = [...errataMarkers].map(([id, marker]) =>
-    markErrataName.run(errataNamePrefix, ` ${marker}`, id),
+  const markErrataName = db.prepare("UPDATE texts SET name = ? || name WHERE id = ?");
+  const errataNameResults = errataPasscodes.map((id) =>
+    markErrataName.run(errataNamePrefix, id),
   );
   const illegalWhitelistedCards = db
     .prepare("SELECT id FROM datas WHERE ot = 8")

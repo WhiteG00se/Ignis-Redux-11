@@ -66,13 +66,16 @@ consistent with the existing entries rather than full card-text wording.
 
 In errataed card effect text (`.cdb` desc fields), do not insert line breaks
 (`\n`). Write the effect as continuous prose. The only exceptions are bullet
-points of list-style effects (`●` lines) and cases where the user explicitly
+points of list-style effects (`●` lines), the standard Fusion / Synchro / Xyz
+materials line at the start of the text (for example `1 Tuner + 1+ non-Tuner
+monsters`), the `(This card is always treated as a "…" card.)` prefix when
+followed by the rest of the effect, and cases where the user explicitly
 requests a line break.
 
 When changing a card, check whether the selected passcode has alternate-art or
-alias print rows in the relevant `.cdb`. Apply Redux name markers, text changes,
-type/stat/property changes, and needed image metadata fixes to every print row
-for that same card, not only the first passcode found.
+alias print rows in the relevant `.cdb`. Apply the `[Redux]` name prefix, text
+changes, type/stat/property changes, and needed image metadata fixes to every
+print row for that same card, not only the first passcode found.
 
 Redux-owned card image overrides belong only in `Redux/assets/pics/`; EDOPro
 reads that folder directly through `config/configs.json`. Root `/pics` is only

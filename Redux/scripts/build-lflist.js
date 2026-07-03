@@ -24,7 +24,7 @@ const limitChanges = new Map([
   ["511002992", 1], // Rescue Cat
   ["31560081", 3], // Magician of Faith
   ["511000818", 1], // Sinister Serpent
-  ["68638985", 2], // Slime Toad
+  ["68638985", 2], // Frog the Jam
   ["46239604", 2], // Dupe Frog
   ["20663556", 2], // Substitoad
   ["93369354", 1], // Fishborg Blaster

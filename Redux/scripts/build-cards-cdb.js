@@ -3,68 +3,68 @@ const path = require("path");
 
 const { copyFileInRedux } = require("./utils");
 
-const errataMarkers = new Map([
-  [72989440, "\u2b07\ufe0f"], // Black Luster Soldier - Envoy of the Beginning alternate art
-  [72989439, "⬇️"], // Black Luster Soldier - Envoy of the Beginning
-  [69243953, "⬆️"], // Butterfly Dagger - Elma
-  [4031928, "⬇️"], // Change of Heart
-  [69015963, "♻️"], // Cyber-Stein
-  [53129443, "⬇️"], // Dark Hole
-  [23557835, "♻️"], // Dimension Fusion
-  [17484499, "⬇️"], // Exchange of the Spirit
-  [78706415, "\u267b\ufe0f"], // Fiber Jar
-  [93369354, "⬇️"], // Fishborg Blaster
-  [27970830, "⬇️"], // Gateway of the Six
-  [85742772, "\u2b07\ufe0f"], // Gravity Bind
-  [91351370, "\u2b07\ufe0f"], // Black Whirlwind
-  [85602018, "⬇️"], // Last Will
-  [3136426, "\u2b07\ufe0f"], // Level Limit - Area B
-  [34206604, "♻️"], // Magical Scientist
-  [23434538, "\u2b07\ufe0f"], // Maxx "C"
-  [44656491, "\u2b07\ufe0f"], // Messenger of Peace
-  [74191942, "⬇️"], // Painful Choice
-  [82732705, "⬆️"], // Skill Drain
-  [84749824, "⬆️"], // Solemn Warning
-  [52687916, "⬇️"], // Trishula, Dragon of the Ice Barrier
-  [3078576, "⬇️"], // Yata-Garasu
-  [12580477, "\u2b07\ufe0f"], // Raigeki
-  [12580478, "\u2b07\ufe0f"], // Raigeki alternate art
-  [83764718, "\u2b07\ufe0f"], // Monster Reborn
-  [83764719, "\u2b07\ufe0f"], // Monster Reborn alternate art
-  [79571449, "\u2b07\ufe0f"], // Graceful Charity
-  [68638985, "\u267b\ufe0f"], // Slime Toad
-  [46239604, "\u2b07\ufe0f"], // Dupe Frog
-  [62671448, "\u267b\ufe0f"], // Toad Master
-  [19333131, "\u2b07\ufe0f"], // Number 12: Crimson Shadow Armor Ninja
-  [47805931, "\u2b06\ufe0f"], // Number 20: Giga-Brilliant
-  [9126351, "\u2b06\ufe0f"], // Swap Frog
-  [20663556, "\u267b\ufe0f"], // Substitoad
-  [21502796, "\u2b07\ufe0f"], // Ryko, Lightsworn Hunter
-  [62070231, "\u2b06\ufe0f"], // Number 94: Crystalzero
-  [86099788, "\u2b07\ufe0f"], // The Last Warrior from Another Planet
-  [90140980, "\u2b07\ufe0f"], // Ojama King
-  [90508760, "\u2b07\ufe0f"], // X-Saber Airbellum
-  [52352005, "\u2b07\ufe0f"], // XX-Saber Gottoms
-  [40391316, "\u2b07\ufe0f"], // Ojama Knight
-  [62315111, "\u267b\ufe0f"], // Alien Hunter
-  [98719226, "\u2b06\ufe0f"], // Alien Warrior
-  [24104865, "\u267b\ufe0f"], // Alien Mother
-  [63253763, "\u267b\ufe0f"], // Alien Overlord
-  [62437709, "\u267b\ufe0f"], // Alien Grey
-  [15475415, "\u2b06\ufe0f"], // Alien Dog
-  [652362, "\u2b06\ufe0f"], // Alien Ammonite
-  [97697678, "\u267b\ufe0f"], // Alien Mothership Muusik'i
-  [73262676, "\u2b06\ufe0f"], // "A" Cell Scatter Burst
-  [99342953, "\u267b\ufe0f"], // Code A Ancient Ruins
-  [96875080, "\u267b\ufe0f"], // Orbital Bombardment
-  [24082387, "\u267b\ufe0f"], // Crop Circles
-  [21768554, "\u267b\ufe0f"], // Mass Hypnosis
-  [53291093, "\u267b\ufe0f"], // Mysterious Triangle
-  [60946968, "\u267b\ufe0f"], // Otherworld - The "A" Zone
-  [39163598, "\u267b\ufe0f"], // Planet Pollutant Virus
-  [97127906, "\u267b\ufe0f"], // Alien Shocktrooper
-  [51192573, "\u267b\ufe0f"], // Alien Cosmic Horror Gangi'el
-]);
+const errataPasscodes = [
+  72989440, // Black Luster Soldier - Envoy of the Beginning alternate art
+  72989439, // Black Luster Soldier - Envoy of the Beginning
+  69243953, // Butterfly Dagger - Elma
+  4031928, // Change of Heart
+  69015963, // Cyber-Stein
+  53129443, // Dark Hole
+  23557835, // Dimension Fusion
+  17484499, // Exchange of the Spirit
+  78706415, // Fiber Jar
+  93369354, // Fishborg Blaster
+  27970830, // Gateway of the Six
+  85742772, // Gravity Bind
+  91351370, // Black Whirlwind
+  85602018, // Last Will
+  3136426, // Level Limit - Area B
+  34206604, // Magical Scientist
+  23434538, // Maxx "C"
+  44656491, // Messenger of Peace
+  74191942, // Painful Choice
+  82732705, // Skill Drain
+  84749824, // Solemn Warning
+  52687916, // Trishula, Dragon of the Ice Barrier
+  3078576, // Yata-Garasu
+  12580477, // Raigeki
+  12580478, // Raigeki alternate art
+  83764718, // Monster Reborn
+  83764719, // Monster Reborn alternate art
+  79571449, // Graceful Charity
+  68638985, // Frog the Jam
+  46239604, // Dupe Frog
+  62671448, // Toad Master
+  19333131, // Number 12: Crimson Shadow Armor Ninja
+  47805931, // Number 20: Giga-Brilliant
+  9126351, // Swap Frog
+  20663556, // Substitoad
+  21502796, // Ryko, Lightsworn Hunter
+  62070231, // Number 94: Crystalzero
+  86099788, // The Last Warrior from Another Planet
+  90140980, // Ojama King
+  90508760, // X-Saber Airbellum
+  52352005, // XX-Saber Gottoms
+  40391316, // Ojama Knight
+  62315111, // Alien Hunter
+  98719226, // Alien Warrior
+  24104865, // Alien Mother
+  63253763, // Alien Overlord
+  62437709, // Alien Grey
+  15475415, // Alien Dog
+  652362, // Alien Ammonite
+  97697678, // Alien Mothership Muusik'i
+  73262676, // "A" Cell Scatter Burst
+  99342953, // Code A Ancient Ruins
+  96875080, // Orbital Bombardment
+  24082387, // Crop Circles
+  21768554, // Mass Hypnosis
+  53291093, // Mysterious Triangle
+  60946968, // Otherworld - The "A" Zone
+  39163598, // Planet Pollutant Virus
+  97127906, // Alien Shocktrooper
+  51192573, // Alien Cosmic Horror Gangi'el
+];
 const errataNamePrefix = "[Redux] ";
 const blackLusterSoldierPasscodes = [72989439, 72989440];
 const alienSpellTrapPasscodes = [
@@ -172,7 +172,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienGreyTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
-      'If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card.\nDuring either player\'s End Phase: You can banish this card from your GY; send 1 Spell/Trap from your Deck to the GY. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      'If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card. During either player\'s End Phase: You can banish this card from your GY; send 1 Spell/Trap from your Deck to the GY. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Draw 1 card",
       "Send 1 Spell/Trap from your Deck to the GY",
       "",
@@ -222,7 +222,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
       "Alien Mothership Muusik'I",
-      'You can discard 1 card; Special Summon this card from your hand if you control no monsters.\nYou can banish 1 card from your GY; activate 1 of these effects. You can only use this effect of "Alien Mothership Muusik\'I" once per turn.\n●Special Summon 1 Level 4 or lower "Alien" monster from your Deck.\n●Add 1 "Alien" card from your Deck or GY to your hand.',
+      'You can discard 1 card; Special Summon this card from your hand if you control no monsters. You can banish 1 card from your GY; activate 1 of these effects. You can only use this effect of "Alien Mothership Muusik\'I" once per turn.\n●Special Summon 1 Level 4 or lower "Alien" monster from your Deck.\n●Add 1 "Alien" card from your Deck or GY to your hand.',
       "Special Summon this card from your hand",
       'Special Summon 1 Level 4 or lower "Alien" monster from your Deck',
       'Add 1 "Alien" card from your Deck or GY to your hand',
@@ -235,7 +235,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
       'Alien "A" Cell Scatter Burst',
-      'Tribute 1 "Alien" monster; distribute new A-Counters equal to its Level among face-up non-"Alien" cards. After this effect resolves, you can draw 1 card.\nDuring your Main Phase: You can banish this card from your GY; Special Summon 1 "Alien" monster from your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      'Tribute 1 "Alien" monster; distribute new A-Counters equal to its Level among face-up non-"Alien" cards. After this effect resolves, you can draw 1 card. During your Main Phase: You can banish this card from your GY; Special Summon 1 "Alien" monster from your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Draw 1 card",
       'Special Summon 1 "Alien" monster from your hand',
       73262676,
@@ -261,7 +261,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
       "Alien Crop Circles",
-      'Activate only if there are A-Counters on the field. Flip all cards that can be flipped face-down.\nYou can banish this card from your GY; add 1 "Alien" monster from your Deck to your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      'Activate only if there are A-Counters on the field. Flip all cards that can be flipped face-down. You can banish this card from your GY; add 1 "Alien" monster from your Deck to your hand. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Flip all cards that can be flipped face-down",
       'Add 1 "Alien" monster from your Deck to your hand',
       24082387,
@@ -395,7 +395,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const gatewayOfTheSixTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
-      'Each time a "Six Samurai" monster(s) is Normal or Special Summoned, place 2 Bushido Counters on this card. You can only control 1 "Gateway of the Six". You can remove Bushido Counters from your field to activate these effects. You can only use each of these effects of "Gateway of the Six" once per turn.\n\u25cf2 Counters: Target 1 "Six Samurai" monster; that target gains 300 ATK.\n\u25cf4 Counters: Add 1 "Six Samurai" monster from your Deck or GY to your hand.\n\u25cf6 Counters: Target 1 "Shien" monster in your GY; Special Summon that target.',
+      'Each time a "Six Samurai" monster(s) is Normal or Special Summoned, place 2 Bushido Counters on this card. You can only control 1 "Gateway of the Six". You can remove Bushido Counters from your field to activate these effects. You can only use each of these effects of "Gateway of the Six" once per turn.\n● 2 Counters: Target 1 "Six Samurai" monster; that target gains 300 ATK.\n● 4 Counters: Add 1 "Six Samurai" monster from your Deck or GY to your hand.\n● 6 Counters: Target 1 "Shien" monster in your GY; Special Summon that target.',
       '2 Counters: Target 1 face-up "Six Samurai" monster; that target gains 300 ATK.',
       '4 Counters: Add 1 "Six Samurai" monster from your Deck or GY to your hand.',
       '6 Counters: Target 1 "Shien" monster in your GY; Special Summon that target.',
@@ -456,8 +456,8 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const slimeToadTextResult = db
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ? WHERE id = ?")
     .run(
-      "Slime Toad",
-      '(This card is always treated as a "Frog" card.) Its actual name is "FROG THE JAM"!\nIf this card is Normal or Special Summoned from your hand, or flipped face-up: You can target 1 "Frog" monster in your GY; equip that target to this card. This card gains level, ATK and DEF equal to the original stats of the equipped monster. You can only use this effect of "Slime Toad" once per turn.',
+      "Frog the Jam",
+      'If this card is Normal or Special Summoned from your hand, or flipped face-up: You can target 1 "Frog" monster in your GY; equip that target to this card. This card gains level, ATK and DEF equal to the original stats of the equipped monster. You can only use this effect of "Frog the Jam" once per turn.',
       'Equip 1 "Frog" monster from your GY to this card',
       68638985,
     );
@@ -470,7 +470,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const toadMasterTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
-      '(This card is always treated as a "Frog" card.)\nYou can discard 1 WATER monster to Special Summon this card from your hand.\nIf this card is sent to the GY, Special Summon 1 "Tadpole Token" (Aqua-Type/WATER/Level 2/Tuner/ATK 500/DEF 500).',
+      '(This card is always treated as a "Frog" card.)\nYou can discard 1 WATER monster to Special Summon this card from your hand. If this card is sent to the GY, Special Summon 1 "Tadpole Token" (Aqua-Type/WATER/Level 2/Tuner/ATK 500/DEF 500).',
       "Discard 1 WATER monster to Special Summon this card",
       'Special Summon 1 "Tadpole Token"',
       62671448,
@@ -564,9 +564,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       '1 Tuner + 1 or more EARTH monsters\nYou can Tribute 1 "X-Saber" monster; discard 1 random card from your opponent\'s hand. You can only use this effect of "XX-Saber Gottoms" once per turn.',
       52352005,
     );
-  const markErrataName = db.prepare("UPDATE texts SET name = ? || name || ? WHERE id = ?");
-  const errataNameResults = [...errataMarkers].map(([id, marker]) =>
-    markErrataName.run(errataNamePrefix, ` ${marker}`, id),
+  const markErrataName = db.prepare("UPDATE texts SET name = ? || name WHERE id = ?");
+  const errataNameResults = errataPasscodes.map((id) =>
+    markErrataName.run(errataNamePrefix, id),
   );
   db.close();
 
@@ -739,13 +739,13 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     throw new Error("Expected to update Swap Frog text once");
   }
   if (Number(slimeToadTextResult.changes) !== 1) {
-    throw new Error("Expected to update Slime Toad text once");
+    throw new Error("Expected to update Frog the Jam text once");
   }
   if (Number(frogSetcodeResult.changes) !== 2) {
     throw new Error("Expected to update Frog setcodes twice");
   }
   if (Number(slimeToadTypeResult.changes) !== 1) {
-    throw new Error("Expected to update Slime Toad type once");
+    throw new Error("Expected to update Frog the Jam type once");
   }
   if (Number(toadMasterTextResult.changes) !== 1) {
     throw new Error("Expected to update Toad Master text once");

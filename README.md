@@ -123,7 +123,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `2` [Maxx "C"](https://yugioh.fandom.com/wiki/Maxx_%22C%22) | ⬇️ Chain to a Special Summon; Maxx "C" draws up to 2 per turn |
 | `2` [Monster Reborn](https://yugioh.fandom.com/wiki/Monster_Reborn) | ⬇️ Discard 1; becomes Equip Spell; destroys revived monster if it leaves |
 | `2` [Sangan](https://yugioh.fandom.com/wiki/Sangan) | ⬇️ Once per turn |
-| `2` [Slime Toad](https://yugioh.fandom.com/wiki/Slime_Toad) | 🔄 Effect Tuner; always Frog; equips Frog from GY and gains stats |
+| `2` [Frog the Jam](https://yugioh.fandom.com/wiki/Slime_Toad) | 🔄 Renamed; Effect Tuner; equips Frog from GY and gains stats |
 | `2` [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 🔄 Counts as Frog; Quick Effect; summons from hand/Deck/GY; each Frog twice per turn |
 | `2` [Witch of the Black Forest](https://yugioh.fandom.com/wiki/Witch_of_the_Black_Forest) | ⬇️ Once per turn; searches less than 1000 DEF |
 | `3` [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | ⬆️ Equipped monster gains 800 ATK/DEF |
@@ -300,7 +300,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [King Tiger Wanghu](https://yugioh.fandom.com/wiki/King_Tiger_Wanghu) | 3 | `1` | 3 |  |
 | [Macro Cosmos](https://yugioh.fandom.com/wiki/Macro_Cosmos) | 3 | `1` | 3 |  |
 | [Saber Hole](https://yugioh.fandom.com/wiki/Saber_Hole) | 3 | `2` | 3 |  |
-| [Slime Toad](https://yugioh.fandom.com/wiki/Slime_Toad) | 3 | `2` | 3 | 🔄 |
+| [Frog the Jam](https://yugioh.fandom.com/wiki/Slime_Toad) | 3 | `2` | 3 | 🔄 |
 | [Self-Destruct Button](https://yugioh.fandom.com/wiki/Self-Destruct_Button) | 3 | `0` | 3 |  |
 | [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | 0 | `3` | 0 | ⬆️ |
 | [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 0 | `3` | 0 | 🔄 |

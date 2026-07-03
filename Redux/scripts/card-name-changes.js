@@ -2,7 +2,7 @@
 // Only list cards where Redux intentionally changes the display name in .cdb.
 // Errata-only cards that keep the same title (including pre-errata prints) stay off this list.
 module.exports = new Set([
-  68638985, // Slime Toad (was FROG THE JAM)
+  68638985, // Frog the Jam (was Slime Toad / FROG THE JAM)
   73262676, // Alien "A" Cell Scatter Burst
   97697678, // Alien Mothership Muusik'I
   99342953, // Alien Code A Ancient Ruins

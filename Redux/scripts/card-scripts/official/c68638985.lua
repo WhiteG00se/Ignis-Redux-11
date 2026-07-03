@@ -1,4 +1,4 @@
---Slime Toad (Redux-11 errata)
+--Frog the Jam (Redux-11 errata)
 local s,id=GetID()
 function s.initial_effect(c)
 	--Equip 1 "Frog" monster from your GY to this card

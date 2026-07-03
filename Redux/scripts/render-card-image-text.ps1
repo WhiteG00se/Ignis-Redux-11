@@ -42,13 +42,17 @@ $officialIdsJson = $OfficialIds -join ","
 $unofficialIdsJson = $UnofficialIds -join ","
 $cardNameChangesJs = (Join-Path $PSScriptRoot "card-name-changes.js").Replace("\", "/")
 $metadataScript = @"
+const path = require("path");
+const fs = require("fs");
 const { DatabaseSync } = require("node:sqlite");
 const nameChangedIds = require("$cardNameChangesJs");
+const repoRoot = process.argv[2];
+const outputPath = process.argv[3];
 const officialIds = [$officialIdsJson];
 const unofficialIds = [$unofficialIdsJson];
 const jobs = [
-  ["Redux/modded/cards.cdb", "Redux/vanilla/cards.cdb", officialIds],
-  ["Redux/modded/cards-unofficial.cdb", "Redux/vanilla/cards-unofficial.cdb", unofficialIds],
+  [path.join(repoRoot, "Redux", "modded", "cards.cdb"), path.join(repoRoot, "Redux", "vanilla", "cards.cdb"), officialIds],
+  [path.join(repoRoot, "Redux", "modded", "cards-unofficial.cdb"), path.join(repoRoot, "Redux", "vanilla", "cards-unofficial.cdb"), unofficialIds],
 ];
 const rows = [];
 for (const [dbPath, sourceDbPath, ids] of jobs) {
@@ -67,13 +71,19 @@ for (const [dbPath, sourceDbPath, ids] of jobs) {
   db.close();
   sourceDb.close();
 }
-console.log(JSON.stringify(rows));
+fs.writeFileSync(outputPath, JSON.stringify(rows), "utf8");
 "@
 
 $metadataPath = Join-Path ([System.IO.Path]::GetTempPath()) "redux-card-image-metadata.cjs"
+$metadataOutPath = Join-Path ([System.IO.Path]::GetTempPath()) "redux-card-image-metadata.json"
 [System.IO.File]::WriteAllText($metadataPath, $metadataScript)
-$metadataJson = node $metadataPath
+node $metadataPath $repoRoot $metadataOutPath | Out-Null
+if ($LASTEXITCODE -ne 0) {
+  throw "Failed to load Redux card metadata"
+}
+$metadataJson = [System.IO.File]::ReadAllText($metadataOutPath, [System.Text.Encoding]::UTF8)
 Remove-Item -LiteralPath $metadataPath -Force
+Remove-Item -LiteralPath $metadataOutPath -Force
 $cards = $metadataJson | ConvertFrom-Json
 if ($OnlySpellTrap) {
   $cards = @($cards | Where-Object {
@@ -535,7 +545,7 @@ function Add-ErrataMarker(
 }
 
 function Get-CleanCardName([string]$name) {
-  return (($name -replace '^\[Redux\]\s*', '') -replace '\s*[^\x00-\x7F]+$', '')
+  return ($name -replace '^\[Redux\]\s*', '')
 }
 
 function Add-CardNameText(
