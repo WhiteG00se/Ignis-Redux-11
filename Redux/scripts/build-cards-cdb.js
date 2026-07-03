@@ -48,6 +48,8 @@ const errataMarkers = new Map([
   [40391316, "\u2b07\ufe0f"], // Ojama Knight
   [62315111, "\u267b\ufe0f"], // Alien Hunter
   [98719226, "\u2b06\ufe0f"], // Alien Warrior
+  [24104865, "\u267b\ufe0f"], // Alien Mother
+  [63253763, "\u267b\ufe0f"], // Alien Overlord
   [62437709, "\u267b\ufe0f"], // Alien Grey
   [652362, "\u2b06\ufe0f"], // Alien Ammonite
   [97697678, "\u267b\ufe0f"], // Alien Mothership Muusik'i
@@ -126,6 +128,21 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       'If this card is destroyed: You can place 2 A-Counters on face-up cards on the field. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK/DEF for each A-Counter during damage calculation only.)',
       "Place 2 A-Counters on face-up cards on the field",
       98719226,
+    );
+  const alienMotherTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
+    .run(
+      'If there are 5 or more A-Counters on the field: You can remove 2 A-Counters from anywhere on the field; Special Summon this card from your hand or GY. If this card destroys a monster with an A-Counter by battle: Special Summon that monster to your side of the field. Your opponent cannot target this card for attacks while you control a monster Special Summoned by this effect. When this card leaves the field, destroy all monsters Special Summoned by this effect. You can only control 1 Level 6 or higher "Alien" monster.',
+      "Special Summon this card from your hand or GY",
+      "Special Summon the monster destroyed by battle",
+      24104865,
+    );
+  const alienOverlordTextResult = db
+    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .run(
+      'You can remove 2 A-Counters from anywhere on the field to Special Summon this card from your hand. Once per turn, you can place 1 A-Counter on each face-up monster your opponent controls. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK and DEF for each A-Counter during damage calculation only.) You can only control 1 Level 6 or higher "Alien" monster.',
+      "Place A-Counters",
+      63253763,
     );
   const alienHunterTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
@@ -490,6 +507,12 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(alienWarriorTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Warrior text once");
+  }
+  if (Number(alienMotherTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Mother text once");
+  }
+  if (Number(alienOverlordTextResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Overlord text once");
   }
   if (Number(alienHunterTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Hunter text once");

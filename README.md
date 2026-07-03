@@ -77,7 +77,9 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Alien Ammonite](https://yugioh.fandom.com/wiki/Alien_Ammonite) | ⬆️ Summon from hand/GY trigger; once per turn; summoned monster stays |
 | `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; End Phase GY effect sends Spell/Trap or gives A-Counter |
 | `2` [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 🔄 Standby GY summon by bottom-decking Reptile from hand; can draw and give A-Counter |
+| `3` [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 🔄 Summons itself with A-Counters; steals battle-destroyed A-Counter monsters; protects itself |
 | `3` [Alien Mothership Muusik'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 🔄 Counts as Alien; discards to summon itself; banish from GY to summon or search Alien |
+| `3` [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 🔄 Shares high-level Alien control limit |
 | `3` [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | ⬆️ Destroy trigger; gives 2 A-Counters anywhere on field |
 | `3` [Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Send Reptile from hand or field; bottom-decks any field card; GY effect gives A-Counters |
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |
@@ -150,7 +152,9 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | ["A" Cell Scatter Burst](https://yugioh.fandom.com/wiki/%22A%22_Cell_Scatter_Burst) | 3 | `3` | 3 | ⬆️ |
 | [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 3 | `3` | 3 | 🔄 |
 | [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 3 | `2` | 3 | 🔄 |
+| [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 3 | `3` | 3 | 🔄 |
 | [Alien Mothership Muusik'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 3 | `3` | 3 | 🔄 |
+| [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 3 | `3` | 3 | 🔄 |
 | [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | 3 | `3` | 3 | ⬆️ |
 | [Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 3 | `3` | 3 | 🔄 |
 | [Brain Control](https://yugioh.fandom.com/wiki/Brain_Control) | 0 | `0` | 0 |  |
