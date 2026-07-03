@@ -141,7 +141,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Ryko, Lightsworn Hunter](https://yugioh.fandom.com/wiki/Ryko,_Lightsworn_Hunter) | ⬇️ Target before resolving (master rule 1) |
 | `3` [Swap Frog](https://yugioh.fandom.com/wiki/Swap_Frog) | ⬆️ Revert to Master Rule 1 version |
 | `3` [The Last Warrior from Another Planet](https://yugioh.fandom.com/wiki/The_Last_Warrior_from_Another_Planet) | ⬇️ No monster destruction; only blocks Special Summons |
-| `1` [Toad Master](https://yugioh.fandom.com/wiki/Toad_Master) | 🔄 Added; Effect Tuner; always Frog; discards WATER to summon; makes Tadpole Token |
+| `3` [Toad Master](https://yugioh.fandom.com/wiki/Toad_Master) | 🔄 Added to pool; Tuner; always Frog; normal monster lore |
 | `3` [X-Saber Airbellum](https://yugioh.fandom.com/wiki/X-Saber_Airbellum) | ⬇️ Once per turn |
 | `3` [XX-Saber Gottoms](https://yugioh.fandom.com/wiki/XX-Saber_Gottoms) | ⬇️ Once per turn |
 
@@ -259,7 +259,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Skill Drain](https://yugioh.fandom.com/wiki/Skill_Drain) | 3 | `1` | 3 | ⬆️ |
 | [Graceful Charity](https://yugioh.fandom.com/wiki/Graceful_Charity) | 0 | `2` | 0 | ⬇️ |
 | [Dimension Fusion](https://yugioh.fandom.com/wiki/Dimension_Fusion) | 0 | `2` | 0 | 🔄 |
-| [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 0 | `2` | 0 | 🔄 |
+| [Substitoad](https://yugioh.fandom.com/wiki/Substitoad) | 0 | `3` | 0 | 🔄 |
 | [Witch of the Black Forest](https://yugioh.fandom.com/wiki/Witch_of_the_Black_Forest) | 0 | `2` | 0 | ⬇️ |
 | [Tsukuyomi](https://yugioh.fandom.com/wiki/Tsukuyomi) | 0 | `2` | 0 |  |
 | [Advanced Ritual Art](https://yugioh.fandom.com/wiki/Advanced_Ritual_Art) | 1 | `2` | 1 |  |
@@ -293,14 +293,14 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | [Formula Synchron](https://yugioh.fandom.com/wiki/Formula_Synchron) | 3 | `2` | 1 |  |
 | [Pot of Avarice](https://yugioh.fandom.com/wiki/Pot_of_Avarice) | 3 | `2` | 1 |  |
 | [Alien Code A Ancient Ruins](https://yugioh.fandom.com/wiki/Code_A_Ancient_Ruins) | 3 | `2` | 3 | 🔄 |
-| [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | 3 | `2` | 3 | ⬇️ |
+| [Dupe Frog](https://yugioh.fandom.com/wiki/Dupe_Frog) | 3 | `3` | 3 | ⬇️ |
 | [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 3 | `1` | 3 | 🔄 |
 | [Dimensional Fissure](https://yugioh.fandom.com/wiki/Dimensional_Fissure) | 3 | `1` | 3 |  |
 | [Kaiser Colosseum](https://yugioh.fandom.com/wiki/Kaiser_Colosseum) | 3 | `1` | 3 |  |
 | [King Tiger Wanghu](https://yugioh.fandom.com/wiki/King_Tiger_Wanghu) | 3 | `1` | 3 |  |
 | [Macro Cosmos](https://yugioh.fandom.com/wiki/Macro_Cosmos) | 3 | `1` | 3 |  |
 | [Saber Hole](https://yugioh.fandom.com/wiki/Saber_Hole) | 3 | `2` | 3 |  |
-| [Frog the Jam](https://yugioh.fandom.com/wiki/Slime_Toad) | 3 | `2` | 3 | 🔄 |
+| [Frog the Jam](https://yugioh.fandom.com/wiki/Slime_Toad) | 3 | `3` | 3 | 🔄 |
 | [Self-Destruct Button](https://yugioh.fandom.com/wiki/Self-Destruct_Button) | 3 | `0` | 3 |  |
 | [Butterfly Dagger - Elma](https://yugioh.fandom.com/wiki/Butterfly_Dagger_-_Elma) | 0 | `3` | 0 | ⬆️ |
 | [Destiny HERO - Disk Commander](https://yugioh.fandom.com/wiki/Destiny_HERO_-_Disk_Commander) | 0 | `3` | 0 | 🔄 |
