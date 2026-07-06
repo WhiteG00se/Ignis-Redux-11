@@ -31,6 +31,7 @@ function s.initial_effect(c)
 	e4:SetOperation(s.epoperation)
 	c:RegisterEffect(e4)
 end
+s.listed_series={SET_ALIEN}
 function s.drtarget(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
 	Duel.SetTargetPlayer(tp)
@@ -42,7 +43,7 @@ function s.droperation(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Draw(p,d,REASON_EFFECT)
 end
 function s.tgfilter(c)
-	return c:IsSpellTrap() and c:IsAbleToGrave()
+	return c:IsSetCard(SET_ALIEN) and c:IsAbleToGrave()
 end
 function s.eptarget(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(s.tgfilter,tp,LOCATION_DECK,0,1,nil) end

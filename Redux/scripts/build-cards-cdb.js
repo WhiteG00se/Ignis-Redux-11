@@ -110,9 +110,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienGreyTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
-      'If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card. During either player\'s End Phase: You can banish this card from your GY; send 1 Spell/Trap from your Deck to the GY. You can only use 1 "Alien" GY effect that banishes itself per turn.',
+      'If this card is Normal or Special Summoned, or flipped face-up: Draw 1 card. During either player\'s End Phase: You can banish this card from your GY; send 1 "Alien" card from your Deck to the GY. You can only use 1 "Alien" GY effect that banishes itself per turn.',
       "Draw 1 card",
-      "Send 1 Spell/Trap from your Deck to the GY",
+      'Send 1 "Alien" card from your Deck to the GY',
       "",
       62437709,
     );

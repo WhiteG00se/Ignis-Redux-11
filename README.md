@@ -80,7 +80,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Cosmic Fortress Gol'gar](https://yugioh.fandom.com/wiki/Cosmic_Fortress_Gol%27gar) | 🔄 1 Reptile + 1+ non-Tuner monsters |
 | `1` [Alien Crop Circles](https://yugioh.fandom.com/wiki/Crop_Circles) | 🔄 Counts as Alien; flips cards face-down; shared Alien GY effect searches card |
 | `3` [Alien Dog](https://yugioh.fandom.com/wiki/Alien_Dog) | ⬆️ Hand special summon while controlling Alien; once per turn 1 A-Counter on non-Alien card; Tuner |
-| `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; shared Alien GY effect sends Spell/Trap from Deck |
+| `3` [Alien Grey](https://yugioh.fandom.com/wiki/Alien_Grey) | 🔄 Summon/flip trigger draws; shared Alien GY effect sends Alien card from Deck |
 | `3` [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 🔄 Main Phase GY summon by bottom-decking Alien from hand; hard once per turn; can give A-Counter on non-Alien card |
 | `3` [Alien Mass Hypnosis](https://yugioh.fandom.com/wiki/Mass_Hypnosis) | 🔄 Counts as Alien; controls up to 2 A-Counter monsters; they deal no battle damage; shared Alien GY effect flips 1 card face-down |
 | `3` [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 🔄 Summons itself with A-Counters; steals battle-destroyed A-Counter monsters; protects itself |
