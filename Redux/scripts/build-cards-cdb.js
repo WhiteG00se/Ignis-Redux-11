@@ -130,8 +130,8 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienShocktrooperTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      'If this card battles a monster with an A-Counter on it, during the Battle Step: You can banish 1 card from your GY, then send 1 banished card to the GY.',
-      "Banish 1 card from your GY, then send 1 banished card to the GY",
+      'If this card attacks, after damage calculation: Place 1 A-Counter on 1 face-up non-"Alien" card (even if this card is no longer on the field). (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK and DEF for each A-Counter during damage calculation only.)',
+      'Place 1 A-Counter on 1 face-up non-"Alien" card',
       97127906,
     );
   const alienShocktrooperTypeResult = db

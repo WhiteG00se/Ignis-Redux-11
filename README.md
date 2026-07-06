@@ -90,7 +90,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Alien Otherworld - The "A" Zone](https://yugioh.fandom.com/wiki/Otherworld_-_The_%22A%22_Zone) | 🔄 Counts as Alien |
 | `3` [Alien Overlord](https://yugioh.fandom.com/wiki/Alien_Overlord) | 🔄 Shares high-level Alien control limit; A-Counters on all face-up non-Alien cards |
 | `3` [Alien Planet Pollutant Virus](https://yugioh.fandom.com/wiki/Planet_Pollutant_Virus) | 🔄 Counts as Alien |
-| `3` [Alien Shocktrooper](https://yugioh.fandom.com/wiki/Alien_Shocktrooper) | 🔄 Battle Step effect vs A-Counter monsters; banish from GY then send banished card to GY |
+| `3` [Alien Shocktrooper](https://yugioh.fandom.com/wiki/Alien_Shocktrooper) | 🔄 On attack, gives 1 A-Counter on non-Alien card after damage calc (even if no longer on field); A-Counter battle penalty |
 | `3` [Alien Warrior](https://yugioh.fandom.com/wiki/Alien_Warrior) | ⬆️ Destroy trigger; gives 2 A-Counters on non-Alien card(s) |
 | `3` [Ally of Justice Field Marshal](https://yugioh.fandom.com/wiki/Ally_of_Justice_Field_Marshal) | 🔄 1 Tuner + 1+ monsters; multiple tuners; piercing; draw on battle damage |
 | `2` [Black Whirlwind](https://yugioh.fandom.com/wiki/Black_Whirlwind) | ⬇️ Once per turn |

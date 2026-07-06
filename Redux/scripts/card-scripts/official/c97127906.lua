@@ -1,48 +1,58 @@
 --Alien Shocktrooper (Redux-11 errata)
 local s,id=GetID()
 function s.initial_effect(c)
-	--Banish 1 card from your GY, then send 1 banished card to the GY
+	--Place 1 A-Counter on 1 face-up non-"Alien" card after damage calculation
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(id,0))
-	e1:SetCategory(CATEGORY_REMOVE+CATEGORY_TOGRAVE)
-	e1:SetType(EFFECT_TYPE_QUICK_O)
-	e1:SetCode(EVENT_FREE_CHAIN)
-	e1:SetRange(LOCATION_MZONE)
-	e1:SetHintTiming(0,TIMING_BATTLE_STEP_END)
-	e1:SetCondition(s.qcon)
-	e1:SetCost(s.cost)
-	e1:SetTarget(s.tg)
-	e1:SetOperation(s.op)
+	e1:SetCategory(CATEGORY_COUNTER)
+	e1:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)
+	e1:SetProperty(EFFECT_FLAG_DAMAGE_STEP)
+	e1:SetCode(EVENT_DAMAGE_STEP_END)
+	e1:SetRange(LOCATION_MZONE|LOCATION_GRAVE)
+	e1:SetCondition(s.atcon)
+	e1:SetTarget(s.cttg)
+	e1:SetOperation(s.ctop)
 	c:RegisterEffect(e1)
+	--ATK/DEF loss for monsters with A-Counters battling "Alien" monsters
+	local e2=Effect.CreateEffect(c)
+	e2:SetType(EFFECT_TYPE_FIELD)
+	e2:SetCode(EFFECT_UPDATE_ATTACK)
+	e2:SetRange(LOCATION_MZONE)
+	e2:SetTargetRange(LOCATION_MZONE,LOCATION_MZONE)
+	e2:SetCondition(s.adcon)
+	e2:SetTarget(s.adtg)
+	e2:SetValue(s.adval)
+	c:RegisterEffect(e2)
+	local e3=e2:Clone()
+	e3:SetCode(EFFECT_UPDATE_DEFENSE)
+	c:RegisterEffect(e3)
 end
 s.listed_series={SET_ALIEN}
-s.counter_list={COUNTER_A}
-function s.battlefilter(c)
+s.counter_place_list={COUNTER_A}
+function s.atcon(e,tp,eg,ep,ev,re,r,rp)
+	return Duel.GetAttacker()==e:GetHandler()
+end
+function s.ctfilter(c)
+	return c:IsFaceup() and c:IsCanAddCounter(COUNTER_A,1) and not c:IsSetCard(SET_ALIEN)
+end
+function s.cttg(e,tp,eg,ep,ev,re,r,rp,chk)
+	if chk==0 then return true end
+	Duel.SetPossibleOperationInfo(0,CATEGORY_COUNTER,nil,1,0,COUNTER_A)
+end
+function s.ctop(e,tp,eg,ep,ev,re,r,rp)
+	local g=Duel.GetMatchingGroup(s.ctfilter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,nil)
+	if #g==0 then return end
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_COUNTER)
+	local sg=g:Select(tp,1,1,nil)
+	sg:GetFirst():AddCounter(COUNTER_A,1)
+end
+function s.adcon(e)
+	return Duel.IsPhase(PHASE_DAMAGE_CAL) and Duel.GetAttackTarget()
+end
+function s.adtg(e,c)
 	local bc=c:GetBattleTarget()
-	return c:IsRelateToBattle() and bc and bc:GetCounter(COUNTER_A)>0
+	return bc and c:GetCounter(COUNTER_A)~=0 and bc:IsSetCard(SET_ALIEN)
 end
-function s.qcon(e,tp,eg,ep,ev,re,r,rp)
-	return Duel.IsPhase(PHASE_BATTLE_STEP) and s.battlefilter(e:GetHandler())
-end
-function s.cost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(Card.IsAbleToRemoveAsCost,tp,LOCATION_GRAVE,0,1,nil) end
-	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
-	local g=Duel.SelectMatchingCard(tp,Card.IsAbleToRemoveAsCost,tp,LOCATION_GRAVE,0,1,1,nil)
-	Duel.Remove(g,POS_FACEUP,REASON_COST)
-end
-function s.rmfilter(c)
-	return c:IsAbleToGrave()
-end
-function s.tg(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(s.rmfilter,tp,LOCATION_REMOVED,LOCATION_REMOVED,1,nil) end
-	Duel.SetOperationInfo(0,CATEGORY_TOGRAVE,nil,1,PLAYER_ALL,LOCATION_REMOVED)
-end
-function s.op(e,tp,eg,ep,ev,re,r,rp)
-	local c=e:GetHandler()
-	if not c:IsRelateToEffect(e) or not s.battlefilter(c) then return end
-	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TOGRAVE)
-	local g=Duel.SelectMatchingCard(tp,s.rmfilter,tp,LOCATION_REMOVED,LOCATION_REMOVED,1,1,nil)
-	if #g>0 then
-		Duel.SendtoGrave(g,REASON_EFFECT|REASON_RETURN)
-	end
+function s.adval(e,c)
+	return c:GetCounter(COUNTER_A)*-300
 end
