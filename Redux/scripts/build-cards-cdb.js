@@ -159,7 +159,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
     .prepare("UPDATE texts SET name = ?, desc = ?, str1 = ?, str2 = ?, str3 = ? WHERE id = ?")
     .run(
       "Alien Mothership Musk'I",
-      'You can discard 1 card; Special Summon this card from your hand if you control no monsters. You can banish 1 card from your GY; activate 1 of these effects. You can only use this effect of "Alien Mothership Musk\'I" once per turn.\n●Special Summon 1 Level 4 or lower "Alien" monster from your Deck.\n●Add 1 "Alien" card from your Deck or GY to your hand.',
+      'You can Special Summon this card from your hand if you control no monsters and your opponent controls a monster. You can discard 1 card; activate 1 of these effects. You can only use this effect of "Alien Mothership Musk\'I" once per turn.\n●Special Summon 1 Level 4 or lower "Alien" monster from your Deck.\n●Add 1 "Alien" card from your Deck or GY to your hand.',
       "Special Summon this card from your hand",
       'Special Summon 1 Level 4 or lower "Alien" monster from your Deck',
       'Add 1 "Alien" card from your Deck or GY to your hand',

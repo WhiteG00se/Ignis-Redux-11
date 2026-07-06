@@ -84,7 +84,7 @@ Redux Limits: `0` = forbidden; `1` = limited; `2` = semi-limited; `3` = unlimite
 | `3` [Alien Hunter](https://yugioh.fandom.com/wiki/Alien_Hunter) | 🔄 Main Phase GY summon by bottom-decking Alien from hand and banishing 2 GY cards; hard once per turn; can draw and give A-Counter on non-Alien card |
 | `3` [Alien Mass Hypnosis](https://yugioh.fandom.com/wiki/Mass_Hypnosis) | 🔄 Counts as Alien; controls up to 2 A-Counter monsters; they deal no battle damage; shared Alien GY effect flips 1 card face-down |
 | `3` [Alien Mother](https://yugioh.fandom.com/wiki/Alien_Mother) | 🔄 Summons itself with A-Counters; steals battle-destroyed A-Counter monsters; protects itself |
-| `3` [Alien Mothership Musk'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 🔄 Counts as Alien; discards to summon itself; banish from GY to summon or search Alien |
+| `3` [Alien Mothership Musk'I](https://yugioh.fandom.com/wiki/Flying_Saucer_Muusik%27i) | 🔄 Counts as Alien; hand summons with no monsters vs opponent monster; discards to summon or search Alien |
 | `3` [Alien Mysterious Triangle](https://yugioh.fandom.com/wiki/Mysterious_Triangle) | 🔄 Counts as Alien |
 | `3` [Alien Orbital Bombardment](https://yugioh.fandom.com/wiki/Orbital_Bombardment) | 🔄 Counts as Alien; costs an Alien; bottom-decks any field card; shared Alien GY effect gives 1 A-Counter on non-Alien card |
 | `3` [Alien Otherworld - The "A" Zone](https://yugioh.fandom.com/wiki/Otherworld_-_The_%22A%22_Zone) | 🔄 Counts as Alien |
