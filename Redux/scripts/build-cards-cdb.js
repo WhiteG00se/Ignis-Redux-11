@@ -100,10 +100,11 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       63253763,
     );
   const alienHunterTextResult = db
-    .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
+    .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
-      'During your Main Phase, if you control no monsters and this card is in your GY: You can place 1 "Alien" card from your hand on the bottom of your Deck and banish 2 cards from your GY; Special Summon this card. If this card is Special Summoned this way, you can draw 1 card and place 1 A-Counter on 1 face-up non-"Alien" card. You can only use this effect of "Alien Hunter" once per turn.',
+      'During your Main Phase, if you control no monsters and this card is in your GY: You can place 1 "Alien" card from your hand on the bottom of your Deck; Special Summon this card. If this card is Special Summoned this way, you can place 1 A-Counter on 1 face-up non-"Alien" card. You can only use this effect of "Alien Hunter" once per turn.',
       "Special Summon this card from your GY",
+      'Place 1 A-Counter on 1 face-up non-"Alien" card',
       62315111,
     );
   const alienGreyTextResult = db
