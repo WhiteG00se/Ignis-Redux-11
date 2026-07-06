@@ -152,7 +152,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienAmmoniteTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ? WHERE id = ?")
     .run(
-      'If this card is Normal or Special Summoned from your hand or GY: You can target 1 Level 4 or lower "Alien" monster in your GY; Special Summon it. You can only use this effect of "Alien Ammonite" once per turn.',
+      'If this card is Normal Summoned: You can target 1 Level 4 or lower "Alien" monster in your GY; Special Summon it. You can only use this effect of "Alien Ammonite" once per turn.',
       'Special Summon 1 Level 4 or lower "Alien" monster from your GY',
       652362,
     );
