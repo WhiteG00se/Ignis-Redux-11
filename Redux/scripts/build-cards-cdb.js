@@ -119,7 +119,7 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   const alienDogTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
-      'While you control a face-up "Alien" monster and this card is in your hand: You can Special Summon this card. Once per turn: You can place 1 A-Counter on 1 face-up non-"Alien" card. (If a monster with an A-Counter battles an "Alien" monster, it loses 300 ATK and DEF for each A-Counter during damage calculation only.)',
+      'While you control a face-up "Alien" monster and this card is in your hand: You can Special Summon this card. Once per turn: You can place 1 A-Counter on 1 face-up non-"Alien" card.',
       "Special Summon this card from your hand",
       'Place 1 A-Counter on 1 face-up non-"Alien" card',
       15475415,
