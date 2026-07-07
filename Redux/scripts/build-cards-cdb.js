@@ -116,6 +116,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
       "",
       62437709,
     );
+  const alienGreyTypeResult = db
+    .prepare("UPDATE datas SET type = type & ~? WHERE id = ?")
+    .run(0x200000, 62437709);
   const alienDogTextResult = db
     .prepare("UPDATE texts SET desc = ?, str1 = ?, str2 = ? WHERE id = ?")
     .run(
@@ -513,6 +516,9 @@ module.exports = function buildCardsDb({ reduxRoot }) {
   }
   if (Number(alienGreyTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Grey text once");
+  }
+  if (Number(alienGreyTypeResult.changes) !== 1) {
+    throw new Error("Expected to update Alien Grey type once");
   }
   if (Number(alienDogTextResult.changes) !== 1) {
     throw new Error("Expected to update Alien Dog text once");
