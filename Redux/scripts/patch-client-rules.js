@@ -41,6 +41,14 @@ function replaceExactCount(binary, original, replacement, expectedCount, descrip
   }
 }
 
+function replaceIfPresent(binary, original, replacement, description) {
+  const offsets = findOffsets(binary, original);
+  for (const offset of offsets) {
+    replacement.copy(binary, offset);
+  }
+  return offsets.length;
+}
+
 function findTextCodeCave(binary, requiredBytes) {
   const peOffset = binary.readUInt32LE(0x3c);
   const sectionCount = binary.readUInt16LE(peOffset + 6);
@@ -77,9 +85,46 @@ function findTextCodeCave(binary, requiredBytes) {
   throw new Error("Could not find executable padding for the Redux-11 default rule patch.");
 }
 
+function patchRedux11ForbiddenTypeReferences(binary) {
+  // Master Rule 1 still hardcodes TYPE_XYZ in these preset paths even after the
+  // duel-parameter rename to Redux-11; clear that bit so XYZ cards stay visible.
+  const writes = replaceIfPresent(
+    binary,
+    Buffer.from("b810000000008005", "hex"),
+    Buffer.from("b810000000000005", "hex"),
+    "Redux-11 forbidden-type write",
+  );
+  const comparesA = replaceIfPresent(
+    binary,
+    Buffer.from("817c241400008005", "hex"),
+    Buffer.from("817c241400000005", "hex"),
+    "Redux-11 forbidden-type compare",
+  );
+  const comparesB = replaceIfPresent(
+    binary,
+    Buffer.from("817d1000008005", "hex"),
+    Buffer.from("817d1000000005", "hex"),
+    "Redux-11 forbidden-type compare",
+  );
+
+  const patched = writes + comparesA + comparesB;
+  if (patched === 0) {
+    return;
+  }
+  if (writes !== 4 || comparesA !== 2 || comparesB !== 1) {
+    throw new Error(
+      `Expected 7 Redux-11 forbidden-type patch site(s), updated ${patched}. ` +
+        "Recheck the upstream client before applying Redux rules.",
+    );
+  }
+}
+
 function patchDefaultForbiddenTypes(binary) {
   const original = Buffer.from("898f8c000000898fac000000", "hex");
   const offsets = findOffsets(binary, original);
+  if (offsets.length === 0) {
+    return;
+  }
   if (offsets.length !== 1) {
     throw new Error(
       `Expected one default forbidden-types initializer, found ${offsets.length}. ` +
@@ -107,22 +152,30 @@ function patchDefaultForbiddenTypes(binary) {
 }
 
 function patchClientBinary(binary) {
-  replaceExactCount(
-    binary,
-    uint32le(masterRule1Param),
-    uint32le(redux11Param),
-    expectedMasterRule1References,
-    "Master Rule 1 parameter",
-  );
+  const masterRule1References = findOffsets(binary, uint32le(masterRule1Param)).length;
+  if (masterRule1References === expectedMasterRule1References) {
+    replaceExactCount(
+      binary,
+      uint32le(masterRule1Param),
+      uint32le(redux11Param),
+      expectedMasterRule1References,
+      "Master Rule 1 parameter",
+    );
+  } else if (masterRule1References !== 0) {
+    throw new Error(
+      `Expected ${expectedMasterRule1References} Master Rule 1 parameter occurrence(s), found ${masterRule1References}. ` +
+        "Recheck the upstream client before applying Redux rules.",
+    );
+  }
 
-  replaceExactCount(
+  replaceIfPresent(
     binary,
     Buffer.from("c7878000000000e80200c78790000000b4000000", "hex"),
     Buffer.from("c7878000000000050d00c78790000000b4000000", "hex"),
-    1,
     "first-run duel-parameter initializer",
   );
 
+  patchRedux11ForbiddenTypeReferences(binary);
   patchDefaultForbiddenTypes(binary);
 }
 
